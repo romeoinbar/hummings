@@ -1,0 +1,10 @@
+1~ZI01~4101002784~2000~13~01~20130606~Z002~0007003757~Mr~Johannon Olson~~~~1555 coit pl~~~~95691~Singapore~US~19164967005~~02~PF~1~2147483647~Johannon Olson~0~19164967005~~~~~~~~Jfolson@yahoo.com~~IM6~F13~IM6~703153~ZEV~0~UNSP~~0
+2~4101002784~001~SPDC100206~1~001~RM~0~PR00~63.00~ZD03~0.00~ZS03~6.00~1~~0
+3~4101002784~001~JSM127~1~1
+3~4101002784~001~HIM006~1~0
+4~4101002784~001~Ms~Julia Zhu~Yoose Ptd ltd~~Care of Ch~~25 Duxton road~~~089489~SG~10140676~~Juliazzhu@gmail.com~0~Call before delivery. ~20130606~20130606~07~ENJoh^EN^EN^EN^EN~ENKitten^EN^EN~ENI adore you, Julia. We will be together soon.^ENA small test of our love. ^ENMeans nothing...^ENCompared to our happy future!^EN^EN
+1~ZI01~4101002784~2000~13~01~20130606~Z002~0007003757~Mr~Johannon Olson~~~~1555 coit pl~~~~95691~Singapore~US~19164967005~~02~PP~1~2147483647~Johannon Olson~0~19164967005~~~~~~~~Jfolson@yahoo.com~~IM6~F13~IM6~703153~ZEV~0~UNSP~~0
+2~4101002784~001~SPDC100206~1~001~RM~0~PR00~63.00~ZD03~0.00~ZS03~6.00~1~~0
+3~4101002784~001~JSM127~1~1
+3~4101002784~001~HIM006~1~0
+4~4101002784~001~Ms~Julia Zhu~Yoose Ptd ltd~~Care of Ch~~25 Duxton road~~~089489~SG~10140676~~Juliazzhu@gmail.com~0~Call before delivery. ~20130606~20130606~07~ENJoh^EN^EN^EN^EN~ENKitten^EN^EN~ENI adore you, Julia. We will be together soon.^ENA small test of our love. ^ENMeans nothing...^ENCompared to our happy future!^EN^EN

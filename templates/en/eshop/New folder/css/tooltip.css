@@ -1,0 +1,40 @@
+.tooltip_mark { 
+border:0px solid red;
+width:15px; 
+height:15px; 
+background:url(../images/question.jpg);
+display:inline-block; 
+magin-right:5px;
+margin-left:5px;
+
+cursor:help;
+}
+.tooltip_mark:hover { 
+cursor:help;
+}
+
+#tooltip {
+	position:absolute;
+	z-index:9999;
+	color:#000;
+	font-size:12px;
+
+}
+
+#tooltip .tipHeader {
+	height:0px;
+	background:url(images/tipHeader.gif) no-repeat;
+}
+
+
+#tooltip .tipBody {
+	background-color:#f3ead9;
+	padding:5px 5px 5px 15px;
+}
+
+#tooltip .tipFooter {
+	height:0px;
+	background:url(images/tipFooter.gif) no-repeat;
+}
+
+

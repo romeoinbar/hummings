@@ -1,0 +1,26 @@
+<?php
+defined('PHP5_PHP') or die("Application is stopping!!!");
+$php5Config['db_type'] = 'mysql';
+$php5Config['db_host'] = 'localhost';
+$php5Config['db_name_en'] = 'uamktg_humming';
+$php5Config['db_name'] = 'uamktg_humming';
+$php5Config['db_user'] = 'uamktg_humming';
+$php5Config['db_pass'] = 'i$T3-{JO,[Sl';
+$php5Config['table_prefix'] = "tbl_";
+$php5SiteName 		= '';
+$php5Keywords 		= '';
+$php5Desc			= '';
+$php5WebPath 		= 'http://www.ua-mktg.com';
+$php5WebPathAD 		= 'http://www.ua-mktg.com/admin';
+$php5RootPath		= '/home/uamktg/public_html';
+$php5RootAdminPath        = '/home/uamktg/public_html/insite';
+$php5TemplateAdminPath    = '/home/uamktg/public_html/templates/insite';
+$php5ImagePath		= '/home/uamktg/public_html/images';
+$php5_image_template_path	= '/home/uamktg/public_html';
+$php5RootAdminTempalteCPath		= '/home/uamktg/public_html/insite/templates_c/%s';
+$php5TemplateAdminFile    = '/home/uamktg/public_html/insite/templates/%s/%s/%s';
+$php5TemplateImg    = $php5WebPath .'/templates/%s/%s';
+$php5TemplateFile    = '/home/uamktg/public_html/templates/%s/%s/%s';
+$php5_gzip            = true;
+$localhost = 0;
+define('PHP5PHP_INSTALLED', true);

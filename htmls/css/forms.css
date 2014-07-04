@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+form {margin:0px; padding:0px; margin-top:5px;}
+.forms{font-size:12px;
+
+margin:auto;
+}
+
+th{text-transform:capitalize; }
+.toolbar{
+font-size:12px;
+border:1px solid #ccc;
+padding:6px 15px 6px 15px;
+margin-left:auto;
+margin-right:auto;
+width:1000px;	
+min-height:30px;
+
+	}
+	
+.forms input, .forms textarea{border:1px solid #ccc; padding:1px;}
+.forms input:focus, .forms textarea:focus{border:1px solid #000; }
+
+div.label{padding:2px 15px 3px 10px; color:#000; font-weight:normal; float:left; clear:both; width:120px; display:inline-block; margin-bottom:8px;}
+div.label2{padding:2px 15px 3px 10px; color:#000; font-weight:normal; float:left; clear:both; width:95px; display:inline-block; margin-bottom:8px;}
+
+div.input{ margin-bottom:8px;}
+.button {
+    border: 1px solid #006;
+    background: #c10774;
+	color:#fff;
+}
+.button:hover {
+    border: 1px solid #000;
+}
+
+.close{
+width:20px;
+height:20px;
+cursor:pointer;
+float:right;
+background:url(../images/close.jpg) no-repeat;	
+}
+.close a{
+color:#000;
+text-decoration:none;
+}
+
+.cart_head{ border:1px solid #ccc; background:#eee; padding:10px; margin:5px 5px 0px 5px; }
+
+
+.cart_head2{ border:1px solid #ccc; background:#989795; color:#fff; padding:10px; margin:5px 5px 0px 5px; cursor:pointer;}
+.cart_head2 a{ color:white;}
+
+.cart_content {border:1px solid #ccc;  border-top:0px; background:#fff; padding:10px; margin:0px 5px 0px 5px;}
+
+.in {height:16px;}

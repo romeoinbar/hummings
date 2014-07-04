@@ -1,0 +1,78 @@
+item
+
+2~4101211781~001~SPDCN003936~1~001~NB~0~PR00~158~ZD03~~ZS03~6.00~1~~
+
+2 ~ 4101211781      ~      001      ~    SPDCN003936 ~   1         ~        001      ~    NB        ~            0               ~       PR00      ~    158     ~       ZD03    ~~         ZS03            ~   6.00       ~         1      ~           ~
+    sales_order_number    line           material      quantity          repeat line    occasions      free of charge indicator       condtype1      unit price     condtype2         other surcharge     surcharge amount    SPindicator     ?
+
+
+if SPindicator  =1
+  
+3~4101211781~001~ZNB42B~1~0 (item original sku)
+3~4101211781~001~DC193D~1~1 (addon item sku)
+
+3~ 4101211781         ~   001   ~    ZNB42B~      1      ~         0
+   sales_order_number    line        item sku    qty              addon item idicator
+ 
+
+3 ~4101211781     ~       001    ~     DC193D     ~       1     ~        1 (addon item sku)
+   sales_order_number    line        addon item sku    qty              addon item idicator
+
+
+
+4 ~ 4101211781 ~   001 ~ Ms ~MS CHAN JANE ELIZA~MOUNT ALVERNIA HOSPITAL~~~Level 3 - Our Lady Ward (Family Suite)~820 THOMSON ROAD~~~574623~SG~92976862~~~~~20120628~20120628~03~ENJoseph & BoBo^EN^EN^EN^EN~ENAlex & Jane^EN^EN~ENA tiny angel sent from^ENabove.. Has come to fill^ENyour hearts with love!^ENCongratulations! God bless your whole^ENfamily with Peace & Happiness. Shalom^
+
+
+[4:49:40 PM] *** brightleee added Charles ***
+[4:49:55 PM] brightleee: you didnt prepare it following the sample input
+[4:50:47 PM] brightleee: let say 2
+[4:50:54 PM] brightleee: 2~4101211781~001~SPDCN003936~1~001~NB~0~PR00~158~ZD03~~ZS03~6.00~1~~
+[4:51:04 PM] vo.h.nam: yes
+[4:51:17 PM | Edited 4:51:20 PM] vo.h.nam: it's wrong?
+[4:51:21 PM] brightleee: yours one 
+2~3~Smiling Baby (Girl)~0~~0~~0.00~~0.00~~0.00~~0.00~0~~0~
+[4:51:48 PM] brightleee: let me explain to you
+[4:51:52 PM] vo.h.nam: yes
+[4:53:59 PM] brightleee: 2~Sales Order Number~no of item ~material
+[4:57:17 PM] brightleee: sales order number is from the order
+[4:57:48 PM] vo.h.nam: yes
+[4:58:39 PM] brightleee: no of item is the lines of item
+[4:58:58 PM] brightleee: if have 1 item only then is 001, if second item, then 002
+[4:59:23 PM] vo.h.nam: Sales Order Number=2 right or wrong?
+[5:00:04 PM] brightleee: the after that
+[5:00:57 PM] brightleee: follow the SAP schema line 49
+[5:13:22 PM] *** brightleee sent map1.txt ***
+[5:16:36 PM] brightleee: you understand line 2?
+[5:18:13 PM] brightleee: you try to look at the database order item, the information is inside
+[5:18:56 PM] brightleee: only the sales_order_number is from order table
+[5:18:58 PM] brightleee: nam u there?
+[5:20:55 PM] vo.h.nam: SPDCN003936
+[5:21:01 PM] vo.h.nam: where you get?
+[5:22:33 PM] brightleee: database material
+[5:23:11 PM] brightleee: if the item have an addon product, will auto generate, i have created it for you
+[5:24:25 PM] vo.h.nam: I dont see it
+[5:25:57 PM] brightleee: you go server
+[5:26:00 PM] brightleee: check order_item table
+[5:26:18 PM] vo.h.nam: yes
+[5:26:22 PM] vo.h.nam: what column
+[5:26:37 PM] brightleee: material
+[5:26:51 PM] brightleee: you see it?
+[5:26:52 PM] vo.h.nam: ok I see
+[5:27:01 PM] brightleee: please go through the others
+[5:27:10 PM] brightleee: they are making mistake and pointing to us
+[5:27:19 PM] brightleee: lets get our part done well first
+[5:27:47 PM] vo.h.nam: Occasion = 001 why?
+[5:28:13 PM] vo.h.nam: SPDCN003936 ~   1         ~        001      ~
+[5:28:29 PM] brightleee: thats why they didnt map it correctly and giving you issue
+[5:30:09 PM] brightleee: you look at below the actual map
+[5:35:52 PM] *** brightleee sent map1.txt ***
+[5:37:08 PM] brightleee: can you try to do what i do there, map his value with SAP schema, and record down if you found any issue
+[5:50:39 PM | Edited 5:50:41 PM] vo.h.nam: and
+[5:50:43 PM] vo.h.nam: how to cust_in file
+[5:51:37 PM] brightleee: i will discuss with him
+[5:52:06 PM] brightleee: you try to do a mapping like what i do, and create a text file
+[5:52:12 PM] brightleee: tomorrow we will be meeting them
+[5:52:19 PM] brightleee: state down any issue you found
+[5:52:29 PM] brightleee: you can ask me for any uncertain
+[5:56:04 PM] Charles: Nam> i need a file to test in the morning
+[5:57:54 PM] vo.h.nam: yes

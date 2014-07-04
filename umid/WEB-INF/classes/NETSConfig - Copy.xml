@@ -1,0 +1,44 @@
+<config>
+	<merchPrivKey>/usr/share/tomcat5/webapps/enets/cert/04102012093640-priv.pgp.asc</merchPrivKey>
+	<merchKeyPass>1969fd399fbc684a054b50169a78a825</merchKeyPass>
+	<netsPubKey>/usr/share/tomcat5/webapps/enets/cert/nets-full-pub.pgp.asc</netsPubKey>
+       
+	<payURL>https://test.enets.sg/enets2/PaymentListener.do</payURL>
+	<queryURL>https://test.enets.sg/enets2/QueryTxnStatus.do</queryURL>
+	<usePGP>true</usePGP>	
+	
+	<useProxy>false</useProxy>
+	<proxyHost></proxyHost>
+	<proxyPort></proxyPort>
+	<proxyUsername></proxyUsername>
+	<proxyPassword></proxyPassword>
+	
+	<configPath>/usr/share/tomcat5/webapps/enets/</configPath>
+	<encryption>true</encryption>
+        
+        <logLevel>debug,info,error</logLevel>
+       <logFile>/usr/share/tomcat5/webapps/enets/logs/umapi.log</logFile>
+       <protocol>https</protocol>
+       
+       <!--<merchPrivKey>C:/Dev/eNets/cert/uat/14062012193344-priv.pgp.asc</merchPrivKey>
+	<merchKeyPass>1969fd399fbc684a054b50169a78a825</merchKeyPass>
+	<netsPubKey>C:/Dev/eNets/cert/uat/nets-full-pub.pgp.asc</netsPubKey>
+       
+	<payURL>https://test.enets.sg/enets2/PaymentListener.do</payURL>
+	<queryURL>https://test.enets.sg/enets2/QueryTxnStatus.do</queryURL>
+	<usePGP>true</usePGP>	
+	
+	<useProxy>false</useProxy>
+	<proxyHost></proxyHost>
+	<proxyPort></proxyPort>
+	<proxyUsername></proxyUsername>
+	<proxyPassword></proxyPassword>
+	
+	<configPath>C:/Dev/eNets/cert/uat/</configPath>
+	<encryption>true</encryption>
+        
+        <logLevel>debug,info,error</logLevel>
+       <logFile>C:/Dev/eNets/cert/uat/umapi.log</logFile>
+       <protocol>https</protocol>-->
+
+</config>

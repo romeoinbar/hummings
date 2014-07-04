@@ -1,0 +1,6 @@
+1~1~0007000149~Alice~IM6~424~01-03~Giffard Mansion~Balestier Road~~~~329810~Singapore~SG~81899278~62553721~alice04300@hotmail.com
+2~UNSP
+3~CC
+4~01
+5~1
+6~7000149001~Alice~Woo~ ~81899278~62553721

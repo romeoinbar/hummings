@@ -1,0 +1,150 @@
+#container {
+
+
+	margin:0 auto;
+	position:relative;
+	z-index:0;
+	padding:0px;
+}
+
+#example {
+	width:694px;
+	height:338px;
+	position:relative;
+	padding:0px;
+	margin-left:7px;	
+}
+
+#ribbon {
+	position:absolute;
+	top:-3px;
+	left:-15px;
+	z-index:500;
+}
+
+#frame {
+	position:absolute;
+	z-index:999;
+	width:694px;
+	height:338px;
+	top:0px;
+	left:0px;
+	background:url(../../images/frame.png) top left no-repeat;
+	
+}
+
+/*
+	Slideshow
+*/
+
+#slides {
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:1;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+
+.slides_container {
+	width:694px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+.slides_container div.slide {
+	width:694px;
+	height:338px;
+	display:block;
+}
+
+
+/*
+	Next/prev buttons
+*/
+
+#slides .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left:-24px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides .next {
+	left:694px;
+	display:block;
+}
+
+.prev_b{	background:url(img/pr2.png); width:24px; height:43px;  border:0px solid red;}
+.next_b{	background:url(img/nx2.png); width:24px; height:43px;  border:0px solid red;}
+.prev_b:hover{	background:url(img/pr1.png); width:24px; height:43px;  border:0px solid red;}
+.next_b:hover{	background:url(img/nx1.png); width:24px; height:43px;  border:0px solid red;}
+/*
+	Pagination
+*/
+
+.pagination {
+	margin:5px auto 0;
+	width:100px;
+	z-index:200;
+}
+
+.pagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(./img/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}
+
+/*
+	Caption
+*/
+
+.caption {
+	z-index:500;
+	position:absolute;
+	bottom:-35px;
+	left:0;
+	height:30px;
+	padding:5px 20px 0 20px;
+	background:#000;
+	background:rgba(0,0,0,.5);
+	width:540px;
+	font-size:1.3em;
+	line-height:1.33;
+	color:#fff;
+	border-top:1px solid #000;
+	text-shadow:none;
+}
+

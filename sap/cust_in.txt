@@ -1,0 +1,6 @@
+1~0~0007002772~test~IM6~~~~test~~~~123456~Singapore~SG~88888888~~charlestoh222@gmail.com
+2~UNSP
+3~CC
+4~02
+5~1
+6~7002772001~test~test~ ~88888888

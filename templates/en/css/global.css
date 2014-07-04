@@ -1,0 +1,214 @@
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	background-image:url(../images/bg_body.jpg);
+	background-repeat:repeat;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+#header{
+	background-image:url(../images/bg_top.jpg);
+	background-repeat:repeat-x;
+	height:94px;
+}
+
+#header .block1{
+	float:left; 
+	width:340px;
+}
+#header .block1 .blockmenu{ 
+	margin-top:15px;
+	font-weight:bold;
+}
+#header .block1 .blockmenu span{ 
+	padding-right:20px;
+	padding-left:20px;		
+	color:#e9d551;
+}
+#header .block1 .blockmenu span a{
+	color:#fff;
+	text-decoration:none;
+}
+#header .block1 .notification{
+	color:#666;
+	font-weight:bold;
+	margin-top:35px;
+	background-image:url(../images/ico_clock.png);
+	background-repeat:no-repeat;
+	background-position:0px left;
+	padding-left:20px;
+	height:16px;
+}
+#header .block1 a.menu:link, #header .block1 a.menu:visited{
+	text-transform:uppercase;
+	font-size:11px;
+	color:#fff;
+	text-decoration:none;
+	padding-right:20px;
+	padding-left:20px;	
+}
+#header .block1 a.menu:hover{
+	text-decoration:underline;
+}
+#header .block2{
+	float:left; 
+	width:300px;
+	text-align:left;
+}
+#header .block3{
+	float:left;
+	width:370px;
+	margin-top:8px;
+	float:right;	
+}
+#header .block3 .searchbox{
+	background-image:url(../images/bg_search.png);
+	background-repeat:no-repeat;
+	width:244px;
+	height:27px;	
+	padding:1px;
+	float:left;	
+	text-align:right;		
+}
+#header .block3 .searchbox .textinput{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#fff;
+	border:none;	
+	width:200px;
+	background:transparent;		
+}
+#header .block3 .searchbox1{
+	background-image:url(../images/bg_small_search.png);
+	background-repeat:no-repeat;
+	width:158px;
+	height:27px;	
+	float:left;	
+	padding:1px;
+	text-align:right;
+	float:right;		
+}
+#header .block3 .searchbox1 .textinput{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#fff;
+	border:none;	
+	width:110px;
+	background:transparent;		
+}
+#header .block3 .mycart{
+	font-size:12px;
+	color:#fff;
+	font-weight:bold;
+	float:left;
+	margin-top:5px;
+}
+#header .block3 .mycart span{
+	color:#f385ac;
+}
+.inner_body{
+	width:1026px;
+	margin:auto;
+	text-align:left;
+}
+.textofbottom p a:link, .textofbottom a:visited{
+	text-decoration:underline;
+	color:#000;
+}
+/*===============================================================
+Topmenu
+===============================================================*/
+
+/*===============================================================
+3 columns
+===============================================================*/
+#colums3 .col1{
+	width:197px;
+	float:left;
+}
+#colums3 .col2{
+	width:645px;
+	float:left;
+}
+#colums3 .col3{
+	width:180px;
+	float:right;
+}
+/*===============================================================
+2 columns
+===============================================================*/
+#colums2 .col1{
+	width:197px;
+	float:left;
+}
+#colums2 .col2{
+	width:825px;
+	float:right;
+}
+/*===============================================================
+Account menu
+===============================================================*/
+.account_menu{			
+	height:25px;	
+	margin-top:30px;
+	font-weight:bold;
+	font-size:11px;
+}
+.account_menu a:link, .account_menu a:visited{
+	color:#a90061;		
+	text-decoration:none;
+	padding-left:5px;
+	padding-right:5px;
+}
+.account_menu a:hover{
+	text-decoration:underline;
+}
+/*===============================================================
+Footer
+=============================================================== */
+#footer{
+	background-color:#f9f8f3;	
+	color:#999;
+	font-weight:bold;
+}
+#footer .copyright{	
+	line-height:40px;
+	padding-left:20px;	
+	float:left;
+	width:600px;
+}
+#footer .payment{
+	line-height:40px;
+	float:right;
+	margin-right:20px;
+}
+.clr{
+	clear:both;
+}
+.line5{
+	background-image:url(../images/line5.png);
+	background-repeat:no-repeat;
+	height:20px;
+	background-position:center;
+}
+
+/** footer  **/
+.footer {
+background:#fff url(../images/footer_bg.jpg) top left repeat-x;	
+width:1000px;
+margin:auto;
+margin-top:25px;
+margin-bottom:15px;
+padding:10px 0px 10px 15px;
+}
+.footer h6{
+font-size:13px;
+font-weight:bold;	
+color:#b72971;
+border-bottom: 1px dotted #ccc;
+margin:0px 0px 5px 0px;
+padding:5px 5px 5px 5px;	
+}
+.footer a{color:#999; text-decoration:none; font-size:12px; display:inline-block; padding:2px 2px 8px 2px; font-weight:normal;}
+.footer a:hover{color:#000; }

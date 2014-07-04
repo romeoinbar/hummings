@@ -1,0 +1,6 @@
+1~0~0007009833~Henry~IM6~~~~1650 Bristol NW~~~~49504~Grand Rapids~US~1665~~hank_chuck@yahoo.com
+2~UNSP
+3~CC
+4~02
+5~1
+6~7009833001~Henry~Westra~1~1665

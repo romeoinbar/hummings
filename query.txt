@@ -1,0 +1,17 @@
+$query = "SELECT COUNT(*) "
+. "\n FROM #__category "
+. ( count( $where ) ? "\n WHERE " . implode( ' AND ', $where ) : "" )
+;
+
+$php5DB_en->setQuery( $query );
+$recordTotal = $php5DB_en->loadResult();
+
+
+		   $query = "SELECT * "
+. "\n FROM #__category "
+. ( count( $where ) ? "\n WHERE " . implode( ' AND ', $where ) : "" )
+. "\n ORDER BY id desc LIMIT $startLimit, $limit";
+$php5DB_en->setQuery( $query );//echo $query;
+$rows = $row_temp = $php5DB_en->loadObjectList();	
+		}
+

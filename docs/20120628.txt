@@ -1,0 +1,388 @@
+[9:43:34 AM] *** brightleee added Charles ***
+[9:43:40 AM] brightleee: hi nam
+[9:44:14 AM] brightleee: i have just talked to the SAP person
+[9:45:00 AM] vo.h.nam: yes
+[9:45:03 AM] vo.h.nam: any change?
+[9:47:32 AM] brightleee: FYI, the SAP schema, item number is actually lines of data
+[9:48:48 AM] brightleee: Is it ok I create it when customer place order
+[9:50:56 AM] brightleee: ok i try to prepare the value by my side
+[9:51:14 AM] brightleee: they may need another export funstion for user
+[9:51:28 AM] brightleee: will send the info to Charles soon
+[9:51:34 AM] vo.h.nam: yes
+[9:51:45 AM] Charles: ok...but Nam, i need you to work on import function first
+[9:51:52 AM] Charles: is it ready?
+[9:51:57 AM] Charles: after that, you can work on SAP
+[9:52:44 AM] brightleee: yes Nam you focus on your work first, i just sharing info with you
+[9:53:25 AM] vo.h.nam: yes, I'm checking import/export product
+[11:15:13 AM] vo.h.nam: hi Lee
+[11:15:21 AM] vo.h.nam: how to get occasion for product?
+[11:15:37 AM] brightleee: product category
+[11:15:45 AM] brightleee: if the category type=2
+[11:16:59 AM] vo.h.nam: now, product.xls has categories and occasion
+[11:17:02 AM] brightleee: then get the $product_category->code
+[11:17:32 AM] vo.h.nam: how to get categories ?
+[11:17:42 AM] brightleee: that one handle as a product_category
+[11:17:53 AM] vo.h.nam: all type?
+[11:17:57 AM] brightleee: product_category_link
+[11:18:38 AM] brightleee: yeah, first I made occasion another table, then anh say put in one table, then Charles agree
+[11:18:47 AM] brightleee: so I just do it in this wa
+[11:18:48 AM] brightleee: way
+[11:19:14 AM | Edited 11:19:18 AM] vo.h.nam: now I have this problem
+[11:19:36 AM] vo.h.nam: in categories have occasion
+[11:19:54 AM] vo.h.nam: it's mean we show occasion double
+[11:19:56 AM] brightleee: occasion also one kind of product category
+[11:20:14 AM] vo.h.nam: [11:19 AM] vo.h.nam: 
+
+<<< it's mean we show occasion doubleyou understand?
+[11:20:27 AM] brightleee: double?
+[11:20:41 AM] Charles: during import
+[11:20:46 AM] Charles: there is 2 columns
+[11:20:47 AM] brightleee: u mean they link a product to 2 occasions?
+[11:20:53 AM] brightleee: ok
+[11:20:55 AM] brightleee: what column
+[11:20:58 AM] Charles: 1-product category, 2 - occassion
+[11:21:05 AM] Charles: Nam is confuse which one to follow?
+[11:21:27 AM] brightleee: for our handling
+[11:21:30 AM] vo.h.nam: 2 - occassion is one kind of product category
+[11:21:37 AM] *** Charles sent products.xls ***
+[11:21:50 AM] brightleee: product category and occasions is consider product_category
+[11:21:55 AM] Charles: see this filefor reference
+[11:22:08 AM] vo.h.nam: Lee see this file
+[11:22:29 AM] vo.h.nam: it has 2 column product_category and occassion
+[11:22:40 AM] brightleee: yes
+[11:22:54 AM] brightleee: this is created to make customer's life easier
+[11:23:01 AM] brightleee: when we import
+[11:23:10 AM] brightleee: all go to product_category_link
+[11:23:39 AM] Charles: what happens when for same product, product_category =2,3,4,5,6,7....but occassion is different
+[11:23:47 AM] brightleee: if let say product_category 1,2
+[11:23:47 AM] Charles: so follow which one?
+[11:23:52 AM] brightleee: occasions 3
+[11:24:01 AM] brightleee: 1,2,3 go to product_category
+[11:24:08 AM] brightleee: product_cateogry_link
+[11:24:20 AM] Charles: actually i think can ignore column for "occassion"
+[11:24:30 AM] Charles: it is already define in product category
+[11:24:34 AM] Charles: do  you agree, Lee?
+[11:24:48 AM] brightleee: if let say product_category 1,2
+occasions 3
+
+1,2,3 go to product_category_link
+[11:25:03 AM] vo.h.nam: it's ok
+[11:25:20 AM] vo.h.nam: when export
+[11:25:40 AM] brightleee: you check the product_category
+[11:25:41 AM] vo.h.nam:  product_category=1,2,3
+[11:25:45 AM] brightleee: is the type = 2
+[11:25:51 AM] brightleee: goto occasion
+[11:25:53 AM] vo.h.nam: occasions = 3
+[11:26:27 AM] vo.h.nam: ok sir
+[11:26:40 AM] vo.h.nam: the last I see table occasion
+[11:26:44 AM] vo.h.nam: now I dont see it
+[11:26:55 AM] brightleee: yes modified a few times
+[11:27:00 AM] Charles: ah..i send the wrong file
+[11:27:08 AM] Charles: but the new one i think have
+[11:27:30 AM] brightleee: if you have unclear can discuss with me
+[11:27:46 AM] Charles: for example, for product_category=208, occassion =00
+[11:27:49 AM] Charles: therefore
+[11:27:57 AM] Charles: when we import product
+[11:28:05 AM] brightleee: I trying the prepare everything nicely for you for the SAP
+[11:28:14 AM] Charles: if product category=200 and occassion=00, this will be error in import
+[11:28:23 AM] Charles: because product category <> occassion
+[11:28:39 AM] Charles: the correct way to import is to put product category=200, 208
+[11:28:53 AM] Charles: you understand Lee?
+[11:29:19 AM] Charles: so when Nam import, and have product category <> occassion, how should he assign the product item?
+[11:29:36 AM] Charles: is that what you are asking, Nam?
+[11:30:05 AM] vo.h.nam: wait, I ask Lee something
+[11:30:14 AM] brightleee: come
+[11:30:14 AM] vo.h.nam: I check product_category
+[11:30:19 AM] Charles: okie..please explain clearly
+[11:30:23 AM] Charles: i need to go for a meeting now
+[11:30:28 AM] Charles: i will come back and read later
+[11:30:45 AM] vo.h.nam: some category code empty
+[11:30:49 AM] brightleee: yes
+[11:30:57 AM] brightleee: only the occasion type have code
+[11:31:13 AM] vo.h.nam: now we show product_category_id or code?
+[11:31:22 AM] brightleee: we use id
+[11:31:31 AM] brightleee: erm wait
+[11:31:41 AM] vo.h.nam: but charles want to show code
+[11:31:45 AM] brightleee: Charles what you told customer to put into the occasions field?
+[11:31:53 AM] brightleee: show code there
+[11:32:12 AM] brightleee: if show code, then will have to retrieve the id by code
+[11:32:26 AM] brightleee: write a function lo
+[11:32:30 AM] Charles: i ask them to follow "oo, ou, er"...like this
+[11:33:06 AM] brightleee: in that case you retrieve the id by code, then put the id into product_category_link
+[11:33:32 AM] brightleee: product_category : 1 , 2
+[11:33:39 AM] brightleee: occasions : OO,XM
+[11:33:52 AM] brightleee: OO->4
+XM->5
+[11:34:11 AM] brightleee: product_category_link = 1,2,4,5
+[11:34:50 AM] vo.h.nam: yes
+[11:34:53 AM] vo.h.nam: I see
+[11:34:55 AM] brightleee: ok?
+[11:35:10 AM] vo.h.nam: I want to check code what for
+[11:35:20 AM] brightleee: no need
+[11:35:47 AM] brightleee: ah yes , use a function to check to retrieve
+[11:36:44 AM] brightleee: something like function occasion_to_code('OO')
+[2:26:29 PM] brightleee: u there>
+[2:26:30 PM] brightleee: ?
+[2:26:41 PM] *** brightleee sent Sales_in  Cust_in.txt ***
+[2:27:07 PM] brightleee: they have send the SAP format that they want to read
+[2:27:44 PM] *** brightleee sent Sales_in  Cust_in.txt ***
+[2:45:08 PM] Charles: nam, have you read the file?
+[2:45:47 PM] vo.h.nam: yes
+[2:46:11 PM] Charles: why the file is like that?
+[2:46:24 PM] Charles: this is not standard format
+[2:46:25 PM] Charles: how did they export this file?
+[2:46:33 PM] Charles: they use codes to pack this file?
+[2:46:49 PM] brightleee: ya i think so
+[2:46:59 PM] brightleee: he write his code
+[2:47:22 PM] brightleee: how do we proceed from here
+[2:47:30 PM] Charles: nam> what do you think?
+[2:47:49 PM] vo.h.nam: we will import this file?
+[2:47:56 PM] Charles: no Nam
+[2:48:03 PM] Charles: we have to pack our file like that
+[2:48:04 PM] brightleee: the order is one way right?
+[2:48:08 PM] brightleee: web to SAP
+[2:48:24 PM] Charles: it has nothing to do with web
+[2:48:27 PM] Charles: only data
+[2:48:36 PM] Charles: but i think they pack different way
+[2:49:23 PM] brightleee: so we are not going to import, just export?
+[2:49:35 PM] Charles: wait Lee...one by one
+[2:49:36 PM] Charles: slowly
+[2:49:41 PM] Charles: i see their flat file has problem
+[2:50:00 PM] Charles: their flat file is not correct
+[2:50:09 PM] Charles: Nam> what do you think?
+[2:50:59 PM] Charles: Lee> if you see their flat file, a lot of missing information
+[2:51:10 PM] vo.h.nam: yes I see it
+[2:51:19 PM] vo.h.nam: it's simple
+[2:51:19 PM] Charles: Lee> they using 1,2,3,4 to define column
+[2:51:29 PM] brightleee: no
+[2:51:31 PM] brightleee: 1 - order
+[2:51:32 PM] Charles: Lee> but we have many many many more columns
+[2:51:36 PM] brightleee: 2 - order item
+[2:51:43 PM] brightleee: 3 - addon item and item
+[2:51:47 PM] brightleee: 4 - delivery
+[2:51:57 PM] brightleee: 4 - recipient info sorry
+[2:52:09 PM] Charles: is that all the information they need?
+[2:52:12 PM] Charles: cannot be
+[2:52:45 PM] brightleee: the fields seperated by ~
+[2:52:59 PM] brightleee: fir 2 sample
+[2:52:59 PM] Charles: nope..i am sure it is not enough
+[2:53:09 PM] brightleee: 1 -
+2 -
+3 -
+3 -
+4 -
+[2:53:22 PM] brightleee: is an order with one item and the item with addon item
+[2:53:54 PM] Charles: our excel has this information:
+[2:53:57 PM] Charles: Sales Doc Type Sales Order Number! Sales Organization Distribution Channel Division Account Group Sold to Party No. TITLE Sold to Party Name address block address  unit address building address street 1 address street 2 address street 3 address street 4 Postal Code City Country Telephone 1 Telephone 2 Customer Group Payment Terms Tax code Contact Person Code Contact Person Name Gender contact Telephone 1 contact Telephone 2 Credit Card Type Name on Card Credit Card No Expiry Date CVV No. Approval Code  Contact Person Email Address Order Source SPCODE SSID Project ID Created by Approved by Reference No. Update addres indicator Item No. Material Quantity Occasion Free of Charge indicator condtype 1 Unit Price condtype 2 Cash Discount $/ CC eVoucher evoucher value Other Surcharge Other Surcharge amount SP Indicator REDEMPTION PROMO ID LOYALITY POINTS  Item No. Material Quantity Add-on Product Ship to Party No TITLE Ship to Party Name Company Name Street 1 Street 2 Street 3 Postal Code Country Code - Delivery side Telepehone 1 Telepehone 2 Email Address Gender Delivery Instruction Delivery Date From  Delivery Date To Delivery Time From Msg To Msg Message
+[2:53:59 PM] brightleee: 3rd one,
+1 -
+2 -
+4 -
+is an order with one item, the item has no addon item
+[2:54:15 PM] Charles: that is only for order data...what about the rest of the data??
+[2:54:18 PM] brightleee: he seperated it with ~
+[2:54:47 PM] vo.h.nam: I use ",", cutomer use "~"
+[2:55:15 PM] brightleee: Sales Doc Type ~ Sales Order Number ~ Sales Organization ~ Distribution Channel ~ Division ~ Account Group ~ Sold to Party No.~
+[2:55:31 PM] Charles: how do you know what is header??
+[2:55:41 PM] brightleee: i ask them the exact format that they want to read
+[2:55:50 PM] Charles: i cannot accept this!
+[2:56:09 PM] Charles: he created his format, and ask us to follow
+[2:56:18 PM] Charles: this is not the way to pack a file!
+[2:56:33 PM] Charles: it's a combination of a few codes
+[2:56:38 PM] Charles: than he stitch it together
+[2:56:43 PM] Charles: and become 1 file
+[2:56:58 PM] brightleee: Nam what do you think?
+[2:57:11 PM] brightleee: 1 - we follow deliver
+[2:57:35 PM] brightleee: 2 - we teach him how to read from excel
+[3:00:17 PM] brightleee: he mention that they want to import customer info also
+[3:01:46 PM] Charles: Nam> are you there??
+[3:01:53 PM] brightleee: he fainted
+[3:02:01 PM] brightleee: call hospital
+[3:02:19 PM] Charles: nope i dun think so...Bala is not doing his work
+[3:02:27 PM] Charles: follow his way, we will all die
+[3:03:09 PM] Charles: Lee> i ask you one simple question
+[3:03:14 PM] brightleee: ok
+[3:03:17 PM] Charles: can this file hold more than 2 orders??
+[3:03:32 PM] brightleee: by multiple lines
+[3:03:52 PM] brightleee: 1~ZI01~4101211781~1000~13~01~20120627~z002~7253522~Mr~CHAI JOSEPH~BLK 30B~~~BARKER ROAD~~~~307483~Singapore~SG~98739873~~02~IC~1~7253522001~CHAI JOSEPH~~98739873~~~~~~~~joseph@chai.sg~~IM1~F12~IM1~932128~ZEV~~FIN~~0
+2~4101211781~001~SPDCN003936~1~001~NB~0~PR00~158~ZD03~~ZS03~6.00~1~~
+3~4101211781~001~ZNB42B~1~0
+3~4101211781~001~DC193D~1~1
+4~4101211781~001~Ms~MS CHAN JANE ELIZA~MOUNT ALVERNIA HOSPITAL~~~Level 3 - Our Lady Ward (Family Suite)~820 THOMSON ROAD~~~574623~SG~92976862~~~~~20120628~20120628~03~ENJoseph & BoBo^EN^EN^EN^EN~ENAlex & Jane^EN^EN~ENA tiny angel sent from^ENabove.. Has come to fill^ENyour hearts with love!^ENCongratulations! God bless your whole^ENfamily with Peace & Happiness. Shalom^
+
+1~ZI01~4101211798~1000~13~01~20120628~z002~7315529~Mr~CHRISTIAN ROXAS~~~~210 PANAMOUNT LANDING NW~~~~T3K 0H7~Calgary~CA~6812140~~02~IC~1~7315529001~Christian Roxas~~6812140~~~~~~~~christian.roxas@gmail.com~0~IM3~F12~IM3~932145~ZEV~~unsp~~0
+2~4101211798~001~SPDCB003972~1~001~BH~0~PR00~72~ZD03~~ZS03~6.00~1~~
+3~4101211798~001~ZBH10~1~0
+3~4101211798~001~DC165E~1~1
+4~4101211798~001~Miss~JEM MAGCALAS~ONLY ZEST LIVING PTE LTD~~~~NO.2 BOON LEAT TERRACE #O1-02~HARBOURSIDE BUILDING 2~~119844~SG~84481335~~~~~20120628~20120628~03~ENAllen^EN^EN^EN^EN~ENJem^EN^EN~ENLove is the shortest distance^ENbetween hearts.^EN^EN^EN^EN
+[3:04:03 PM] Charles: so you have 1, 2,3,4, 5,6 - many times?
+[3:04:19 PM] brightleee: his format is like tat
+[3:04:28 PM] brightleee: only 1,2,3,4
+[3:04:32 PM] Charles: his format is like that does not mean it is correct
+[3:04:41 PM] Charles: it will have error
+[3:04:42 PM] Charles: i am sure
+[3:04:51 PM] Charles: if order simple, maybe ok
+[3:04:56 PM] Charles: the codes are too simple
+[3:05:28 PM] brightleee: how long the customer use the SAP?
+[3:05:32 PM] Charles: he just sent another file..you see? he is still editing his codes
+[3:05:43 PM] Charles: Nam> Where are you???
+[3:06:17 PM] vo.h.nam: I think they export follow every tables
+[3:06:50 PM] brightleee: 1 - order
+[3:07:37 PM] Charles: ah...correct!
+[3:07:45 PM] Charles: he use simple way, he export by table
+[3:08:11 PM] Charles: actually he should import based on our file
+[3:08:30 PM] Charles: Nam> can i know what you are doing now???
+[3:08:53 PM] vo.h.nam: import/export products sir
+[3:09:03 PM] vo.h.nam: any problem?
+[3:09:17 PM] Charles: oh..Nam> client said she uploaded images for product category, now it dissapear
+[3:09:22 PM] Charles: what happened??
+[3:10:15 PM] vo.h.nam: it still on server, what files they upload?
+[3:12:12 PM] Charles: let me check with them
+[3:12:20 PM] Charles: Lee> i am going to email them to stop the SAP first
+[3:12:25 PM] Charles: it is crazy
+[3:13:07 PM] Charles: Nam> you check the filename in "product category"
+[3:13:29 PM] brightleee: i afraid it will drag the progress
+[3:13:38 PM] vo.h.nam: yes
+[3:14:33 PM] Charles: Nam> can you give solution on export??
+[3:14:49 PM] Charles: Nam> you can pack file like what they wanted??
+[3:15:44 PM] brightleee: I will try to explain to you if you want to proceed
+[3:15:58 PM] vo.h.nam: i need more information for header
+[3:17:03 PM] Charles: Lee> for the 4/5 tables, what is the field that match the records?
+[3:17:24 PM] brightleee: follow the SAP schema
+[3:17:37 PM] brightleee: 1 - tbl_order
+[3:17:49 PM] brightleee: 2,3 - tbl_order_item
+[3:17:59 PM] brightleee: 4 - tbl_order_delivery
+[3:18:29 PM] Charles: how to link the 4 tables?
+[3:18:43 PM] brightleee: they will link when they import
+[3:18:59 PM] Charles: dun agree
+[3:19:06 PM] Charles: how to link if you have 10 orders
+[3:19:11 PM] brightleee: Sales Order Number
+[3:19:20 PM] Charles: some orders have 10 lines, some orders have 2 lines
+[3:19:30 PM] brightleee: yes
+[3:19:34 PM] brightleee: if let say
+[3:19:51 PM] brightleee: one order with one item, and the item hv add_on item
+[3:20:23 PM] brightleee: it will be like 
+1 -
+2 -
+3 -
+3 -
+4 -
+[3:21:00 PM] brightleee: 2 orders, then will be 
+1 -
+2 -
+3 -
+3 -
+4 -
+
+1 -
+2 -
+3 -
+3 -
+4 -
+[3:21:41 PM] brightleee: one order with with one item without addon product
+[3:21:53 PM] brightleee: 1 -
+2 -
+4 -
+[3:22:11 PM] Charles: yes...how to link to customer details??
+[3:22:29 PM] brightleee: table one inside have the field
+[3:22:31 PM] Charles: new customer flat file
+[3:22:44 PM] brightleee: new customer he havent send to me
+[3:22:53 PM] Charles: it is inside the flat
+[3:22:57 PM] Charles: flat file
+[3:23:07 PM] Charles: sales_in flat file for SP Order
+[3:23:17 PM] Charles: sales_in file
+[3:23:18 PM] brightleee: yes i ask for a SAP schema, else we dono what is inside the ~ ~ thing
+[3:23:28 PM] Charles: new customer flat file
+[3:23:38 PM] Charles: how to link the these?
+[3:23:48 PM] Charles: you only describe inside 1 table
+[3:23:57 PM] Charles: how to link all tables in the flat file?
+[3:24:16 PM] Charles: Nam> if you are not going to say anything, i expect you to be able to do it
+[3:24:35 PM] Charles: Nam> if any problem, and you cannot do it...i am going to hunt you down
+[3:25:24 PM] Charles: Nam> before you start, i already can see problems....if you think ok. I will just tell client ok
+[3:25:40 PM] Charles: Nam> if any problem, you will have big problem. You understand?
+[3:26:15 PM] brightleee: Nam you can propose based on your experience
+[3:27:37 PM] vo.h.nam: no problem sir, I need the last file after you confirm to customer
+[3:27:47 PM] vo.h.nam: I need full information
+[3:27:55 PM] Charles: ok Lee> please proceed
+[3:27:55 PM] vo.h.nam: header, table...
+[3:28:01 PM] Charles: ask Bala for information
+[3:28:14 PM] Charles: Nam> i need this completed today, tomorrow SAP guy will be on leave
+[3:28:20 PM] Charles: Nam> you understand?
+[3:28:47 PM] Charles: Please also note that the information is uploaded two ways
+[3:29:02 PM] Charles: Lee> please ask them for the file format that they are sending to us to import as well
+[3:29:08 PM] Charles: Lee> you understand?
+[3:29:34 PM] brightleee: i am trying to call him now but cannot get through
+[3:29:34 PM] vo.h.nam: yes
+[3:29:46 PM] Charles: Nam> you understand?
+[3:29:52 PM] brightleee: i try to explain what the SAP say to you
+[3:30:06 PM] brightleee: for them
+[3:30:35 PM] brightleee: all the fields is linked by Sales Order Number
+[3:30:48 PM] brightleee: you see the sample they given
+[3:30:55 PM] brightleee: 1 - bla bla bla
+[3:31:20 PM] brightleee: that one we just follow the tbl_order
+[3:31:30 PM] brightleee: but add '1~' in front
+[3:31:40 PM] brightleee: 1 is to indicated this one is for table order
+[3:31:43 PM] brightleee: ok?
+[3:31:54 PM] brightleee: then 2 is the order_item
+[3:32:20 PM] vo.h.nam: yes
+[3:32:25 PM] brightleee: start with 2~
+[3:32:27 PM | Edited 3:32:36 PM] vo.h.nam: I dont see payment table
+[3:32:54 PM] brightleee: i try call him now
+[3:33:52 PM] brightleee: no anser, i call later
+[3:33:56 PM] brightleee: we proceed first
+[3:34:20 PM] brightleee: 2~Sales Order Number
+[3:34:54 PM] brightleee: can you also open the SAP schema
+[3:37:15 PM] brightleee: 2~Sales Order Number~Item No.~Material~Quantity~occasion~free of charge~condtype1~
+[3:37:23 PM] brightleee: did you see the SAP schema?
+[3:37:54 PM] brightleee: item number start from lline 48 in SAP schema
+[3:39:32 PM] vo.h.nam: yes
+[3:39:47 PM] vo.h.nam: I follow this?
+[3:39:57 PM] brightleee: you will find equivalent field in order_item
+[3:40:30 PM] brightleee: there one condition that you need to take note
+[3:40:52 PM] brightleee: if the item has addon_item
+[3:41:21 PM] brightleee: you check it by $order_item->addon_product_id
+[3:41:51 PM] brightleee: if has addon item
+[3:41:59 PM] vo.h.nam: I know it
+[3:43:20 PM] brightleee: you need to create 
+3~4101211781~001~ZNB42B~1~0
+3~4101211781~001~DC193D~1~1
+[3:43:41 PM] brightleee: how to explain
+[3:44:03 PM] brightleee: ok if the item has addon_item
+[3:44:34 PM] brightleee: for table 2
+[3:44:38 PM] brightleee: in nromal case
+[3:44:49 PM] brightleee: field material store the SKU
+[3:44:56 PM] brightleee: if got addon item
+[3:45:12 PM] brightleee: the material fiend will become SPDC bla bla bla
+[3:45:54 PM] brightleee: 3~4101211781~001~ZNB42B~1~0    <- product info
+3~4101211781~001~DC193D~1~1   <- addon product info
+[3:47:14 PM] vo.h.nam: ok
+[3:48:00 PM] brightleee: then 4 is recipient info
+[3:48:58 PM] brightleee: if hv addon product, 12334
+[3:49:03 PM] brightleee: if no 124
+[3:49:09 PM] brightleee: thats it
+
+
+
+[9:37:38 AM] brightleee: hi Nam, do you have the latest css file?
+[9:38:01 AM] vo.h.nam: not yet
+[9:38:43 AM] brightleee: I saw this file
+[9:38:44 AM] brightleee: Humming Internet order mapping to sap fields on 28062012 (6)[1] (Vo Hoai Nam's conflicted copy 2012-07-06) (Vo Hoai Nam's conflicted copy 2012-07-09)
+[9:38:49 AM] brightleee: what does it means?
+[9:41:19 AM] vo.h.nam: I think you can delete them, I updated adn dropbox auto sync
+[10:20:22 AM] brightleee: Hi Nam
+[10:20:57 AM] brightleee: you check the folederSAP map/orders/Sale order thats their feedback. Can you check wether it is mapped correctly?
+[10:21:34 AM] vo.h.nam: yes
+[10:21:37 AM] brightleee: and there is some changes on customer, check SAP map/\customer/changes customer Line by line_06_07_2012
+[10:43:12 AM] brightleee: you saw my email right? what is the problem of the import file?
+[10:45:00 AM] vo.h.nam: I'm checking, we insert new in tbl_product_category_link?
+[10:47:09 AM] brightleee: yes
+[10:47:22 AM] brightleee: are you not doing in this way before this?
+[10:48:13 AM] vo.h.nam: I only check category and insert product, not insert category
+[10:48:39 AM] brightleee: need to check category also
+[11:15:19 AM] brightleee: Once you settle the product input, please generate out put for :
+order 153 - one recipient , one item
+order 154 - one recipient, one item (w/addon)
+order 155 - 2 recipients, each recipients one item
+[11:58:52 AM] brightleee: how is it?
+[12:49:48 PM] brightleee: you there?
+[1:52:19 PM] vo.h.nam: yes

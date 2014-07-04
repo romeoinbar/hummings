@@ -1,0 +1,12 @@
+1~0~0007009852~Wzgarda~IM6~~~~3 rue pierre moulié~~~~94200~Singapore~FR~781897496~~sylver@aews.fr
+2~UNSP
+3~CC
+4~02
+5~1
+6~7009852001~Wzgarda~Jean Sylvain~~781897496
+1~0~0007009852~Wzgarda~IM6~~~~3 rue pierre moulié~~~~94200~Singapore~FR~781897496~~sylver@aews.fr
+2~UNSP
+3~CC
+4~02
+5~1
+6~7009852001~Wzgarda~Jean Sylvain~~781897496

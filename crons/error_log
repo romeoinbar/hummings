@@ -1,0 +1,12 @@
+[13-Jan-2014 22:28:51 Asia/Singapore] PHP Fatal error:  Cannot redeclare cDB1() (previously declared in /home/hummings/public_html/crons/client.php:51) in /home/hummings/public_html/crons/client.php on line 287
+[13-Jan-2014 22:29:39 Asia/Singapore] PHP Fatal error:  Cannot redeclare cDB1() (previously declared in /home/hummings/public_html/crons/client.php:51) in /home/hummings/public_html/crons/client.php on line 287
+[13-Jan-2014 22:30:16 Asia/Singapore] PHP Fatal error:  Cannot redeclare cDB1() (previously declared in /home/hummings/public_html/crons/client.php:51) in /home/hummings/public_html/crons/client.php on line 287
+[13-Jan-2014 22:58:24 Asia/Singapore] PHP Fatal error:  Cannot redeclare cHTTP() (previously declared in /home/hummings/public_html/crons/client.php:51) in /home/hummings/public_html/crons/client.php on line 255
+[15-Jan-2014 12:17:09 Asia/Singapore] PHP Fatal error:  Cannot redeclare cHTTP() (previously declared in /home/hummings/public_html/crons/client.php:51) in /home/hummings/public_html/crons/client.php on line 255
+[15-Jan-2014 12:42:35 Asia/Singapore] PHP Fatal error:  Cannot redeclare cDB1() (previously declared in /home/hummings/public_html/crons/client.php:51) in /home/hummings/public_html/crons/client.php on line 287
+[15-Jan-2014 13:02:10 Asia/Singapore] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: NO) in /home/hummings/public_html/crons/client.php on line 61
+[06-Jun-2014 12:50:34 Asia/Singapore] PHP Parse error:  syntax error, unexpected T_DNUMBER in /home/hummings/public_html/crons/dv9_test.php on line 6
+[06-Jun-2014 12:51:06 Asia/Singapore] PHP Parse error:  syntax error, unexpected T_DNUMBER in /home/hummings/public_html/crons/dv9_test.php on line 6
+[06-Jun-2014 12:51:54 Asia/Singapore] PHP Parse error:  syntax error, unexpected T_DNUMBER in /home/hummings/public_html/crons/dv9_test.php on line 6
+[06-Jun-2014 12:54:45 Asia/Singapore] PHP Parse error:  syntax error, unexpected T_DNUMBER in /home/hummings/public_html/crons/dv9_test.php on line 6
+[06-Jun-2014 12:58:05 Asia/Singapore] PHP Warning:  ftp_put(): Opening ASCII mode data connection. in /home/hummings/public_html/crons/dv9_test.php on line 12

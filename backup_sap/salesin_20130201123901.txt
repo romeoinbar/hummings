@@ -1,0 +1,8 @@
+1~ZI01~4101001463~2000~13~01~20130201~Z002~0007001881~Mr~Benjamin He~683C~#12-370~~Choa Chu Kang Crescent~~~~683683~Singapore~SG~90219119~~01~CC~1~2147483647~Benjamin He~0~90219119~~~~~~~~ben.spring@hotmail.com~~IM6~F13~IM6~701755~ZEV~0~UNSP~~0
+2~4101001463~001~BBK701~1~001~CN~0~PR00~118.00~ZD03~0.00~ZS03~6.00~0~~0
+2~4101001463~001~BBK703~1~002~CN~0~PR00~188.00~ZD03~0.00~ZS03~6.00~0~~0
+4~4101001463~001~Mdm~Han Jing ~~#01-152~477~~Tampines St 43~~~520477~SG~98571961~~~0~Call before delivery. ~20130204~20130204~08~ENBen^ENSpring Express Transportation^EN^EN^EN~ENHan Jing^EN^EN~ZH招財進寶, 金玉满堂 !^ZH^ZH^ZH^ZH^ZH
+4~4101001463~002~ ~Sino-Global Travel ~Sino-Global Travel Pte Ltd~#B1-15~101~Upper Cross Street~People's Park Centre~~~058357~SG~65320636~~~0~Call before delivery. ~20130204~20130204~03~ENBenjamin He^ENSpring Express Transportation^EN^EN^EN~ENSino-Global Travel Pte Ltd^EN^EN~ZH年年豐收, 福滿乾坤!^ZH^ZH^ZH^ZH^ZH
+1~ZI02~4206000443~2000~13~02~20130201~Z002~0007001881~Mr~Benjamin He~683C~#12-370~~Choa Chu Kang Crescent~~~~683683~Singapore~SG~90219119~~01~CC~1~2147483647~Benjamin He~0~90219119~~~~~~~~ben.spring@hotmail.com~~IM6~C13~IM6~701756~ZEV~0~UNSP~~0
+2~4206000443~001~BK25~1~001~CN~0~PR00~800.00~ZD03~0.00~ZS03~6.00~0~~0
+4~4206000443~001~ ~William Lee & Team ~TRAVELLER&EXPLORER Pte Ltd~#09-10~627A~Biztech Centre~Aljunied Road~~~389842~SG~68368444~68368444~~0~Call before delivery. Avoid lunch hour.~20130204~20130204~03~ENBenjamin He^ENSpring Express Transportation^EN^EN^EN~EN^EN^EN~ZH年年豐收, 福滿乾坤!^ZH^ZH^ZH^ZH^ZH

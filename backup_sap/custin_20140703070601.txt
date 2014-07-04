@@ -1,0 +1,12 @@
+1~0~0007004781~WIng SIng~IM6~49~04-05~Noble Logistics~Tannery Lane~~~~347796~Singapore~SG~90308661~~john@brainwavedesign.com
+2~UNSP
+3~CC
+4~01
+5~1
+6~7004781001~WIng SIng~Nursalim~ ~90308661
+1~1~0007004781~WIng SIng~IM6~49~04-05~Noble Logistics~Tannery Lane~~~~347796~Singapore~SG~90308661~~john@brainwavedesign.com
+2~UNSP
+3~CC
+4~01
+5~1
+6~7004781001~WIng SIng~Nursalim~ ~90308661

@@ -1,0 +1,7 @@
+1~ZI02~4206000506~2000~13~02~20130202~Z002~0007001811~Mr~Kar Houl Goh~7~#01-03~Eunos Technolink~Kaki Bukit Road 1~~~~415937~Singapore~SG~83238787~63822288~01~CC~1~2147483647~Kar Houl Goh~0~83238787~63822288~~~~~~~sales@av1group.com.sg~~IM6~C13~IM6~701819~ZEV~0~UNSP~~0
+2~4206000506~001~BK302~1~001~CN~0~PR00~88.00~ZD03~0.00~ZS03~6.00~0~~0
+2~4206000506~001~BK302~1~002~CN~0~PR00~88.00~ZD03~0.00~ZS03~6.00~0~~0
+2~4206000506~001~BK302~1~003~CN~0~PR00~88.00~ZD03~0.00~ZS03~6.00~0~~0
+4~4206000506~001~Mr~Mark Lu ~~~34A~~Victoria Park Road ~~~266503~SG~81633268~~~0~Call before delivery. ~20130206~20130207~08~ENAV One (S) Pte Ltd^ENGoh Kar Houl^EN^EN^EN~ENMr. Mark Lu^EN^EN~ZH恭喜發財, 万事如意 !^ZHThe management and staff of ^ZHAV One (S) Pte Ltd would like to take this ^ZHopportunity to wish you and your family  ^ZH“A HAPPY & PROSPEROUS 2013”^ZH
+4~4206000506~002~Mr~Boon ~Eco-id Architects Pte Ltd~#04-01~28~red dot traffic~Maxwell Road~~~069120~SG~63375119~63375119~~0~Call before delivery. ~20130206~20130207~08~ENAV One (S) Pte Ltd^ENGoh Kar Houl^EN^EN^EN~ENBoon^EN^EN~ZH恭喜發財, 万事如意 !^ZH^ZH^ZH^ZH^ZH
+4~4206000506~003~Mr~Alan Tang ~Space Scope Pte Ltd~~112A ~~Tanjong Pagar Road~~~088528~SG~90050560~62271221~~0~Call before delivery. ~20130206~20130207~08~ENAV One (S) Pte Ltd^ENGoh Kar Houl^EN^EN^EN~ENMr Alan Tang^EN^EN~ZH恭喜發財, 万事如意 !^ZH^ZH^ZH^ZH^ZH

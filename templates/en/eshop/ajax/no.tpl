@@ -1,0 +1,1 @@
+<img src='{$php5WebPath}/images/no2.jpg'>

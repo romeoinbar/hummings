@@ -1,0 +1,1135 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="Joomla! - Open Source Content Management" />
+  <title>Joomla_2.5.4 - Administration</title>
+  <link href="/Joomla_2.5.4/administrator/templates/hathor/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link rel="stylesheet" href="/humming/insite/templates/system/css/modal.css" type="text/css" />
+  <link rel="stylesheet" href="/humming/insite/templates/system/css/calendar-jos.css" type="text/css"  title="Green"  media="all" />
+  <script src="/humming/insite/templates/system/js/mootools-core.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/core.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/mootools-more.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/validate.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/combobox.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/modal.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/calendar.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/calendar-setup.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/tabs.js" type="text/javascript"></script>
+  <script type="text/javascript">
+window.addEvent('domready', function() {
+			$$('.hasTip').each(function(el) {
+				var title = el.get('title');
+				if (title) {
+					var parts = title.split('::', 2);
+					el.store('tip:title', parts[0]);
+					el.store('tip:text', parts[1]);
+				}
+			});
+			var JTooltips = new Tips($$('.hasTip'), { maxTitleChars: 50, fixed: false});
+		});
+Joomla.submitbutton = function(task)
+	{
+			if (task == 'module.cancel' || document.formvalidator.isValid(document.id('module-form'))) {	Joomla.submitform(task, document.getElementById('module-form'));
+				if (self != top) {
+					window.top.setTimeout('window.parent.SqueezeBox.close()', 1000);
+				}
+			} else {
+				alert('Invalid form');
+			}
+	}
+
+		window.addEvent('domready', function() {
+
+			SqueezeBox.initialize({});
+			SqueezeBox.assign($$('a.modal'), {
+				parse: 'rel'
+			});
+		});
+	function jSelectPosition_jform_position(name) {
+		document.id("jform_position").value = name;
+		SqueezeBox.close();
+	}
+Calendar._DN = new Array ("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"); Calendar._SDN = new Array ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"); Calendar._FD = 0; Calendar._MN = new Array ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"); Calendar._SMN = new Array ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"); Calendar._TT = {};Calendar._TT["INFO"] = "About the Calendar"; Calendar._TT["ABOUT"] =
+ "DHTML Date/Time Selector\n" +
+ "(c) dynarch.com 2002-2005 / Author: Mihai Bazon\n" +
+"For latest version visit: http://www.dynarch.com/projects/calendar/\n" +
+"Distributed under GNU LGPL.  See http://gnu.org/licenses/lgpl.html for details." +
+"\n\n" +
+"Date selection:\n" +
+"- Use the « and » buttons to select year\n" +
+"- Use the < and > buttons to select month\n" +
+"- Hold mouse button on any of the above buttons for faster selection.";
+Calendar._TT["ABOUT_TIME"] = "\n\n" +
+"Time selection:\n" +
+"- Click on any of the time parts to increase it\n" +
+"- or Shift-click to decrease it\n" +
+"- or click and drag for faster selection.";
+
+		Calendar._TT["PREV_YEAR"] = "Click to move to the previous year. Click and hold for a list of years."; Calendar._TT["PREV_MONTH"] = "Click to move to the previous month. Click and hold for a list of the months."; Calendar._TT["GO_TODAY"] = "Go to today"; Calendar._TT["NEXT_MONTH"] = "Click to move to the next month. Click and hold for a list of the months."; Calendar._TT["NEXT_YEAR"] = "Click to move to the next year. Click and hold for a list of years."; Calendar._TT["SEL_DATE"] = "Select a date."; Calendar._TT["DRAG_TO_MOVE"] = "Drag to move"; Calendar._TT["PART_TODAY"] = "Today"; Calendar._TT["DAY_FIRST"] = "Display %s first"; Calendar._TT["WEEKEND"] = "0,6"; Calendar._TT["CLOSE"] = "Close"; Calendar._TT["TODAY"] = "Today"; Calendar._TT["TIME_PART"] = "(Shift-)Click or Drag to change the value."; Calendar._TT["DEF_DATE_FORMAT"] = "%Y-%m-%d"; Calendar._TT["TT_DATE_FORMAT"] = "%a, %b %e"; Calendar._TT["WK"] = "wk"; Calendar._TT["TIME"] = "Time:";
+window.addEvent('domready', function() {Calendar.setup({
+				// Id of the input field
+				inputField: "jform_publish_up",
+				// Format of the input field
+				ifFormat: "%Y-%m-%d %H:%M:%S",
+				// Trigger for the calendar (button ID)
+				button: "jform_publish_up_img",
+				// Alignment (defaults to "Bl")
+				align: "Tl",
+				singleClick: true,
+				firstDay: 0
+				});});
+window.addEvent('domready', function() {Calendar.setup({
+				// Id of the input field
+				inputField: "jform_publish_down",
+				// Format of the input field
+				ifFormat: "%Y-%m-%d %H:%M:%S",
+				// Trigger for the calendar (button ID)
+				button: "jform_publish_down_img",
+				// Alignment (defaults to "Bl")
+				align: "Tl",
+				singleClick: true,
+				firstDay: 0
+				});});
+window.addEvent('domready', function(){ new Fx.Accordion($$('div#module-sliders.pane-sliders > .panel > h3.pane-toggler'), $$('div#module-sliders.pane-sliders > .panel > div.pane-slider'), {onActive: function(toggler, i) {toggler.addClass('pane-toggler-down');toggler.removeClass('pane-toggler');i.addClass('pane-down');i.removeClass('pane-hide');Cookie.write('jpanesliders_module-sliders',$$('div#module-sliders.pane-sliders > .panel > h3').indexOf(toggler));},onBackground: function(toggler, i) {toggler.addClass('pane-toggler');toggler.removeClass('pane-toggler-down');i.addClass('pane-hide');i.removeClass('pane-down');if($$('div#module-sliders.pane-sliders > .panel > h3').length==$$('div#module-sliders.pane-sliders > .panel > h3.pane-toggler').length) Cookie.write('jpanesliders_module-sliders',-1);},duration: 300,opacity: false,alwaysHide: true}); });
+	window.addEvent('domready', function(){
+						$$('dl#module-menu-assignment-tabs.tabs').each(function(tabs){
+							new JTabs(tabs, {useStorage: true,titleSelector: 'dt.tabs',descriptionSelector: 'dd.tabs'});
+						});
+					});
+  </script>
+
+
+<!-- Load system style CSS -->
+<link rel="stylesheet" href="/humming/insite/templates/system/css/system.css" type="text/css" />
+
+<!-- Load Template CSS -->
+<link href="/humming/insite/templates/hathor/css/template.css" rel="stylesheet" type="text/css" />
+
+<!-- Load additional CSS styles for colors -->
+<link href="/humming/insite/templates/hathor/css/colour_standard.css" rel="stylesheet" type="text/css" />
+
+<!-- Load additional CSS styles for rtl sites -->
+
+<!-- Load specific language related css -->
+
+<!-- Load additional CSS styles for bold Text -->
+
+<!-- Load additional CSS styles for Internet Explorer -->
+<!--[if IE 8]>
+	<link href="/humming/insite/templates/hathor/css/ie8.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 7]>
+	<link href="/humming/insite/templates/hathor/css/ie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if lte IE 6]>
+	<link href="/humming/insite/templates/hathor/css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<!-- Load Template JavaScript -->
+<script type="text/javascript" src="/humming/insite/templates/hathor/js/template.js"></script>
+
+</head>
+
+<body id="minwidth-body">
+<div id="containerwrap">
+
+	<!-- Header Logo & Status -->
+	<div id="header">
+
+		<!-- Site Title and Skip to Content -->
+		<div class="title-ua">
+			<h1 class="title">Administration</h1>
+			<div id="skiplinkholder"><p><a id="skiplink" href="#skiptarget">Skip to Main Content</a></p></div>
+		</div>
+
+	</div><!-- end header -->
+
+	<!-- Main Menu Navigation -->
+	<div id="nav">
+		<div id="module-menu">
+			<h2 class="element-invisible">Main Menu</h2>
+			<ul id="menu" class="disabled">
+<li class="disabled"><a>Site</a>
+</li>
+<li class="disabled"><a>Users</a>
+</li>
+<li class="disabled"><a>Menus</a>
+</li>
+<li class="disabled"><a>Content</a>
+</li>
+<li class="disabled"><a>Components</a>
+</li>
+<li class="disabled"><a>Extensions</a>
+</li>
+<li class="disabled"><a>Help</a>
+</li>
+</ul>
+
+		</div>
+		<div class="clr"></div>
+	</div><!-- end nav -->
+
+	<!-- Status Module -->
+	<div id="module-status">
+		<span class="loggedin-users">0 Visitors</span><span class="backloggedin-users">1 Admin</span><span class="no-unread-messages">0</span>
+		<span class="viewsite"><a href="http://localhost:8080/Joomla_2.5.4/" target="_blank">View Site</a></span><span class="logout">Log out</span>	</div>
+
+	<!-- Content Area -->
+	<div id="content">
+
+		<!-- Component Title -->
+			<div class="pagetitle icon-48-module"><h2>Module Manager: Module Archived Articles</h2></div>
+
+		<!-- System Messages -->
+		
+<div id="system-message-container">
+</div>
+
+		<!-- Sub Menu Navigation -->
+		<div class="subheader">
+							<div id="no-submenu"></div>
+					</div>
+
+		<!-- Toolbar Icon Buttons -->
+		<div class="toolbar-box">
+					<div class="module">
+					<h3>Toolbar</h3>
+					<div class="toolbar-list" id="toolbar">
+<ul>
+<li class="button" id="toolbar-apply">
+<a href="#" onclick="Joomla.submitbutton('module.apply')" class="toolbar">
+<span class="icon-32-apply">
+</span>
+Save
+</a>
+</li>
+
+<li class="button" id="toolbar-save">
+<a href="#" onclick="Joomla.submitbutton('module.save')" class="toolbar">
+<span class="icon-32-save">
+</span>
+Save &amp; Close
+</a>
+</li>
+
+<li class="button" id="toolbar-save-new">
+<a href="#" onclick="Joomla.submitbutton('module.save2new')" class="toolbar">
+<span class="icon-32-save-new">
+</span>
+Save &amp; New
+</a>
+</li>
+
+<li class="button" id="toolbar-save-copy">
+<a href="#" onclick="Joomla.submitbutton('module.save2copy')" class="toolbar">
+<span class="icon-32-save-copy">
+</span>
+Save as Copy
+</a>
+</li>
+
+<li class="button" id="toolbar-cancel">
+<a href="#" onclick="Joomla.submitbutton('module.cancel')" class="toolbar">
+<span class="icon-32-cancel">
+</span>
+Close
+</a>
+</li>
+
+<li class="button" id="toolbar-help">
+<a href="#" onclick="Joomla.popupWindow('http://help.joomla.org/proxy/index.php?option=com_help&amp;amp;keyref=Help25:Extensions_Module_Manager_Articles_Archive', 'Help', 700, 500, 1)" rel="help" class="toolbar">
+<span class="icon-32-help">
+</span>
+Help
+</a>
+</li>
+
+</ul>
+<div class="clr"></div>
+</div>		</div>
+	
+			<div class="clr"></div>
+		</div>
+
+		<!-- Beginning of Actual Content -->
+		<div id="element-box">
+			<p id="skiptargetholder"><a id="skiptarget" class="skip" tabindex="-1"></a></p>
+
+			<!-- The main component -->
+			<div class="module-edit">
+
+<form action="/Joomla_2.5.4/administrator/index.php?option=com_modules&amp;layout=edit&amp;id=27" method="post" name="adminForm" id="module-form" class="form-validate">
+	<div class="col main-section">
+		<fieldset class="adminform">
+			<legend>Details</legend>
+			<ul class="adminformlist">
+
+			<li><label id="jform_title-lbl" for="jform_title" class="hasTip required" title="Title::Module must have a title">Title<span class="star">&#160;*</span></label>			<input type="text" name="jform[title]" id="jform_title" value="Archived Articles" class="required" size="35" maxlength="100"/></li>
+
+			<li><label id="jform_showtitle-lbl" for="jform_showtitle" class="hasTip" title="Show Title::Show/Hide module title on display. Effect will depend on the chrome style in the template.">Show Title</label>			<fieldset id="jform_showtitle" class="radio"><input type="radio" id="jform_showtitle0" name="jform[showtitle]" value="1" checked="checked"/><label for="jform_showtitle0">Show</label><input type="radio" id="jform_showtitle1" name="jform[showtitle]" value="0"/><label for="jform_showtitle1">Hide</label></fieldset></li>
+
+			<li><label id="jform_position-lbl" for="jform_position" class="hasTip" title="Position::You may select a module position from the modal display of pre-defined positions where you can filter by type and template, or enter your own module position by typing the name in the field and Save.">Position</label>						<label id="jform_custom_position-lbl" for="jform_custom_position" class="element-invisible">Select</label>
+			<div class="fltlft">
+<input type="text" name="jform[position]" id="jform_position" value="" maxlength="50"/>
+</div>
+<div class="button2-left">
+  <div class="blank">
+	<a class="modal" title="Change position"  href="index.php?option=com_modules&amp;view=positions&amp;layout=modal&amp;tmpl=component&amp;function=jSelectPosition_jform_position&amp;client_id=0" rel="{handler: 'iframe', size: {x: 800, y: 450}}">Select position</a>
+  </div>
+</div></li>
+
+						<li><label id="jform_published-lbl" for="jform_published" class="hasTip" title="Status::If published, this module will display on your site frontend or backend depending on the module.">Status</label>			<select id="jform_published" name="jform[published]" size="1">
+	<option value="1" selected="selected">Published</option>
+	<option value="0">Unpublished</option>
+	<option value="-2">Trashed</option>
+</select>
+</li>
+			
+			<li><label id="jform_access-lbl" for="jform_access" class="hasTip" title="Access::The access level group that is allowed to view this item.">Access</label>			<select id="jform_access" name="jform[access]"  size="1">
+	<option value="1" selected="selected">Public</option>
+	<option value="2">Registered</option>
+	<option value="3">Special</option>
+	<option value="4">Customer Access Level (Example)</option>
+</select>
+</li>
+
+			<li><label id="jform_ordering-lbl" for="jform_ordering" class="hasTip" title="Ordering::Select the ordering">Ordering</label>			<script type="text/javascript">
+var originalOrder = "1";
+var originalPos = "";
+var orders = new Array();
+orders[0] =  new Array("position-9","1","1. Contribute");
+orders[1] =  new Array("","1","1. Banners");
+orders[2] =  new Array("","2","2. Articles Categories");
+orders[3] =  new Array("","3","3. Breadcrumbs");
+orders[4] =  new Array("","4","4. Weblinks");
+orders[5] =  new Array("","5","5. Custom HTML");
+orders[6] =  new Array("","6","6. Menu Example");
+orders[7] =  new Array("","7","7. Login");
+orders[8] =  new Array("","8","8. Footer");
+orders[9] =  new Array("","9","9. Wrapper");
+orders[10] =  new Array("position-12","1","1. Special!");
+orders[11] =  new Array("position-0","1","1. Search");
+orders[12] =  new Array("languageswitcherload","1","1. Language Switcher");
+orders[13] =  new Array("position-11","1","1. Shop");
+orders[14] =  new Array("atomic-sidebar","1","1. Sidebar (Atomic Template)");
+orders[15] =  new Array("atomic-bottommiddle","1","1. Bottom Middle Column (Atomic Template)");
+orders[16] =  new Array("atomic-bottomleft","1","1. Bottom Left Column (Atomic Template)");
+orders[17] =  new Array("atomic-topquote","1","1. Top Quote (Atomic Template)");
+orders[18] =  new Array("atomic-topmenu","1","1. Top Menu (Atomic Template)");
+orders[19] =  new Array("atomic-search","1","1. Search (Atomic Template)");
+orders[20] =  new Array("","10","10. Articles Category");
+orders[21] =  new Array("position-4","1","1. About Fruit Shop");
+orders[22] =  new Array("","11","11. Who\'s Online");
+orders[23] =  new Array("","12","12. Users Latest");
+orders[24] =  new Array("sitemapload","1","1. Site Map");
+orders[25] =  new Array("position-1","1","1. Top");
+orders[26] =  new Array("position-10","1","1. Book Store");
+orders[27] =  new Array("position-2","1","1. Breadcrumbs");
+orders[28] =  new Array("","13","13. Latest News");
+orders[29] =  new Array("","14","14. Articles Most Read");
+orders[30] =  new Array("","15","15. Feed Display");
+orders[31] =  new Array("","16","16. News Flash");
+orders[32] =  new Array("","17","17. Random Image");
+orders[33] =  new Array("position-7","1","1. Main Menu");
+orders[34] =  new Array("","18","18. Articles Related Items");
+orders[35] =  new Array("","19","19. Search");
+orders[36] =  new Array("","20","20. Statistics");
+orders[37] =  new Array("syndicateload","1","1. Syndicate Feeds");
+orders[38] =  new Array("","21","21. Archived Articles");
+orders[39] =  new Array("atomic-sidebar","2","2. Login (Atomic Template)");
+orders[40] =  new Array("position-4","2","2. About Parks");
+orders[41] =  new Array("position-5","1","1. Australian Parks ");
+orders[42] =  new Array("position-7","2","2. Extensions");
+orders[43] =  new Array("","22","22. Smart Search Module");
+orders[44] =  new Array("position-7","3","3. User Menu");
+orders[45] =  new Array("position-4","3","3. Language Switcher");
+orders[46] =  new Array("position-5","2","2. Fruit Shop");
+orders[47] =  new Array("position-7","4","4. About Joomla!");
+orders[48] =  new Array("position-7","5","5. This Site");
+orders[49] =  new Array("position-7","6","6. Latest Park Blogs");
+orders[50] =  new Array("position-7","7","7. Login Form");
+writeDynaList('name="jform[ordering]" id="jform_ordering"', orders, originalPos, originalPos, originalOrder);
+</script></li>
+
+						<li><label id="jform_publish_up-lbl" for="jform_publish_up" class="hasTip" title="Start Publishing::An optional date to Start Publishing the module.">Start Publishing</label>			<input type="text" title="" name="jform[publish_up]" id="jform_publish_up" value="0000-00-00 00:00:00" size="22" /><img src="/Joomla_2.5.4/administrator/templates/hathor/images/system/calendar.png" alt="Calendar" class="calendar" id="jform_publish_up_img" /></li>
+
+			<li><label id="jform_publish_down-lbl" for="jform_publish_down" class="hasTip" title="Finish Publishing::An optional date to Finish Publishing the module.">Finish Publishing</label>			<input type="text" title="" name="jform[publish_down]" id="jform_publish_down" value="0000-00-00 00:00:00" size="22" /><img src="/Joomla_2.5.4/administrator/templates/hathor/images/system/calendar.png" alt="Calendar" class="calendar" id="jform_publish_down_img" /></li>
+			
+			<li><label id="jform_language-lbl" for="jform_language" class="hasTip" title="Language::Assign a language to this module.">Language</label>			<select id="jform_language" name="jform[language]">
+	<option value="*" selected="selected">All</option>
+	<option value="en-GB">English (UK)</option>
+</select>
+</li>
+
+			<li><label id="jform_note-lbl" for="jform_note" class="hasTip" title="Note::An optional note to display in module list.">Note</label>			<input type="text" name="jform[note]" id="jform_note" value="" size="35" maxlength="100"/></li>
+
+							<li><label id="jform_id-lbl" for="jform_id" class="hasTip" title="ID::Record number in the database">ID</label>				<input type="text" name="jform[id]" id="jform_id" value="27" readonly="readonly"/></li>
+			
+			<li>			<input type="hidden" name="jform[module]" id="jform_module" value="mod_articles_archive" />			<span class="faux-input">Archived Articles</span></li>
+
+			<li>			<input type="text" size="35" id="jform_client_id" value="Site	" class="readonly" readonly="readonly" />
+			<input type="hidden" name="jform[client_id]" id="jform_client_id" value="0" /></li>
+			</ul>
+			<div class="clr"></div>
+
+												<span class="faux-label">
+						Module Description					</span>
+					<div class="clr"></div>
+					<div class="readonly mod-desc extdescript">
+						This module shows a list of the calendar months containing archived articles. After you have changed the status of an article to archived, this list will be automatically generated.					</div>
+										<div class="clr"></div>
+		</fieldset>
+	</div>
+
+	<div class="col options-section">
+	<div id="module-sliders" class="pane-sliders"><div style="display:none;"><div>		</div></div><div class="panel"><h3 class="pane-toggler title" id="basic-options"><a href="javascript:void(0);"><span>Basic Options</span></a></h3><div class="pane-slider content">		<fieldset class="panelform">
+		<legend class="element-invisible">Basic Options</legend>
+				<ul class="adminformlist">
+									<li>
+				<label id="jform_params_count-lbl" for="jform_params_count" class="hasTip" title="# of Months::The number of months to display (the default is 10)"># of Months</label>				<input type="text" name="jform[params][count]" id="jform_params_count" value="10"/>			</li>
+								</ul>
+				</fieldset>
+	</div></div><div class="panel"><h3 class="pane-toggler title" id="advanced-options"><a href="javascript:void(0);"><span>Advanced Options</span></a></h3><div class="pane-slider content">		<fieldset class="panelform">
+		<legend class="element-invisible">Advanced Options</legend>
+				<ul class="adminformlist">
+									<li>
+				<label id="jform_params_layout-lbl" for="jform_params_layout" class="hasTip" title="Alternative Layout::Use a different layout from the supplied module or overrides in the templates.">Alternative Layout</label>				<select id="jform_params_layout" name="jform[params][layout]">
+	<optgroup id="jform_params_layout__" label="---From Module---">
+		<option value="_:default" selected="selected">Default</option>
+	</optgroup>
+</select>
+			</li>
+												<li>
+				<label id="jform_params_moduleclass_sfx-lbl" for="jform_params_moduleclass_sfx" class="hasTip" title="Module Class Suffix::A suffix to be applied to the CSS class of the module. This allows for individual module styling.">Module Class Suffix</label>				<input type="text" name="jform[params][moduleclass_sfx]" id="jform_params_moduleclass_sfx" value=""/>			</li>
+												<li>
+				<label id="jform_params_cache-lbl" for="jform_params_cache" class="hasTip" title="Caching::Select whether to cache the content of this module">Caching</label>				<select id="jform_params_cache" name="jform[params][cache]">
+	<option value="1" selected="selected">Use Global</option>
+	<option value="0">No caching</option>
+</select>
+			</li>
+												<li>
+				<label id="jform_params_cache_time-lbl" for="jform_params_cache_time" class="hasTip" title="Cache Time::The time before the module is recached">Cache Time</label>				<input type="text" name="jform[params][cache_time]" id="jform_params_cache_time" value="900"/>			</li>
+																	</ul>
+		<input type="hidden" name="jform[params][cachemode]" id="jform_params_cachemode" value="static" />		</fieldset>
+		</div></div></div>	</div>
+
+	
+		<div class="col main-section">
+				<script type="text/javascript">
+			window.addEvent('domready', function(){
+				validate();
+				document.getElements('select').addEvent('change', function(e){validate();});
+			});
+			function validate(){
+				var value	= document.id('jform_assignment').value;
+				var list	= document.id('menu-assignment');
+				if(value == '-' || value == '0'){
+					$$('.jform-assignments-button').each(function(el) {el.setProperty('disabled', true); });
+					list.getElements('input').each(function(el){
+						el.setProperty('disabled', true);
+						if (value == '-'){
+							el.setProperty('checked', false);
+						} else {
+							el.setProperty('checked', true);
+						}
+					});
+				} else {
+					$$('.jform-assignments-button').each(function(el) {el.setProperty('disabled', false); });
+					list.getElements('input').each(function(el){
+						el.setProperty('disabled', false);
+					});
+				}
+			}
+		</script>
+
+		<fieldset class="adminform">
+			<legend>Menu Assignment</legend>
+			<label id="jform_menus-lbl" for="jform_menus">Module Assignment</label>
+
+			<fieldset id="jform_menus" class="radio">
+				<select name="jform[assignment]" id="jform_assignment">
+					<option value="0">On all pages</option>
+<option value="-">No pages</option>
+<option value="1" selected="selected">Only on the pages selected</option>
+<option value="-1">On all pages except those selected</option>
+				</select>
+
+			</fieldset>
+
+			<label id="jform_menuselect-lbl" for="jform_menuselect">Menu Selection:</label>
+
+			<button type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = !el.checked; });">
+				Toggle Selection			</button>
+
+			<button type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = false; });">
+				Clear Selection			</button>
+
+			<button type="button" class="jform-assignments-button jform-rightbtn" onclick="$$('.chk-menulink').each(function(el) { el.checked = true; });">
+				Select All			</button>
+
+			<div class="clr"></div>
+
+			<div id="menu-assignment">
+
+			<dl class="tabs" id="module-menu-assignment-tabs"><dt style="display:none;"></dt><dd style="display:none;">
+			</dd><dt class="tabs aboutjoomla-details"><span><h3><a href="javascript:void(0);">About Joomla</a></h3></span></dt><dd class="tabs">				<ul class="menu-links">
+										<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="437" id="link437"/>
+						<label for="link437">
+							- Getting Started						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="280" id="link280"/>
+						<label for="link280">
+							- Using Joomla!						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="277" id="link277"/>
+						<label for="link277">
+							- - Using Extensions						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="268" id="link268"/>
+						<label for="link268">
+							- - - Components						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="266" id="link266"/>
+						<label for="link266">
+							- - - - Content Component						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="257" id="link257"/>
+						<label for="link257">
+							- - - - - Single Article						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="272" id="link272"/>
+						<label for="link272">
+							- - - - - Article Categories						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="259" id="link259"/>
+						<label for="link259">
+							- - - - - Article Category Blog						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="260" id="link260"/>
+						<label for="link260">
+							- - - - - Article Category List						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="262" id="link262"/>
+						<label for="link262">
+							- - - - - Featured Articles						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="256" id="link256"/>
+						<label for="link256">
+							- - - - - Archived Articles						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="263" id="link263"/>
+						<label for="link263">
+							- - - - - Submit Article						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="270" id="link270"/>
+						<label for="link270">
+							- - - - Contact Component						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="251" id="link251"/>
+						<label for="link251">
+							- - - - - Contact Categories						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="275" id="link275"/>
+						<label for="link275">
+							- - - - - Contact Single Category						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="229" id="link229"/>
+						<label for="link229">
+							- - - - - Single Contact						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="452" id="link452"/>
+						<label for="link452">
+							- - - - - Featured Contacts						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="265" id="link265"/>
+						<label for="link265">
+							- - - - Weblinks Component						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="249" id="link249"/>
+						<label for="link249">
+							- - - - - Submit a Weblink						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="274" id="link274"/>
+						<label for="link274">
+							- - - - - Weblinks Single Category						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="227" id="link227"/>
+						<label for="link227">
+							- - - - - Weblinks Categories						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="267" id="link267"/>
+						<label for="link267">
+							- - - - News Feeds Component						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="252" id="link252"/>
+						<label for="link252">
+							- - - - - News Feed Categories						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="254" id="link254"/>
+						<label for="link254">
+							- - - - - Single News Feed						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="253" id="link253"/>
+						<label for="link253">
+							- - - - - News Feed Category						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="271" id="link271"/>
+						<label for="link271">
+							- - - - Users Component						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="402" id="link402"/>
+						<label for="link402">
+							- - - - - Login Form						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="403" id="link403"/>
+						<label for="link403">
+							- - - - - User Profile						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="404" id="link404"/>
+						<label for="link404">
+							- - - - - Edit User Profile						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="405" id="link405"/>
+						<label for="link405">
+							- - - - - Registration Form						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="406" id="link406"/>
+						<label for="link406">
+							- - - - - Username Reminder Request						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="409" id="link409"/>
+						<label for="link409">
+							- - - - - Password Reset						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="276" id="link276"/>
+						<label for="link276">
+							- - - - Search Components						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="255" id="link255"/>
+						<label for="link255">
+							- - - - - Search						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="466" id="link466"/>
+						<label for="link466">
+							- - - - - Smart Search						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="273" id="link273"/>
+						<label for="link273">
+							- - - - Administrator Components						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="281" id="link281"/>
+						<label for="link281">
+							- - - Modules						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="415" id="link415"/>
+						<label for="link415">
+							- - - - Navigation Modules						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="303" id="link303"/>
+						<label for="link303">
+							- - - - - Menu						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="416" id="link416"/>
+						<label for="link416">
+							- - - - - Breadcrumbs						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="411" id="link411"/>
+						<label for="link411">
+							- - - - Content Modules						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="302" id="link302"/>
+						<label for="link302">
+							- - - - - Most Read						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="309" id="link309"/>
+						<label for="link309">
+							- - - - - News Flash						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="310" id="link310"/>
+						<label for="link310">
+							- - - - - Latest Articles						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="325" id="link325" checked="checked"/>
+						<label for="link325">
+							- - - - - Archive						</label>
+					</li>
+										</ul><ul class="menu-links">
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="326" id="link326"/>
+						<label for="link326">
+							- - - - - Related Items						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="443" id="link443"/>
+						<label for="link443">
+							- - - - - Article Categories						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="459" id="link459"/>
+						<label for="link459">
+							- - - - - Article Category						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="412" id="link412"/>
+						<label for="link412">
+							- - - - User Modules						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="300" id="link300"/>
+						<label for="link300">
+							- - - - - Latest Users						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="301" id="link301"/>
+						<label for="link301">
+							- - - - - Who's Online						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="312" id="link312"/>
+						<label for="link312">
+							- - - - - Login						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="413" id="link413"/>
+						<label for="link413">
+							- - - - Display Modules						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="307" id="link307"/>
+						<label for="link307">
+							- - - - - Random Image						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="305" id="link305"/>
+						<label for="link305">
+							- - - - - Banner						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="410" id="link410"/>
+						<label for="link410">
+							- - - - - Feed Display						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="324" id="link324"/>
+						<label for="link324">
+							- - - - - Footer						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="417" id="link417"/>
+						<label for="link417">
+							- - - - - Weblinks						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="418" id="link418"/>
+						<label for="link418">
+							- - - - - Custom HTML						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="414" id="link414"/>
+						<label for="link414">
+							- - - - Utility Modules						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="311" id="link311"/>
+						<label for="link311">
+							- - - - - Syndicate						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="304" id="link304"/>
+						<label for="link304">
+							- - - - - Statistics						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="306" id="link306"/>
+						<label for="link306">
+							- - - - - Search						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="447" id="link447"/>
+						<label for="link447">
+							- - - - - Language Switcher						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="313" id="link313"/>
+						<label for="link313">
+							- - - - - Wrapper						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="467" id="link467"/>
+						<label for="link467">
+							- - - - - Smart Search						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="282" id="link282"/>
+						<label for="link282">
+							- - - Templates						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="419" id="link419"/>
+						<label for="link419">
+							- - - - Beez 2						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="423" id="link423"/>
+						<label for="link423">
+							- - - - - Typography Beez 2						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="424" id="link424"/>
+						<label for="link424">
+							- - - - - Home Page Beez 2						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="456" id="link456"/>
+						<label for="link456">
+							- - - - Beez5						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="457" id="link457"/>
+						<label for="link457">
+							- - - - - Typography Beez5						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="458" id="link458"/>
+						<label for="link458">
+							- - - - - Home Page Beez5						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="422" id="link422"/>
+						<label for="link422">
+							- - - - Atomic						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="285" id="link285"/>
+						<label for="link285">
+							- - - - - Typography Atomic						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="316" id="link316"/>
+						<label for="link316">
+							- - - - - Home Page Atomic						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="283" id="link283"/>
+						<label for="link283">
+							- - - Languages						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="284" id="link284"/>
+						<label for="link284">
+							- - - Plugins						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="318" id="link318"/>
+						<label for="link318">
+							- - - - Authentication						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="319" id="link319"/>
+						<label for="link319">
+							- - - - Content						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="320" id="link320"/>
+						<label for="link320">
+							- - - - Editors						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="321" id="link321"/>
+						<label for="link321">
+							- - - - Editors Extended						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="322" id="link322"/>
+						<label for="link322">
+							- - - - Search						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="323" id="link323"/>
+						<label for="link323">
+							- - - - User						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="317" id="link317"/>
+						<label for="link317">
+							- - - - System						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="453" id="link453"/>
+						<label for="link453">
+							- - Parameters						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="436" id="link436"/>
+						<label for="link436">
+							- - Getting Help						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="278" id="link278"/>
+						<label for="link278">
+							- The Joomla! Project						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="279" id="link279"/>
+						<label for="link279">
+							- The Joomla! Community						</label>
+					</li>
+														</ul>
+				<div class="clr"></div>
+							</dd><dt class="tabs parks-details"><span><h3><a href="javascript:void(0);">Australian Parks</a></h3></span></dt><dd class="tabs">				<ul class="menu-links">
+										<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="243" id="link243"/>
+						<label for="link243">
+							- Parks Home						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="234" id="link234"/>
+						<label for="link234">
+							- Park Blog						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="242" id="link242"/>
+						<label for="link242">
+							- Write a Blog Post						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="244" id="link244"/>
+						<label for="link244">
+							- Image Gallery						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="399" id="link399"/>
+						<label for="link399">
+							- - Animals						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="400" id="link400"/>
+						<label for="link400">
+							- - Scenery						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="296" id="link296"/>
+						<label for="link296">
+							- Park Links						</label>
+					</li>
+														</ul>
+				<div class="clr"></div>
+							</dd><dt class="tabs fruitshop-details"><span><h3><a href="javascript:void(0);">Fruit Shop</a></h3></span></dt><dd class="tabs">				<ul class="menu-links">
+										<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="429" id="link429"/>
+						<label for="link429">
+							- Welcome						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="427" id="link427"/>
+						<label for="link427">
+							- Fruit Encyclopedia						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="431" id="link431"/>
+						<label for="link431">
+							- Growers						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="430" id="link430"/>
+						<label for="link430">
+							- Contact Us						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="432" id="link432"/>
+						<label for="link432">
+							- Login 						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="433" id="link433"/>
+						<label for="link433">
+							- Directions						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="462" id="link462"/>
+						<label for="link462">
+							- Add a recipe						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="463" id="link463"/>
+						<label for="link463">
+							- Recipes						</label>
+					</li>
+														</ul>
+				<div class="clr"></div>
+							</dd><dt class="tabs mainmenu-details"><span><h3><a href="javascript:void(0);">Main Menu</a></h3></span></dt><dd class="tabs">				<ul class="menu-links">
+										<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="435" id="link435"/>
+						<label for="link435">
+							- Home						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="294" id="link294"/>
+						<label for="link294">
+							- Site Map						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="290" id="link290"/>
+						<label for="link290">
+							- - Articles						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="438" id="link438"/>
+						<label for="link438">
+							- - Weblinks						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="439" id="link439"/>
+						<label for="link439">
+							- - Contacts						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="233" id="link233"/>
+						<label for="link233">
+							- Login						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="238" id="link238"/>
+						<label for="link238">
+							- Sample Sites						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="445" id="link445"/>
+						<label for="link445">
+							- - Parks						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="446" id="link446"/>
+						<label for="link446">
+							- - Shop						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="448" id="link448"/>
+						<label for="link448">
+							- Site Administrator						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="455" id="link455"/>
+						<label for="link455">
+							- Example Pages						</label>
+					</li>
+														</ul>
+				<div class="clr"></div>
+							</dd><dt class="tabs top-details"><span><h3><a href="javascript:void(0);">Top</a></h3></span></dt><dd class="tabs">				<ul class="menu-links">
+										<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="464" id="link464"/>
+						<label for="link464">
+							- Home						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="444" id="link444"/>
+						<label for="link444">
+							- Sample Sites						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="207" id="link207"/>
+						<label for="link207">
+							- Joomla.org						</label>
+					</li>
+														</ul>
+				<div class="clr"></div>
+							</dd><dt class="tabs usermenu-details"><span><h3><a href="javascript:void(0);">User Menu</a></h3></span></dt><dd class="tabs">				<ul class="menu-links">
+										<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="201" id="link201"/>
+						<label for="link201">
+							- Your Profile						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="449" id="link449"/>
+						<label for="link449">
+							- Submit an Article						</label>
+					</li>
+															<li class="menu-link">
+						<input type="checkbox" class="chk-menulink" name="jform[assigned][]" value="450" id="link450"/>
+						<label for="link450">
+							- Submit a Web Link						</label>
+					</li>
+														</ul>
+				<div class="clr"></div>
+							
+			</dd></dl>
+			</div>
+		</fieldset>
+	</div>
+	
+	<div>
+		<input type="hidden" name="task" value="" />
+		<input type="hidden" name="958a0355f2841486fabcef48267f9a93" value="1" />	</div>
+</form>
+</div>
+
+
+			<div class="clr"></div>
+		</div><!-- end of element-box -->
+
+		<noscript>
+			Warning! JavaScript must be enabled for proper operation of the Administrator backend.		</noscript>
+
+		<div class="clr"></div>
+
+	</div><!-- end of content -->
+
+	<div class="clr"></div>
+</div><!-- end of containerwrap -->
+
+<!-- Footer -->
+<div id="footer">
+	<p align="center">Joomla! 2.5.4</p>
+	<p class="copyright">
+		<a href="http://www.joomla.org">Joomla!&#174;</a> is free software released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a>.	</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+form {margin:0px; padding:0px; margin-top:5px;}
+.forms{font-size:12px;
+
+margin:auto;
+width:1000px;
+}
+
+th{text-transform:capitalize;}
+.toolbar{
+font-size:12px;
+border:1px solid #ccc;
+padding:6px 15px 6px 15px;
+margin-left:auto;
+margin-right:auto;
+width:1000px;	
+min-height:30px;
+	}
+	
+.forms input, .forms textarea{border:1px solid #ccc; padding:1px;}
+.forms input:focus, .forms textarea:focus{border:1px solid #000; }
+select{font-size:12px;}
+textarea{font-size:12px; font-family:arial;}
+
+div.label{ background-color:#dcdcdc; padding:2px 15px 3px 10px; color:#000; float:left; clear:both; width:150px; display:inline-block; margin-bottom:2px;}
+div.input{ margin-bottom:2px;}
+.button {
+    border: 1px solid #006;
+    background: #c10774;
+	color:#fff;
+}
+.button:hover {
+    border: 1px solid #000;
+}
+
+.close{
+width:20px;
+height:20px;
+cursor:pointer;
+float:right;
+background:url(../images/close.jpg) no-repeat;	
+}
+.close a{
+color:#000;
+text-decoration:none;
+}
+
+.main{
+background:#eee;	
+	}

@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr" >
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="Joomla! - Open Source Content Management" />
+  <title>Joomla_2.5.4 - Administration</title>
+  <link rel="stylesheet" href="/humming/insite/templates/system/css/medialist-thumbs.css" type="text/css" />
+  <script src="/humming/insite/templates/system/js/mootools-core.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/core.js" type="text/javascript"></script>
+  <script src="/humming/insite/templates/system/js/mootools-more.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+		window.addEvent('domready', function() {
+			window.parent.document.updateUploader();
+			$$('a.img-preview').each(function(el) {
+				el.addEvent('click', function(e) {
+					new Event(e).stop();
+					window.top.document.preview.fromElement(el);
+				});
+			});
+		});
+  </script>
+
+<style>
+/**
+ * CSS Document for media manager thumbnail view
+ * @version $Id: medialist-thumbs.css 14401 2010-01-26 14:10:00Z louis $
+ * @package Joomla
+ * @copyright Copyright (C) 2005 - 2010 Open Source Matters. All rights reserved.
+ * @license GNU/GPL, see LICENSE.php
+ * Joomla! is free software and parts of it may contain or be derived from the
+ * GNU General Public License or other free or open source software licenses.
+ * See COPYRIGHT.php for copyright notices and details.
+ */
+
+div.imgOutline {
+	float: left;
+	border: 1px;
+
+	border-right: 1px solid #f0f0f0;
+	border-bottom: 1px solid #ccc;
+	width:90px; }
+
+div.imgTotal { }
+
+div.imgBorder {
+	height: 72px;
+	vertical-align: middle;
+	width: 88px;
+	overflow: hidden;
+}
+
+div.imgBorder a {
+	height: 72px;
+	width: 88px;
+	display: block;
+}
+
+div.imgBorder a:hover {
+	height: 72px;
+	width: 88px;
+	background-color: #f0f0f0;
+	color : #FF6600;
+}
+
+.imgBorderHover {
+	background: #FFFFCC;
+	cursor: hand;
+}
+
+div.controls {
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	background: #f9fcf9;
+	border-top: 1px solid #ddd;
+}
+
+div.controls input {
+	vertical-align: middle;
+}
+
+div.controls img {
+	vertical-align: middle;
+}
+
+div.controls:hover {
+	display: block;
+}
+
+div.imginfoBorder {
+	background: #f9f9f9;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	width: 88px;
+	height: 15px;
+	vertical-align: middle;
+	text-align: center;
+	overflow: hidden;
+}
+
+div.imgBorder a {
+	cursor: pointer;
+}
+
+.buttonHover {
+	border: 1px solid;
+	border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+	cursor: hand;
+	background: #FFFFCC;
+}
+
+.buttonOut {
+	border: 0px;
+}
+
+.imgCaption {
+	font-size: 9pt;
+	text-align: center;
+}
+
+.dirField {
+	font-size: 9pt;
+	width:110px;
+}
+
+div.image {
+	padding-top: 10px;
+}
+
+</style>
+<link href="/humming/insite/templates/system/css/system.css" type="text/css" rel="stylesheet" type="text/css" />
+<link href="/humming/insite/templates/hathor/css/template.css" rel="stylesheet" type="text/css" />
+
+<link href="/humming/insite/templates/hathor/css/colour_standard.css" rel="stylesheet" type="text/css" />
+
+<!-- Load additional CSS styles for rtl sites -->
+
+<!-- Load specific language related css -->
+
+<!-- Load additional CSS styles for bold Text -->
+
+
+</head>
+<body class="contentpane">
+	
+<div id="system-message-container">
+</div>
+	<form target="_parent" action="index.php?option=com_media&amp;tmpl=index&amp;folder=" method="post" id="mediamanager-form" name="mediamanager-form">
+	<div class="manager">
+				<div class="imgOutline">
+			<div class="imgTotal">
+				<div align="center" class="imgBorder">
+					<a href="index.php?option=com_media&amp;view=mediaList&amp;tmpl=component&amp;folder=" target="folderframe">
+						<img src="/Joomla_2.5.4/media/media/images/folderup_32.png" alt=".." width="32" height="32" /></a>
+				</div>
+			</div>
+			<div class="controls">
+				<span>&#160;</span>
+			</div>
+			<div class="imginfoBorder">
+				<a href="index.php?option=com_media&amp;view=mediaList&amp;tmpl=component&amp;folder=" target="folderframe">..</a>
+			</div>
+		</div>
+
+				<div class="imgOutline">
+			<div class="imgTotal">
+				<div align="center" class="imgBorder">
+					<a href="index.php?option=com_media&amp;view=mediaList&amp;tmpl=component&amp;folder=banners" target="folderframe">
+						<img src="/Joomla_2.5.4/media/media/images/folder.png" alt="Folder" width="80" height="80" border="0" /></a>
+				</div>
+			</div>
+			<div class="controls">
+							<a class="delete-item" target="_top" href="index.php?option=com_media&amp;task=folder.delete&amp;tmpl=index&amp;eb01dce9390df8a6f4b31745cc59aadd=1&amp;folder=&amp;rm[]=banners" rel="banners :: 5"><img src="/Joomla_2.5.4/media/media/images/remove.png" alt="Delete" width="16" height="16" border="0" /></a>
+				<input type="checkbox" name="rm[]" value="banners" />
+						</div>
+			<div class="imginfoBorder">
+				<a href="index.php?option=com_media&amp;view=mediaList&amp;tmpl=component&amp;folder=banners" target="folderframe">banners</a>
+			</div>
+		</div>
+		<div class="imgOutline">
+			<div class="imgTotal">
+				<div align="center" class="imgBorder">
+					<a href="index.php?option=com_media&amp;view=mediaList&amp;tmpl=component&amp;folder=sampledata" target="folderframe">
+						<img src="/Joomla_2.5.4/media/media/images/folder.png" alt="Folder" width="80" height="80" border="0" /></a>
+				</div>
+			</div>
+			<div class="controls">
+							<a class="delete-item" target="_top" href="index.php?option=com_media&amp;task=folder.delete&amp;tmpl=index&amp;eb01dce9390df8a6f4b31745cc59aadd=1&amp;folder=&amp;rm[]=sampledata" rel="sampledata :: 2"><img src="/Joomla_2.5.4/media/media/images/remove.png" alt="Delete" width="16" height="16" border="0" /></a>
+				<input type="checkbox" name="rm[]" value="sampledata" />
+						</div>
+			<div class="imginfoBorder">
+				<a href="index.php?option=com_media&amp;view=mediaList&amp;tmpl=component&amp;folder=sampledata" target="folderframe">sampledata</a>
+			</div>
+		</div>
+
+		
+				<div class="imgOutline">
+			<div class="imgTotal">
+				<div class="imgBorder center">
+					<a class="img-preview" href="http://localhost:8080/Joomla_2.5.4/images/joomla_black.gif" title="joomla_black.gif" style="display: block; width: 100%; height: 100%">
+						<img src="http://localhost:8080/Joomla_2.5.4/images/joomla_black.gif" alt="joomla_black.gif - 2.32 KB" width="60" height="13" />					</a>
+				</div>
+			</div>
+			<div class="controls">
+							<a class="delete-item" target="_top" href="index.php?option=com_media&amp;task=file.delete&amp;tmpl=index&amp;eb01dce9390df8a6f4b31745cc59aadd=1&amp;folder=&amp;rm[]=joomla_black.gif" rel="joomla_black.gif"><img src="/Joomla_2.5.4/media/media/images/remove.png" alt="Delete" width="16" height="16" /></a>
+				<input type="checkbox" name="rm[]" value="joomla_black.gif" />
+						</div>
+			<div class="imginfoBorder">
+				<a href="http://localhost:8080/Joomla_2.5.4/images/joomla_black.gif" title="joomla_black.gif" class="preview">joomla_bla...</a>
+			</div>
+		</div>
+		<div class="imgOutline">
+			<div class="imgTotal">
+				<div class="imgBorder center">
+					<a class="img-preview" href="http://localhost:8080/Joomla_2.5.4/images/joomla_green.gif" title="joomla_green.gif" style="display: block; width: 100%; height: 100%">
+						<img src="http://localhost:8080/Joomla_2.5.4/images/joomla_green.gif" alt="joomla_green.gif - 2.05 KB" width="60" height="13" />					</a>
+				</div>
+			</div>
+			<div class="controls">
+							<a class="delete-item" target="_top" href="index.php?option=com_media&amp;task=file.delete&amp;tmpl=index&amp;eb01dce9390df8a6f4b31745cc59aadd=1&amp;folder=&amp;rm[]=joomla_green.gif" rel="joomla_green.gif"><img src="/Joomla_2.5.4/media/media/images/remove.png" alt="Delete" width="16" height="16" /></a>
+				<input type="checkbox" name="rm[]" value="joomla_green.gif" />
+						</div>
+			<div class="imginfoBorder">
+				<a href="http://localhost:8080/Joomla_2.5.4/images/joomla_green.gif" title="joomla_green.gif" class="preview">joomla_gre...</a>
+			</div>
+		</div>
+		<div class="imgOutline">
+			<div class="imgTotal">
+				<div class="imgBorder center">
+					<a class="img-preview" href="http://localhost:8080/Joomla_2.5.4/images/joomla_logo_black.jpg" title="joomla_logo_black.jpg" style="display: block; width: 100%; height: 100%">
+						<img src="http://localhost:8080/Joomla_2.5.4/images/joomla_logo_black.jpg" alt="joomla_logo_black.jpg - 7.03 KB" width="60" height="12" />					</a>
+				</div>
+			</div>
+			<div class="controls">
+							<a class="delete-item" target="_top" href="index.php?option=com_media&amp;task=file.delete&amp;tmpl=index&amp;eb01dce9390df8a6f4b31745cc59aadd=1&amp;folder=&amp;rm[]=joomla_logo_black.jpg" rel="joomla_logo_black.jpg"><img src="/Joomla_2.5.4/media/media/images/remove.png" alt="Delete" width="16" height="16" /></a>
+				<input type="checkbox" name="rm[]" value="joomla_logo_black.jpg" />
+						</div>
+			<div class="imginfoBorder">
+				<a href="http://localhost:8080/Joomla_2.5.4/images/joomla_logo_black.jpg" title="joomla_logo_black.jpg" class="preview">joomla_log...</a>
+			</div>
+		</div>
+		<div class="imgOutline">
+			<div class="imgTotal">
+				<div class="imgBorder center">
+					<a class="img-preview" href="http://localhost:8080/Joomla_2.5.4/images/powered_by.png" title="powered_by.png" style="display: block; width: 100%; height: 100%">
+						<img src="http://localhost:8080/Joomla_2.5.4/images/powered_by.png" alt="powered_by.png - 2.25 KB" width="60" height="14" />					</a>
+				</div>
+			</div>
+			<div class="controls">
+							<a class="delete-item" target="_top" href="index.php?option=com_media&amp;task=file.delete&amp;tmpl=index&amp;eb01dce9390df8a6f4b31745cc59aadd=1&amp;folder=&amp;rm[]=powered_by.png" rel="powered_by.png"><img src="/Joomla_2.5.4/media/media/images/remove.png" alt="Delete" width="16" height="16" /></a>
+				<input type="checkbox" name="rm[]" value="powered_by.png" />
+						</div>
+			<div class="imginfoBorder">
+				<a href="http://localhost:8080/Joomla_2.5.4/images/powered_by.png" title="powered_by.png" class="preview">powered_by...</a>
+			</div>
+		</div>
+
+		<input type="hidden" name="task" value="" />
+		<input type="hidden" name="username" value="" />
+		<input type="hidden" name="password" value="" />
+		<input type="hidden" name="eb01dce9390df8a6f4b31745cc59aadd" value="1" />	</div>
+</form>
+
+</body>
+</html>
