@@ -34,19 +34,16 @@ if ($admin != "insite") {
     if (file_exists($viewer . $module . $php5Ext)) {
 
         if (empty($popup) && !$show) {
-
-            $php5DB_en->setQuery("SELECT * FROM #__product_category WHERE category_type=1 AND publish=1 AND parent_id=201 ORDER BY sorting ASC");
-            $cats = $php5DB_en->loadObjectList();
-            foreach ($cats as $cat) {
-                $cat->name = stripslashes($cat->name);
-                $cat->url = sefBuild($php5WebPath, 'index.php?o=eshop&m=by_category&task=show&id=' . $cat->product_category_id, 1);
-                $cat->activemenu = ($module == 'by_category' && $task == 'show' && php5GetParam($_REQUEST, "id", 0) == $cat->product_category_id) ? " id ='bottom_activemenu'" : "";
-            }
-            $smarty->assign("bottom_cats", array_slice($cats, 0, 12));
-            $smarty->assign("bottom_cats1", array_slice($cats, 13, count($cats)));
-
+//            $php5DB_en->setQuery("SELECT * FROM #__product_category WHERE category_type=1 AND publish=1 AND parent_id=201 ORDER BY sorting ASC");
+//            $cats = $php5DB_en->loadObjectList();
+//            foreach ($cats as $cat) {
+//                $cat->name = stripslashes($cat->name);
+//                $cat->url = sefBuild($php5WebPath, 'index.php?o=eshop&m=by_category&task=show&id=' . $cat->product_category_id, 1);
+//                $cat->activemenu = ($module == 'by_category' && $task == 'show' && php5GetParam($_REQUEST, "id", 0) == $cat->product_category_id) ? " id ='bottom_activemenu'" : "";
+//            }
+//            $smarty->assign("bottom_cats", array_slice($cats, 0, 12));
+//            $smarty->assign("bottom_cats1", array_slice($cats, 13, count($cats)));
             include_once 'classes/tables.class.php';
-
             include($viewer . $module . $php5Ext);
 
             if ($task != 'header') {
