@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <site SitePrefVersionMajor="12" SitePrefVersionMinor="0">
-    <localinfo sitename="humming_new" ftporrdsserver="FALSE" mediaqueryfile="" localroot="D:%5CAppServ%5Cwww%5Chumming%5C" assetfolder="D:%5CAppServ%5Cwww%5Chumming%5CSpryAssets%5C" webfontsfolder="D:%5CAppServ%5Cwww%5Chumming%5Cwebfonts%5C" imagefolder="" spacerfilepath="" refreshlocal="TRUE" rewritedocrellinks="FALSE" cache="FALSE" httpaddress="http://120.50.45.210/" relativeTo="DOCUMENT" caseSensitiveLinks="FALSE" curserver="webserver"/>
+    <localinfo sitename="humming_new" ftporrdsserver="FALSE" mediaqueryfile="" localroot="D:%5CAppServ%5Cwww%5Chummings%5C" assetfolder="D:%5CAppServ%5Cwww%5Chummings%5CSpryAssets%5C" webfontsfolder="D:%5CAppServ%5Cwww%5Chummings%5Cwebfonts%5C" imagefolder="" spacerfilepath="" refreshlocal="TRUE" rewritedocrellinks="FALSE" cache="FALSE" httpaddress="http://120.50.45.210/" relativeTo="DOCUMENT" caseSensitiveLinks="FALSE" curserver="webserver"/>
     <designnotes usedesignnotes="TRUE" sharedesignnotes="FALSE"/>
     <sitemap homepage="" pagesperrow="200" columnwidth="125" showdependentfiles="FALSE" showpagetitles="FALSE" showhiddenfiles="FALSE"/>
     <bcinfo siteid="0" sitename="" secureURL=""/>

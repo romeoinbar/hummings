@@ -270,7 +270,10 @@ class Dba
          $i++;
        }
        $sql .= ")";
-       mysql_query($sql, $dblink);
+       $result = mysql_query($sql, $dblink);
+		if (!$result) {
+			die('Invalid query: ' . mysql_error($dblink));
+		}
 
      }
 	
@@ -318,8 +321,12 @@ class Dba
 
        }
        $sql .= " WHERE $keyname ='$key' ";
-//	   echo $sql;	   
-      mysql_query($sql, $dblink);
+	   //echo $sql;	   die;
+      $result = mysql_query($sql, $dblink);
+		if (!$result) {
+			//die('Invalid query: ' . mysql_error());
+		}
+	  
     }
 
      function loadData($table, $key, $value){

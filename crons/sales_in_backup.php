@@ -25,7 +25,19 @@ require_once($php5RootPath . "/includes/php5_define" . $php5Ext);
 require_once($php5RootPath . "/includes/class.inputfilter" . $php5Ext);
 require_once($php5RootPath . "/includes/php5_common" . $php5Ext);
 php5Init( 0 );
-require_once($php5RootPath . "/includes/generate.php");
+require_once($php5RootPath . "/classes/generate.class.php");
+$php5DB_en->setQuery("SELECT *
+						FROM #__order_log						
+						WHERE status = 0 and times = 1");	
+	$rows = $php5DB_en->loadObjectList();
+	if (count($rows) > 0) {
+		$generate = new Generate($php5DB);		
+		foreach ($rows as $row){
+			$generate->cron_generate_order_file($row->id);
+		}
+	}
+			
+exit;
 //////////
 $date = date('Ymdhis', php5GMTTime());
 

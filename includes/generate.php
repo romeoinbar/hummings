@@ -7,6 +7,7 @@
  *   Email                  : 
  ***************************************************************************/
 defined('PHP5_PHP') or die("Application is stopping!!!");
+require_once($php5RootPath . "/classes/generate.class.php");
 function checkFTP()
 {
 	$ftp_server = "192.168.2.6";
@@ -47,7 +48,9 @@ function generate_order_file($order_id)
 {
 	global $php5RootPath, $php5DB;
 			$arrBCC = array();
-	
+	$generate = new Generate($php5DB);
+	$generate->generate_order_file($order_id);
+	return;	
 	$dir = $php5RootPath."/sap/";
 	$file = $dir."sales_in.txt";
 	
@@ -333,7 +336,9 @@ function generate_customer_file($user_id, $update_indicator)
 {
 	global $php5RootPath, $php5DB;
 			$arrBCC = array();
-	
+	$generate = new Generate($php5DB);
+	$generate->generate_customer_file($user_id, $update_indicator);
+	return;		
 	$dir = $php5RootPath."/sap/";
 	$file = $dir."cust_in.txt";
 	$arrayCustomer = array('update_indicator','sold_to_party_no','name','ssid', 'block','unit','building','address1','address2','address3','address4','postcode','city','country','telephone1','telephone2','email');

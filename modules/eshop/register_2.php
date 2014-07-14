@@ -30,13 +30,18 @@ $do = $php5Session->getVar('register');
 if ($do)
 {
 	include 'includes/random_code.php';
-	include 'includes/send_email.php';	
+	//include 'includes/send_email.php';	
 	include 'includes/generate.php';
 
 	
 	
 $user = new User();
 $user->bindRequest();
+if(!$user->user_id) {
+	$user->user_id = 0;
+}
+$user->dob = '0000-00-00';
+$user->notify_update = 0;
 $old_password = $user->password;
 $new_password = md5($user->password);
 
@@ -63,7 +68,7 @@ $smarty->assign('password', $old_password );
 $tpl =  $php5RootPath.'/templates/en/eshop/member_welcome_email.tpl';
 $content =  $smarty->fetch($tpl);		
 
-email_register_user($email,$old_password, $content);
+//email_register_user($email,$old_password, $content);
 $smarty->assign('error_message', $user->mysql_error_message() );	
 $php5Session->setVar('register',0);
 }

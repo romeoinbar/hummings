@@ -45,7 +45,15 @@ function generate_order_file($order_id)
 {
 	global $php5RootPath, $php5DB;
 			$arrBCC = array("nam@ua-consultants.com");
-	
+	//require_once($php5RootPath . "/includes/generate.php");
+	$orderLog = new OrderLog($php5DB);
+	$orderLog->id = 0;
+	$orderLog->order_id = $order_id;
+	$orderLog->store();
+	if(!$orderLog->id) {
+		//send email for error
+	}
+	exit;
 	$dir = $php5RootPath."/sap/";
 	$file = $dir."sales_in.txt";
 	
