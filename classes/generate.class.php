@@ -11,9 +11,93 @@ class Generate
 	function __construct( $dbh ) {
 		$this->php5DB = $dbh;
 	}
+	function move_order_file()
+	{
+		//////////
+		$date = date('Ymdhis', php5GMTTime());
+		$dir = DIR_SAP;
+		$path = dirname(__FILE__);
+		
+		$filename =  $dir."sales_in.txt";
+		$contents = '';
+		$error = 0;
+		if($conn = checkFTP()) {
+			if(is_file($filename)) {
+				$handle = fopen($filename, "r");
+				$contents = fread($handle, filesize($filename));
+				fclose($handle);
+			}
+			if($contents) {
+				$dir = "$path/../backup_sap/";
+				if(!is_dir($dir)) {
+					if(mkdir($dir, 0755)){};
+				} else {
+					if(chmod($dir, 0755)){};
+				}
+				$file = $dir . "salesin_$date.txt"; 
+				$file_end = $dir . "salesin_end.txt"; 
+				
+				if(is_file($file)) {
+					if(chmod($file, 0777)){};
+				}
+				$fh = fopen($file, 'w+');
+				fwrite($fh, $contents);
+				fclose($fh);
+			
+				//create salesin_end
+				$fh = fopen($file_end, 'w');
+				fwrite($fh, '');
+				fclose($fh);	
+				if(chmod($file, 0644)){};
+				if(chmod($dir, 0755)){};
+				//up to server
+			
+				// turn passive mode on
+				ftp_pasv($conn, true);
+				// upload a file
+				if (ftp_put($conn, "/Inbound/Sales_In/salesin_$date.txt", $file, FTP_ASCII)) {
+					if(unlink($filename)){
+					}else{
+					$body = "There was a problem cleaning $filename\n			
+							This is a system generated email update.";
+					$title = "[HUMMING] Clean error " . date('m/d/Y', php5GMTTime());
+					php5Mail(php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBC);	
+					};
+					error_log("There was a problem cleaning $filename\n", 0);
+					$error = 1;	
+				} else {
+					$body = "There was a problem while uploading $file\n
+					
+			This is a system generated email update.
+					
+			";
+					$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
+					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);
+					error_log("There was a problem while uploading $file\n", 0);
+					$error = 1;
+				}
+				// upload a file end
+				if (ftp_put($conn, '/Inbound/Sales_In/salesin_end.txt', $file_end, FTP_ASCII)) {
+				} else {
+					$body = "There was a problem while uploading $file_end\n
+					
+			This is a system generated email update.
+					
+			";
+					$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
+					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);
+					error_log("There was a problem while uploading $file\n", 0);
+					$error = 1;		
+				}
+				ftp_close($conn);	
+	
+			}
+		}
+		return true;
+	}
 	function cron_generate_order_file($id)
 	{
-		$arrBCC = array("nam@ua-consultants.com");
+		$arrBCC = array("romeoinbar@gmail.com");
 		$php5DB = $this->php5DB;
 		$orderLog = new OrderLog($this->php5DB);
 		$orderLog->load($id);
@@ -278,7 +362,12 @@ class Generate
 				$orderLog->status = 1;
 			} else {
 				$orderLog->times = $orderLog->times + 1;
-				//send email		
+				//send email
+				$body = "There was a problem writing $file\n			
+						This is a system generated email update.";
+				$title = "[HUMMING] Write error " . date('m/d/Y', php5GMTTime());
+				php5Mail(php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBC);
+				error_log("There was a problem writing $file\n", 0);						
 			}
 			$orderLog->store();
 			fclose($fh);	

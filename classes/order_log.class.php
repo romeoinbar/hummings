@@ -8,6 +8,7 @@ class OrderLog extends php5DBTable {
   	var $order_id 	         	= null;
 	var $status					= null;
 	var $times					= null;
+	var $error_content					= null;
 	
 	function __construct( &$dbh ) {
 		$this->php5DBTable( '#__order_log', array('id'), $dbh );

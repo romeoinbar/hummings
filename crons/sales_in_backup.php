@@ -25,6 +25,7 @@ require_once($php5RootPath . "/includes/php5_define" . $php5Ext);
 require_once($php5RootPath . "/includes/class.inputfilter" . $php5Ext);
 require_once($php5RootPath . "/includes/php5_common" . $php5Ext);
 php5Init( 0 );
+require_once($php5RootPath . "/includes/generate.php");
 require_once($php5RootPath . "/classes/generate.class.php");
 $php5DB_en->setQuery("SELECT *
 						FROM #__order_log						
@@ -35,6 +36,9 @@ $php5DB_en->setQuery("SELECT *
 		foreach ($rows as $row){
 			$generate->cron_generate_order_file($row->id);
 		}
+		// sleep for 10 seconds
+		sleep(10);
+		$generate->move_order_file();	
 	}
 			
 exit;

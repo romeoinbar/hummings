@@ -9,6 +9,7 @@ class UserLog extends php5DBTable {
 	var $status					= null;
 	var $times					= null;
 	var $update_indicator					= null;
+	var $error_content					= null;
 	
 	function __construct( &$dbh ) {
 		$this->php5DBTable( '#__user_log', array('id'), $dbh );
