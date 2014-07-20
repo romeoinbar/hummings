@@ -263,22 +263,29 @@ function sefBuild( $php5WebPath, $string, $outsite = 1, $setpage = true ) {
                 $string = $sefstring;
             }
         }
-        $page = "";
+		$page = "";
+		if($setpage) {
+			$page = "?";
+`       } 
         return $php5WebPath .'/'. $string . $page . $fragment;
     } else {
     // Handling for when SEF is not activated
+	    $page = "";
+		if($setpage) {
+			$page = "&";
+`       } 	
         // Home index.php
         if ($string == 'index.php') {
                         if($outsite) {
                 return $php5WebPath;
                         } else {
-                            return $php5WebPath .'/index.php?t=admin';
+                            return $php5WebPath .'/index.php?t=admin'. $page;
                         }
         } else {
                     if($outsite) {
-                        return $php5WebPath .'/'. $string;
+                        return $php5WebPath .'/'. $string . $page;
                     } else {
-                        return $php5WebPath .'/'. $string."&t=admin";
+                        return $php5WebPath .'/'. $string."&t=admin". $page;
                     }
                 }
         

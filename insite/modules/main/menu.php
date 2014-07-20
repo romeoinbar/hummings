@@ -56,4 +56,5 @@ $smarty->assign('url_media', sefBuild($php5WebPath, 'index.php?o=media', 0));
 $smarty->assign('url_photos', sefBuild($php5WebPath, 'index.php?o=photos', 0));
 $smarty->assign('url_export_newsletter', sefBuild($php5WebPath, 'index.php?o=export_newsletter_users', 0));
 $smarty->assign('url_import_newsletter', sefBuild($php5WebPath, 'index.php?o=import_newsletter_users', 0));
+$smarty->assign('url_newsletter_user', sefBuild($php5WebPath, 'index.php?o=newsletter_user', 0));
 $smarty->assign('menu', $smarty->fetch($tpl));

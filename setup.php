@@ -16,7 +16,7 @@ if ($type) {
     $viewer .= "$type/";
 }
 
-$smarty->assign('display_bottom', ($_SERVER["QUERY_STRING"] == '') ? 1 : 0);
+$smarty->assign('display_bottom', (@$_SERVER["QUERY_STRING"] == '') ? 1 : 0);
 
 
 //echo $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];

@@ -42,7 +42,7 @@ window.addEvent('domready', function () {if (top == self) {document.documentElem
 <![endif]-->
 
 <!-- Load Template JavaScript -->
-<script type="text/javascript" src="templates/hathor/js/template.js"></script>
+<script type="text/javascript" src="{$php5WebPath}/insite/templates/hathor/js/template.js"></script>
 
 </head>
 <body id="login-page">

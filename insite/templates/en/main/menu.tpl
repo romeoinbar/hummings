@@ -20,6 +20,7 @@
       <li class="node"> <a class="icon-16-user" href="{$url_user}">User Manager</a></li>
       <li ><a href="{$url_eshop_user}">Eshop Users</a></li>
       <li class="separator"><span></span></li>
+      <li ><a href="{$url_newsletter_user}">Newsletter Users</a></li>
       <li ><a href="{$url_rss_category}">RSS Category</a></li>
       <li ><a href="{$url_rss_content}">RSS Content</a></li>
     </ul>
