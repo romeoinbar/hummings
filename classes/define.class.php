@@ -197,12 +197,18 @@ class clsDefine{
 			}
 			return false;
 		}	
+	function NEWSLETTER_USER_TYPE() {
+		$user_type = array();
+		$user_type[1]='Subscribe';
+		$user_type[2]='Unsubscribe';		
+		return $user_type;
+	}
 	function USER_TYPE() {
 		$user_type = array();
 		$user_type[1]='Administrator';
 		$user_type[2]='Sales Representative';		
 		return $user_type;
-	}
+	}	
 	
 	function DEFAULT_COUNTRY(){
 		return array(196,130, 101, 172, 216, 33);

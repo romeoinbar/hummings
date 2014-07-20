@@ -52,8 +52,8 @@ switch($task)
           $smarty->assign('day', gen_select(add_prefix('day'), 'day', 'day', 'day', 'day', $user->day) );
           $smarty->assign('month', gen_select(add_prefix('month'), 'month', 'month', 'month', 'en', $user->month) );			  			  
 		  $checked = "";
-		  if ($user->in_newsletter($user->email))
-		  $checked = "checked";
+		  if ($user->in_newsletter($user->email, ' AND status =1 '))
+		  	$checked = "checked";
           $smarty->assign('checked', $checked );	
 		  		  
           $smarty->assign('user',$user);		  		  		  
@@ -80,11 +80,19 @@ switch($task)
 		  {
 			  if ( $user->in_newsletter($user->email) )
 			  {
+				  $n_user->date = php5GMTTime();
+				  $n_user->status = 1;
+				  $n_user->ip = $_SERVER['REMOTE_ADDR'];
+				  $n_user->updateDB(add_prefix('newsletter_user'), 'email', $user->email);	
 			  }
 			  else
 			  {
+				  $n_user->id = '0';
 				  $n_user->name = $user->name;
 				  $n_user->email = $user->email;
+				  $n_user->status = 1;
+				  $n_user->date = php5GMTTime();
+				  $n_user->ip = $_SERVER['REMOTE_ADDR'];
 				  $n_user->addDB(add_prefix('newsletter_user'));
 				  
 			  }
@@ -92,9 +100,13 @@ switch($task)
 		  }
 		  else
 		  {
-			  if ( $user->in_newsletter($user->email) )
+			  if ( $id = $user->in_newsletter($user->email) )
 			  {
-				  $n_user->deleteDB(add_prefix('newsletter_user'), 'email', $user->email);				  
+				  $n_user->date = php5GMTTime();
+				  $n_user->status = 2;
+				  $n_user->ip = $_SERVER['REMOTE_ADDR'];
+				  //$n_user->deleteDB(add_prefix('newsletter_user'), 'email', $user->email);
+				  $n_user->updateDB(add_prefix('newsletter_user'), 'email', $user->email);				  
 			  }
 			  else
 			  {

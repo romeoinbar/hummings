@@ -271,7 +271,7 @@ class Dba
        }
        $sql .= ")";
        $result = mysql_query($sql, $dblink);
-		if (!$result) {
+		if (!$result) {echo $sql;
 			die('Invalid query: ' . mysql_error($dblink));
 		}
 
@@ -329,8 +329,8 @@ class Dba
 	  
     }
 
-     function loadData($table, $key, $value){
-         $query = "SELECT * FROM $table WHERE $key= '$value' ";
+     function loadData($table, $key, $value, $where=''){
+         $query = "SELECT * FROM $table WHERE $key= '$value' $where";
          $result = mysql_query($query) or die (mysql_error());
          $row = mysql_fetch_array($result);
          $this->load($row);
@@ -723,14 +723,14 @@ class User extends Dba
 		   return 0;
 	 }
 
-	 function in_newsletter($email)
+	 function in_newsletter($email, $where='')
 	 {
 		 $n_user = new Newsletter_user();
-		 $n_user->loadData(add_prefix('newsletter_user'), 'email', $email);
+		 $n_user->loadData(add_prefix('newsletter_user'), 'email', $email, $where);
 
-		 
+		 //print_r($n_user);
 		 if ( $n_user->id ) 
-		   return 1;
+		   return $n_user->id;
 		 else
  		   return 0;
 
