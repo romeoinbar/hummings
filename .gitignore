@@ -1,0 +1,5 @@
+*.tpl.php
+_notes/*
+configs/*
+backup_sap/*
+tmp
