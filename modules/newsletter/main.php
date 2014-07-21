@@ -1,8 +1,8 @@
 <?php
 defined('PHP5_PHP') or die("Application is stopping!!!");
 require_once ($php5RootPath . "/classes/newsletter_user.class.php");
-$name = php5GetParam($_REQUEST, 'name', '');
-$email = php5GetParam($_REQUEST, 'email', '');
+$name = php5GetParam($_REQUEST, 'nameNewsletter', '');
+$email = php5GetParam($_REQUEST, 'emailNewsletter', '');
 if(isset($_SERVER['HTTP_REFERER'])) {
 	$referer = $_SERVER['HTTP_REFERER'];
 } else {
@@ -15,7 +15,7 @@ if(trim($name) == '') {
 } else if(preg_match("/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/", $email )==false) {
 	$msgAlert = "Email is invalid";
 } else {
-	$query = "SELECT id FROM #__newsletter_user WHERE email='". mysql_escape_real_string($email)."'";
+	$query = "SELECT id FROM #__newsletter_user WHERE email='". mysql_real_escape_string($email)."'";
 	$php5DB->setQuery( $query );
 	$id = intval($php5DB->loadResult());
 	if($id < 1) {
@@ -24,7 +24,13 @@ if(trim($name) == '') {
 		$rowNewsletterUser->name = $name;
 		$rowNewsletterUser->email = $email;
 		$rowNewsletterUser->date = php5GMTTime();
+		$rowNewsletterUser->ip = $_SERVER['REMOTE_ADDR'];
+		$rowNewsletterUser->status = 2;
+		$rowNewsletterUser->generate_code = md5(php5GMTTime());
 		$rowNewsletterUser->store();
+		//send email
+		$link = sefBuild($php5WebPath, 'index.php?o=newsletter&m=subscribe', 1, true) . "code=".$rowNewsletterUser->generate_code;
+		php5Mail(php5GetConfig('config_email'), "Humming", $email, sprintf($lang['_MSS_NEWSLETTER_1_'], $email), sprintf($lang['_MSS_NEWSLETTER_2_'], $link), 0, '');
 	}
 	$msgAlert = "Got it! Thanks!";
 }

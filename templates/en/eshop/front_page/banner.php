@@ -123,10 +123,10 @@ $banner .= '
                    </tr>
                    <tr>
                        <td>
-                           <div><input type="checkbox" name=newsletter_agree id=newsletter_agree value=1 /> I agree </div>
+                           <div><input type="checkbox" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </div>
                        </td>
                    </tr>
-               </table
+               </table>
 
 					 </form>
       </div>
@@ -171,7 +171,7 @@ function checkAgreeNewsletter(frm)
     if(frm.newsletter_agree.checked == true) {
         return true;
     }
-    alert('Please check agree!');
+    alert('Please check \"I agree to receive the hummings email newsletter!\"');
     return false;
 }
 

@@ -52,5 +52,8 @@ include('includes/send_email.php');
 $to = 'romeoinbar@gmail.com';
 $subject = 'test subject';
 $message = 'body test';
-send_email_all4($to, $subject, $message);
+$link = sefBuild($php5WebPath, 'index.php?o=newsletters&m=main', 1, true);
+echo $link;
+//php5Mail(php5GetConfig('config_email'), "Humming", $to, $subject, $message, 0, '');
+//send_email_all4($to, $subject, $message);
 ?>

@@ -181,7 +181,7 @@ if ($php5_sef) {
  * @param string The URL
  * @return string
  */
-function sefBuild( $php5WebPath, $string, $outsite = 1, $setpage = true ) {
+function sefBuild( $php5WebPath, $string, $outsite = 1, $setpage = false ) {
     global $php5_sef, $env;
 
     // SEF URL Handling

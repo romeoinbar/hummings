@@ -14,8 +14,10 @@ class NewsletterUser extends php5DBTable {
     /** @var string */
 	var $type        = null;	
     /** @var string */
-	var $status        = null;		
-
+	var $status        = null;
+    /** @var string */
+	var $generate_code        = null;		
+		
 	function __construct( &$dbh ) {
 		$this->php5DBTable( '#__newsletter_user', array('id'), $dbh );
 	}
