@@ -24,6 +24,7 @@
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "0542119a-0882-4678-8cd1-08db63c860c6"}); </script>
 {/literal}
+    <script src="{$php5WebPath}/includes/js/global.js" type="text/javascript"></script>
     <script src="{$php5WebPath}/htmls/js/validate/jquery.js" type="text/javascript"></script>
     <script src="{$php5WebPath}/htmls/js/validate/jquery.metadata.js" type="text/javascript"></script>
 

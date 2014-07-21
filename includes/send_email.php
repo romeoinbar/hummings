@@ -306,7 +306,11 @@ function send_email_all4($to, $subject, $message, $is_html = 1)
 	$mail_object =& Mail::factory("smtp", $params);
 	
 	$mail_object->send($recipients, $headers, $body);
-	
+	if (PEAR::isError($mail_object)) {
+		echo $mail_object->getMessage();
+	} else {
+		echo "Email was sent!";
+	}
 	//$recipients         = "online@humming.com.sg";
 	//$mail_object->send($recipients, $headers, $body);	
 }

@@ -112,11 +112,24 @@ $banner .= '
      <div class="inner" style="border:0px solid red; width:1023px; overflow:hidden;" >
      <div style="padding:10px;">
       <div class="block1" style="width:310px;padding-left:25px;">    
-			<form action="'.$link_newsletter.'" method="post">   
-               <div style="margin-bottom:5px;"><input type="text" name="name" id="namex" class="textinput" value=""  placeholder="Name"/></div>           
-             <div><input type="text" name="email" id="emailx" class="textinput" value="" placeholder="Email" /> <input name="" type="image" src="'.$php5WebPath.'/images/btn_ok.png" align="absmiddle" style="border:none;"  onClick=clear_placeholder2() /></div>
-           </div>
+			<form action="'.$link_newsletter.'" method="post" name="newsletterfrm1" onsubmit="return checkAgreeNewsletter(this);">
+			   <table>
+                   <tr>
+                       <td>
+                           <div style="margin-bottom:5px;"><input type="text" name="nameNewsletter" id="namex" class="textinput" value=""  placeholder="Name"/></div>
+                           <div><input type="text" name="emailNewsletter" id="emailx" class="textinput" value="" placeholder="Email" /> <input name="" type="image" src="'.$php5WebPath.'/images/btn_ok.png" align="absmiddle" style="border:none;"  onClick=clear_placeholder2() /></div>
+
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <div><input type="checkbox" name=newsletter_agree id=newsletter_agree value=1 /> I agree </div>
+                       </td>
+                   </tr>
+               </table
+
 					 </form>
+      </div>
               <div class="block2" style="height:115px; overflow:hidden; text-align:center;">
 			  <div style="margin:auto;">    			 
 			 <a class="twitter-timeline"  href="https://twitter.com/HummingFlowers" data-link-color="#a90061" data-screen-name="HummingFlowers" data-show-replies="false"
@@ -145,6 +158,23 @@ $banner .= '
 $banner .="
 
 <script type='text/javascript'>
+function checkAgreeNewsletter(frm)
+{
+    if (isEmpty(frm.nameNewsletter.value)) {
+        alert('Please enter your name!');
+        return false;
+    }
+    if (!isValidEmail(frm.emailNewsletter.value)) {
+        alert('Please enter your email');
+        return false;
+    }
+    if(frm.newsletter_agree.checked == true) {
+        return true;
+    }
+    alert('Please check agree!');
+    return false;
+}
+
 function clear_placeholder2 ()
 {	
    el = document.getElementById('namex');

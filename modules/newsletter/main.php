@@ -15,7 +15,7 @@ if(trim($name) == '') {
 } else if(preg_match("/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/", $email )==false) {
 	$msgAlert = "Email is invalid";
 } else {
-	$query = "SELECT id FROM #__newsletter_user WHERE email='". mysql_escape_string($email)."'";
+	$query = "SELECT id FROM #__newsletter_user WHERE email='". mysql_escape_real_string($email)."'";
 	$php5DB->setQuery( $query );
 	$id = intval($php5DB->loadResult());
 	if($id < 1) {
