@@ -2,3 +2,6 @@
 _notes/*
 configs/*.*
 backup_sap/*
+*.properties
+nbproject/
+templates_c/
