@@ -61,7 +61,7 @@ $noerr = 1;
 switch($task)
 {
 	case 'send':	 
-	  if ($php5Session->getVar('sent')!=1){
+	  //if ($php5Session->getVar('sent')!=1){
 		  $arrTo = explode(';', $list_email);
 		  include $php5RootPath . '/includes/send_email.php';
 			if(count($arrTo) > 0) {
@@ -90,10 +90,10 @@ switch($task)
 				$i = 1;
 				foreach($arrTo as $to) {
 					$row_cron = new NewsletterEmailCron($php5DB);
+					
 					$row_cron->id = 0;
 					$row_cron->email = $to;
-					$row_cron->title = $row->subject;
-					$row_cron->body = $body;
+					$row_cron->title = $row->subject;					
 					$row_cron->html = $is_html;
 					$row_cron->type = $i % 2;
 					$row_cron->date_create = php5GMTTime();
@@ -101,15 +101,19 @@ switch($task)
 					$row_cron->date_update = php5GMTTime();
 					$row_cron->status = 0;
 					$row_cron->historyid = $rowHistory->id;
+					$row_cron->generate_code = md5(php5GMTTime());
+					$link = sefBuild($php5WebPath, 'index.php?o=newsletter&m=unsubscribe', 1, true) . "code=".$row_cron->generate_code;	
+					//echo $lang['_MSS_EMAIL_9_'].sprintf($lang['_MSS_EMAIL_9_'], $link)."iuuuuuuuuuuuu";die;	
+					$row_cron->body = $body . str_replace('[LINK]',$link, $lang['_MSS_EMAIL_9_']);			
 					$row_cron->store();
 					$i++;
 					//send_email_newsletter($to, $row->subject, $body, $is_html, $id);
 				}
 			}
 			php5Redirect(sefBuild($php5WebPath, 'index.php?o=newsletters', 0));
-	  } else {
+	  //} else {
 		$msg = 'Emails were saved, they will be sent today';
-	  }
+	  //}
 		break;
 	default:
 		$php5Session->destroy('sent');		

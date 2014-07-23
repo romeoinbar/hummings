@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<dwsync>
-<file name="enets.tpl" server="120.50.45.210" local="130011603000000000" remote="130011603000000000" Dst="-1" />
-<file name="main.tpl" server="120.50.45.210" local="130028080800000000" remote="130028080800000000" Dst="-1" />
-<file name="paypal-failure.tpl" server="120.50.45.210" local="130077285000000000" remote="130077285000000000" Dst="-1" />
-<file name="paypal-review.tpl" server="120.50.45.210" local="130028665800000000" remote="130028665800000000" Dst="-1" />
-<file name="paypal-success.tpl" server="120.50.45.210" local="130022930400000000" remote="130022930400000000" Dst="-1" />
-</dwsync>

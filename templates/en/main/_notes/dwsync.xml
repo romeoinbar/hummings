@@ -6,4 +6,5 @@
 <file name="smp_main.tpl" server="120.50.45.210" local="130131466200000000" remote="130131466200000000" Dst="-1" />
 <file name="top.tpl" server="120.50.45.210" local="129955716000000000" remote="129955716000000000" Dst="-1" />
 <file name="top_frontpage.tpl" server="120.50.45.210" local="129955716000000000" remote="129955716000000000" Dst="-1" />
+<file name="footer.php" server="ftp.ua-consultants.com//" local="130506145599416662" remote="130505749200000000" Dst="0" />
 </dwsync>

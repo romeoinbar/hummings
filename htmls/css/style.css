@@ -535,3 +535,19 @@ width:680px;
 height:466px;
 	background:url("../images/thankyou.jpg") ;	
 }
+
+.label-newsletter {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+.input-newsletter {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}

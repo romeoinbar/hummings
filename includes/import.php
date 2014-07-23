@@ -176,6 +176,7 @@ class Quick_CSV_import
       foreach($arr_temp as $key => $value) {
         $st = str_replace(",,", " , , ", $arr_temp[$key]);
         $arr = str_getcsv($st);
+		if(isset($arr[0][0])) $arr = $arr[0];
         $this->arr_csv_columns[] = @$arr;
       }
     } else {

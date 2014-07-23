@@ -92,3 +92,12 @@ This is a system generated email update.
 
 
 ";
+$lang['_MSS_EMAIL_9_']	= '
+<table width="100%" style="font-size:12px;font-family:Helvetica,Arial,Verdana,sans-serif;color:#888;line-height:17px">
+				<tbody><tr>
+					<td>
+						You are receiving this email because you are a Hummings user.<br>
+						Click <a target="_blank" style="color:#29aae1" href="[LINK]">here</a> to unsubscribe from future emails.
+					</td>
+				</tr>
+			</tbody></table>';

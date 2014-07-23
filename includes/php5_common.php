@@ -1163,10 +1163,10 @@ class php5Paging{
 
 		if($this->curPage > 1) {
 			if($this->js==1){
-				$str_page .= "<a class=\"link_page\" href='#' onclick=\"javascript:viewUsers(" . ($this->curPage-1) . ");\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . ($this->curPage-1) . "\" " . $this->events . ">&nbsp;&lt;&nbsp;</a>";
+				$str_page .= "<a class=\"link_page\" href='#' onclick=\"javascript:viewUsers(" . ($this->curPage-1) . ");\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . ($this->curPage-1) . "\" " . $this->events . ">&nbsp;&lt;&nbsp;</a>";
 			}
 			else{
-				$str_page .= "<a class=\"link_page\" href=\"" . $this->url . "&p=" . ($this->curPage-1) . "\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . ($this->curPage-1) . "\" " . $this->events . ">&nbsp;&lt;&nbsp;</a>";
+				$str_page .= "<a class=\"link_page\" href=\"" . $this->url . "&p=" . ($this->curPage-1) . "\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . ($this->curPage-1) . "\" " . $this->events . ">&nbsp;&lt;&nbsp;</a>";
 			}
 		}
 
@@ -1183,33 +1183,33 @@ class php5Paging{
 				$str_page .= "<span class=\"txt_curr_page\">" . $i . "</span>\n";
 			else{
 				if($this->js==1){
-					$str_page .= "<a class=\"link_page\" href='#' onclick=\"javascript:viewUsers(" . $i . ");\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . $i . "\" " . $this->events . ">" . $i . "</a>\n";
+					$str_page .= "<a class=\"link_page\" href='#' onclick=\"javascript:viewUsers(" . $i . ");\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . $i . "\" " . $this->events . ">" . $i . "</a>\n";
 				}
 				else{
-					$str_page .= "<a class=\"link_page\" href=\"" . $this->url . "&p=" . $i . "\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . $i . "\" " . $this->events . ">" . $i . "</a>\n";
+					$str_page .= "<a class=\"link_page\" href=\"" . $this->url . "&p=" . $i . "\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . $i . "\" " . $this->events . ">" . $i . "</a>\n";
 				}
 			}
 		}	
 
 		if($this->curPage < $this->pageTotal){
 			if($this->js==1){
-				$str_page .= "<a class=\"link_page\" href='#' onclick=\"javascript:viewUsers(" . ($this->curPage+1) . ");\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . ($this->curPage+1) . "\" " . $this->events . ">&nbsp;&gt;&nbsp;</a>";
+				$str_page .= "<a class=\"link_page\" href='#' onclick=\"javascript:viewUsers(" . ($this->curPage+1) . ");\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . ($this->curPage+1) . "\" " . $this->events . ">&nbsp;&gt;&nbsp;</a>";
 			}
 			else{
-				$str_page .= "<a class=\"link_page\" href=\"" . $this->url . "&p=" . ($this->curPage+1) . "\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . ($this->curPage+1) . "\" " . $this->events . ">&nbsp;&gt;&nbsp;</a>";
+				$str_page .= "<a class=\"link_page\" href=\"" . $this->url . "&p=" . ($this->curPage+1) . "\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . ($this->curPage+1) . "\" " . $this->events . ">&nbsp;&gt;&nbsp;</a>";
 			}
 		}
 	
 		if($nStop < $this->pageTotal){
 			if($this->js==1){
-				$str_page .= "<a class=\"link_page\" href='#' onclick=\"javascript:viewUsers(" . $this->pageTotal . ");\" title=\"" . $lang['page_last'] . "\" " . $this->events . ">&nbsp;" . $lang['page_last'] . "&nbsp;<b>&raquo;</b></a>";
+				$str_page .= "<a class=\"link_page\" href='#' onclick=\"javascript:viewUsers(" . $this->pageTotal . ");\" title=\"" . @$lang['page_last'] . "\" " . $this->events . ">&nbsp;" . @$lang['page_last'] . "&nbsp;<b>&raquo;</b></a>";
 			}
 			else{
-				$str_page .= "<a class=\"link_page\" href=\"" . $this->url . "&p=" . $this->pageTotal . "\" title=\"" . $lang['page_last'] . "\" " . $this->events . ">&nbsp;" . $lang['page_last'] . "&nbsp;<b>&raquo;</b></a>";
+				$str_page .= "<a class=\"link_page\" href=\"" . $this->url . "&p=" . $this->pageTotal . "\" title=\"" . @$lang['page_last'] . "\" " . $this->events . ">&nbsp;" . @$lang['page_last'] . "&nbsp;<b>&raquo;</b></a>";
 			}
 		}
 
-		return $lang['page_number_cap'].' '.$str_page;
+		return @$lang['page_number_cap'].' '.$str_page;
 	}
 	
 
@@ -1239,10 +1239,10 @@ class php5Paging{
 
 		if($this->curPage > 1) {
 			if($this->js==1){
-				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"javascript:viewUsers(" . ($this->curPage-1) . ");\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . ($this->curPage-1) . "\" " . $this->events . "><img src=\"".$path."/page3.gif"."\" /></a></div>";
+				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"javascript:viewUsers(" . ($this->curPage-1) . ");\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . ($this->curPage-1) . "\" " . $this->events . "><img src=\"".$path."/page3.gif"."\" /></a></div>";
 			}
 			else{
-				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"" . $this->url . "&p=" . ($this->curPage-1) . "\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . ($this->curPage-1) . "\" " . $this->events . "><img src=\"".$path."/page3.gif"."\" /></a></div>";
+				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"" . $this->url . "&p=" . ($this->curPage-1) . "\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . ($this->curPage-1) . "\" " . $this->events . "><img src=\"".$path."/page3.gif"."\" /></a></div>";
 			}
 		}
 		else{
@@ -1263,29 +1263,29 @@ class php5Paging{
 				$str_page .= "<div class=\"text_fashion\">" . $i . "</div>";
 			else{
 				if($this->js==1){
-					$str_page .= "<div class=\"div_page_text\"><a class=\"fashion\" href=\"javascript:viewUsers(" . $i . ");\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . $i . "\" " . $this->events . ">" . $i . "</a></div>";
+					$str_page .= "<div class=\"div_page_text\"><a class=\"fashion\" href=\"javascript:viewUsers(" . $i . ");\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . $i . "\" " . $this->events . ">" . $i . "</a></div>";
 				}
 				else{
-					$str_page .= "<div class=\"div_page_text\"><a class=\"fashion\" href=\"" . $this->url . "&p=" . $i . "\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . $i . "\" " . $this->events . ">" . $i . "</a></div>";
+					$str_page .= "<div class=\"div_page_text\"><a class=\"fashion\" href=\"" . $this->url . "&p=" . $i . "\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . $i . "\" " . $this->events . ">" . $i . "</a></div>";
 				}
 			}
 		}	
 
 		if($this->curPage < $this->pageTotal){
 			if($this->js==1){
-				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"javascript:viewUsers(" . ($this->curPage+1) . ");\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . ($this->curPage+1) . "\" " . $this->events . "><img src=\"".$path."/page2.gif"."\" /></a></div>";
+				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"javascript:viewUsers(" . ($this->curPage+1) . ");\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . ($this->curPage+1) . "\" " . $this->events . "><img src=\"".$path."/page2.gif"."\" /></a></div>";
 			}
 			else{
-				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"" . $this->url . "&p=" . ($this->curPage+1) . "\" title=\"" . $lang['page_number_cap'] . "&nbsp;" . ($this->curPage+1) . "\" " . $this->events . "><img src=\"".$path."/page2.gif"."\" /></a></div>";
+				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"" . $this->url . "&p=" . ($this->curPage+1) . "\" title=\"" . @$lang['page_number_cap'] . "&nbsp;" . ($this->curPage+1) . "\" " . $this->events . "><img src=\"".$path."/page2.gif"."\" /></a></div>";
 			}
 		}
 
 		if($this->curPage < $this->pageTotal){
 			if($this->js==1){
-				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"javascript:viewUsers(" . $this->pageTotal . ");\" title=\"" . $lang['page_last'] . "\" " . $this->events . "><img src=\"".$path."/page5.gif"."\" /></a></div>";
+				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"javascript:viewUsers(" . $this->pageTotal . ");\" title=\"" . @$lang['page_last'] . "\" " . $this->events . "><img src=\"".$path."/page5.gif"."\" /></a></div>";
 			}
 			else{
-				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"" . $this->url . "&p=" . $this->pageTotal . "\" title=\"" . $lang['page_last'] . "\" " . $this->events . "><img src=\"".$path."/page5.gif"."\" /></a></div>";
+				$str_page .= "<div class=\"div_page\"><a class=\"link_page\" href=\"" . $this->url . "&p=" . $this->pageTotal . "\" title=\"" . @$lang['page_last'] . "\" " . $this->events . "><img src=\"".$path."/page5.gif"."\" /></a></div>";
 			}
 		}
 		else{

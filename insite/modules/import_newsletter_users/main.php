@@ -37,7 +37,7 @@ if($task=='import') {
 		$csv->source = $source = $_FILES['file_source']['name'];	
 		//start import now
 		$csv->import();
-		
+		//print_r($csv->arr_csv_columns);die;
 		if(is_array($csv->arr_csv_columns) && count($csv->arr_csv_columns) > 1 && count($csv->arr_csv_columns[0]) == 5) {
 			//check dealer code
 			$arr_temp = array();

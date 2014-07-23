@@ -45,7 +45,8 @@ if(is_array($rows_user) && count($rows_user) >0) {
 			$row_cron->status = 2;
 			$row_cron->count_sent = ++$row_cron->count_sent;
 			$row_cron->store();
-			send_email_newsletter($row->email, $row->title, $row->body, $row->html, $row->mailid);	
+			//send_email_newsletter($row->email, $row->title, $row->body, $row->html, $row->mailid);
+			php5Mail(php5GetConfig('config_email'), "Humming", $row->email,$row->title, $row->body, 0, '');				
 		}
 	}
 }

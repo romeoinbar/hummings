@@ -19,7 +19,7 @@ if(trim($code) == '') {
 		$rowNewsletterUser->load($id);
 		$rowNewsletterUser->date = php5GMTTime();
 		$rowNewsletterUser->ip = $_SERVER['REMOTE_ADDR'];
-		$rowNewsletterUser->status = 1;
+		$rowNewsletterUser->subscribe = 1;
 		$rowNewsletterUser->generate_code = "";
 		$rowNewsletterUser->store();
 	}

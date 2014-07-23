@@ -105,6 +105,7 @@ $temp_photos
 
 if (($type=="" || $type=='eshop')) {
 	$link_newsletter = sefBuild($php5WebPath, 'index.php?o=newsletter', 1);
+	
 $banner .= '
 	<div class="clr"></div>  
 		<div id="social_network" style="margin-left:7px; border:1px solid #f4e8d8; width:1026px;" >
@@ -123,7 +124,7 @@ $banner .= '
                    </tr>
                    <tr>
                        <td>
-                           <div><input type="checkbox" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </div>
+                           <div><label class="label-newsletter"><input type="checkbox" class="input-newsletter" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </label></div>
                        </td>
                    </tr>
                </table>

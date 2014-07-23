@@ -22,6 +22,8 @@ class NewsletterEmailCron extends php5DBTable
 	/***************/
 	var $status 	= null;
 	var $historyid= null;
+	var $generate_code= null;
+	
 	var $count_sent= null;
 
 	function NewsletterEmailCron( &$php5DB ) {

@@ -19,9 +19,9 @@
 		<div class="filter-search">
           Email: <input type="text" name="s_email" value="{$s_email|escape}"  title="Search in module title." />
 		<span class="faux-label")>Status:&#160;</span>
-        <select name="s_status" id="s_status">           
-   <option value="0">Choose status</option>
-    {html_options options=$user_type selected=$s_status}
+        <select name="s_subscribe" id="s_subscribe">           
+   <option value="0">Choose </option>
+    {html_options options=$user_type selected=$s_subscribe}
    </select>          
           <button type="submit">Search</button>
         </div>    

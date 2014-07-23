@@ -45,7 +45,7 @@
 
          <td width="290" style="text-transform:uppercase;"></td>
 
-         <td align="right"><input type="checkbox" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter 
+         <td align="right"><label class="label-newsletter"><input type="checkbox" class="input-newsletter" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </label>
 
          </td>
 
