@@ -271,8 +271,8 @@ class Dba
        }
        $sql .= ")";
        $result = mysql_query($sql, $dblink);
-		if (!$result) {echo $sql;
-			die('Invalid query: ' . mysql_error($dblink));
+		if (!$result) {
+			//die('Invalid query: ' . mysql_error($dblink));
 		}
 
      }

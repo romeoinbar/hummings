@@ -21,7 +21,7 @@
 		<span class="faux-label")>Status:&#160;</span>
         <select name="s_subscribe" id="s_subscribe">           
    <option value="0">Choose </option>
-    {html_options options=$user_type selected=$s_subscribe}
+    {html_options options=$user_status selected=$s_subscribe}
    </select>          
           <button type="submit">Search</button>
         </div>    
@@ -34,9 +34,10 @@
       <th align="center"  class="title">ID#</td>        
       <th class="title">Name</td>
       <th class="title">Email</td>
-      <th class="title">Status</td>
+      <th class="title">Type</td>     
       <th class="title">IP</td>
       <th class="title">Date</td>
+      <th class="title">Status</td>
     </tr>
     </thead> 
     <tbody>  
@@ -45,9 +46,10 @@
       <td >{$row->id}</td>        
       <td class="center">{$row->name}</td>
       <td  class="center">{$row->email}</td>
-      <td  class="center">{$row->user_type}</td>
+      <td  class="center">{$row->type}</td>  
       <td  class="center">{$row->ip}</td>
       <td  class="center">{$row->date}</td>
+      <td  class="center">{$row->user_status}</td>
     </tr>
     {foreachelse}
     <tr>

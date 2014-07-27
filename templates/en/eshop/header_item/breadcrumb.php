@@ -46,7 +46,7 @@ else
 	                       $product = new Product();	   
 						   $product->loadData(add_prefix('product'), 'product_id' , $id);
 	                       $product_category = new Product_category();
-						   $c_name = $product_category->getname( $_REQUEST['cat']  );
+						   $c_name = $product_category->getname( @$_REQUEST['cat']  );
 						   
 						   if 	($product->sef_title)	
 						   $smarty->assign('title', $product->sef_title);	

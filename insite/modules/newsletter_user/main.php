@@ -48,7 +48,8 @@ function listUsers($task = 'search'){
 	if ($s_email) {
 		$sWhere .= " AND email like '%" . mysql_real_escape_string($s_email) . "%' ";
 	}	
-	$user_type = $define->NEWSLETTER_USER_TYPE();	
+	$user_status = $define->NEWSLETTER_USER_TYPE();
+	$user_type = $define->NEWSLETTER_TYPE();	
 	
 	//paging
 	$currPage = php5GetParam($_REQUEST, 'p', 1);
@@ -68,7 +69,8 @@ function listUsers($task = 'search'){
 	$rows= $php5DB->loadObjectList();
 	foreach ($rows as $row){
 		if(!$row->subscribe) $row->subscribe = 1; 
-		$row->user_type = @$user_type[$row->subscribe];	
+		$row->user_status = @$user_status[$row->subscribe];	
+		$row->type = @$user_type[$row->type];	
 		if($row->date){
 			$row->date = date('m/d/Y', $row->date);
 		}
@@ -78,7 +80,7 @@ function listUsers($task = 'search'){
 	
 	$smarty->assign('s_email', $s_email);	
 	$smarty->assign('s_subscribe', $s_subscribe);	
-	$smarty->assign('user_type', $user_type);	
+	$smarty->assign('user_status', $user_status);	
 	$smarty->assign('_SELECT_USER_TYPE', $lang["_SELECT_USER_TYPE"]);
 	$smarty->assign('_USER_TYPE', "Status");
 	$smarty->assign('_ACCOUNT_MANAGER', $lang["_ACCOUNT_MANAGER"]);	

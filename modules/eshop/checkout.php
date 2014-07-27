@@ -65,7 +65,6 @@ $smarty->assign('url_confirm3', sefBuild($php5WebPathS, 'index.php?o=eshop&m=che
 $smarty->assign('shipping_address_load_user', sefBuild($php5WebPath, 'index.php?o=eshop&m=checkout&task=shipping_address_load_user&t=outsite', 1));	
 // include 'templates/en/eshop/cart/show_sessions.php';	 
 
-
   
 switch($task)
 {
