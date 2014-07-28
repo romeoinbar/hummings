@@ -32,19 +32,27 @@ function listUsers($task = 'search'){
 		$s_email = php5GetParam( $_REQUEST, 's_email', '' );
 		$php5Session->setVar("100_s_email", $s_email);
 		$s_subscribe = php5GetParam( $_REQUEST, 's_subscribe', '' );
-		$php5Session->setVar("100_s_subscribe", $s_subscribe);		
+		$php5Session->setVar("100_s_subscribe", $s_subscribe);	
+		$s_type = php5GetParam( $_REQUEST, 's_type', '' );
+		$php5Session->setVar("100_s_type", $s_type);				
 	} else {
 		$s_email = $php5Session->getVar("100_s_email");
 		$s_subscribe = $php5Session->getVar("100_s_subscribe");
+		$s_type = $php5Session->getVar("100_s_type");
 	}
 	
 	$s_email = $php5Session->getVar("100_s_email");	
 	$s_subscribe = $php5Session->getVar("100_s_subscribe");	
+	$s_type = $php5Session->getVar("100_s_type");	
 	
 	$sWhere = '';
 	if ($s_subscribe)
 		$sWhere = " AND subscribe='".$s_subscribe."'";
-
+	if ($s_type) {
+		$sWhere = " AND type='".$s_type."'";	
+	} else {
+		$sWhere = " AND type='0'";	
+	}
 	if ($s_email) {
 		$sWhere .= " AND email like '%" . mysql_real_escape_string($s_email) . "%' ";
 	}	
@@ -80,7 +88,9 @@ function listUsers($task = 'search'){
 	
 	$smarty->assign('s_email', $s_email);	
 	$smarty->assign('s_subscribe', $s_subscribe);	
-	$smarty->assign('user_status', $user_status);	
+	$smarty->assign('s_type', $s_type);	
+	$smarty->assign('user_status', $user_status);
+	$smarty->assign('user_type', $user_type);
 	$smarty->assign('_SELECT_USER_TYPE', $lang["_SELECT_USER_TYPE"]);
 	$smarty->assign('_USER_TYPE', "Status");
 	$smarty->assign('_ACCOUNT_MANAGER', $lang["_ACCOUNT_MANAGER"]);	

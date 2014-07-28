@@ -10,6 +10,8 @@ $total_recipient = 	$php5Session->getVar('total_recipient');
 $ad = $php5Session->getVar('recipient_address_book_id' . $r);   
 $user_id = $php5Session->getVar('user_id' );
 
+if(!$user_id) $php5Session->setVar('user_type', 'Guest' ); 
+
 $user->title = $php5Session->getVar('shipping_title' . $d);
 $user->surname = $php5Session->getVar('shipping_surname' . $d);
 $user->name = $php5Session->getVar('shipping_name' . $d);

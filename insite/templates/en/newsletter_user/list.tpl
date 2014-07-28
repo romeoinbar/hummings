@@ -22,7 +22,11 @@
         <select name="s_subscribe" id="s_subscribe">           
    <option value="0">Choose </option>
     {html_options options=$user_status selected=$s_subscribe}
-   </select>          
+   </select>
+	<span class="faux-label")>Type:&#160;</span>
+        <select name="s_type" id="s_type">           
+    {html_options options=$user_type selected=$s_type}
+   </select>             
           <button type="submit">Search</button>
         </div>    
    </fieldset>   

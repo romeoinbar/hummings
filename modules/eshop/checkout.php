@@ -587,7 +587,8 @@ form.cmxform label.error { display: none; }
 			   <div style='border:1px solid #ccc; padding:15px; margin:5px; margin-top:0px;'>
 			   ";
 				   
-			   $tpl = sprintf($php5TemplateFile, $language, 'eshop', 'cart/billing_address_review.php');	
+			   $tpl = sprintf($php5TemplateFile, $language, 'eshop', 'cart/billing_address_review.php');
+			   $smarty->assign('user_type', $php5Session->getVar('user_type' )); 
 			   $main .= $smarty->fetch($tpl);	
 			   
 			   $tpl = sprintf($php5TemplateFile, $language, 'eshop', 'cart/total.php');	
@@ -680,6 +681,28 @@ form.cmxform label.error { display: none; }
        header('Location: ' .  $url_success );	   
 	break; 	
 	case 'confirm3':
+		if (!$id)  $id= 1;
+		require_once ($php5RootPath . "/classes/newsletter_user.class.php");
+		
+		$query = "SELECT id FROM #__newsletter_user WHERE email='". mysql_real_escape_string($php5Session->getVar('shipping_email' . $id))."'";
+		$php5DB->setQuery( $query );
+		$idUser = intval($php5DB->loadResult());
+		if($idUser < 1) {
+			$newsletter_agree = php5GetParam($_REQUEST, 'newsletter_agree', '');
+			$rowNewsletterUser = new NewsletterUser($php5DB);
+			$rowNewsletterUser->id = '0';
+			$rowNewsletterUser->name = $php5Session->getVar('shipping_name' . $id);
+			$rowNewsletterUser->email = $php5Session->getVar('shipping_email' . $id);
+			$rowNewsletterUser->date = php5GMTTime();
+			$rowNewsletterUser->ip = $_SERVER['REMOTE_ADDR'];
+			$rowNewsletterUser->subscribe = 2;
+			if($newsletter_agree) {
+				$rowNewsletterUser->subscribe = 1;
+			}
+			$rowNewsletterUser->generate_code = md5(php5GMTTime());
+			$rowNewsletterUser->store();
+		}
+	
 		$payment_type = php5GetParam($_REQUEST, "payment_type", 1);	
 		if ($payment_type=='paypal'){
 			include $php5RootPath. '/templates/en/eshop/cart/generate_order1.php';

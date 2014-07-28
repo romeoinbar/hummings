@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
 <file name="push_billing_address.php" server="ftp.ua-consultants.com//" local="130509590038690665" remote="130509193800000000" Dst="0" />
-<file name="billing_address_review.php" server="ftp.ua-consultants.com//" local="130509600156603318" remote="130509204000000000" Dst="0" />
+<file name="billing_address_review.php" server="ftp.ua-consultants.com//" local="130510435384499121" remote="130510039200000000" Dst="0" />
+<file name="load_shipping_address.php" server="ftp.ua-consultants.com//" local="130510428694776390" remote="130510032600000000" Dst="0" />
+<file name="cc1.php" server="ftp.ua-consultants.com//" local="130510489706856587" remote="130510093800000000" Dst="0" />
 </dwsync>

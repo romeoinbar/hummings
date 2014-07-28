@@ -23,9 +23,11 @@
         
   </td>
 </tr>
+{if $user_type}
 <tr>
 	<td colspan="3"><p><label class="label-newsletter"><input type="checkbox" class="input-newsletter" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </label></p> </td>
 </tr>
+{/if}
 </table>
 </div>
 </div>
