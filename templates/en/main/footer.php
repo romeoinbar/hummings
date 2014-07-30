@@ -16,7 +16,7 @@
 
          &amp; special offers</strong></td>
 
-         <td align="right"><input name="nameNewsletter" type="text" class="textinput" id="namex" size="30" placeholder="Name" style=" width:180px;" />
+         <td align="left"><input name="nameNewsletter" type="text" class="textinput" id="namex" size="30" placeholder="Name" style=" width:180px;" />
 
          <input name="emailNewsletter" type="text" class="textinput" id="emailx" value="" size="30" placeholder="Email"  style=" width:180px;"  />
 
@@ -45,7 +45,7 @@
 
          <td width="290" style="text-transform:uppercase;"></td>
 
-         <td align="right"><label class="label-newsletter"><input type="checkbox" class="input-newsletter" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </label>
+         <td align="left"><label class="label-newsletter"><input type="checkbox" class="input-newsletter" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </label>
 
          </td>
 
