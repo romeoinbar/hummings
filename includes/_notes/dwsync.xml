@@ -4,8 +4,9 @@
 <file name="nganluong.php" server="120.50.45.210" local="130189742359158629" remote="130189782000000000" Dst="-1" />
 <file name="nganluong.php" server="113.52.152.54" local="130189742359158629" remote="130384805400000000" Dst="1" />
 <file name="nganluong.php" server="hummings.com" local="130189742359158629" remote="130422384600000000" Dst="0" />
-<file name="php5_common.php" server="ftp.ua-consultants.com//" local="130506119086250204" remote="130505722800000000" Dst="0" />
+<file name="php5_common.php" server="ftp.ua-consultants.com//" local="130506981499958349" remote="130511713200000000" Dst="0" />
 <file name="csv.php" server="ftp.ua-consultants.com//" local="130490341570654559" remote="130505779800000000" Dst="0" />
-<file name="import.php" server="ftp.ua-consultants.com//" local="130506182193006064" remote="130505785800000000" Dst="0" />
+<file name="import.php" server="ftp.ua-consultants.com//" local="130512107802624146" remote="130511711400000000" Dst="0" />
 <file name="php5_sef.php" server="ftp.ua-consultants.com//" local="130506981500088396" remote="130506625800000000" Dst="0" />
+<file name="import_cron.php" server="ftp.ua-consultants.com//" local="130490341674840498" remote="130511697600000000" Dst="0" />
 </dwsync>
