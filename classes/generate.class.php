@@ -13,11 +13,89 @@ class Generate
 	}
 	function move_order_file()
 	{
+		$date = date('Ymdhis', php5GMTTime());
+		$dir = DIR_SAP;
+		$path = dirname(__FILE__);
+		
+		$testfile =  $dir."test.txt";
+		$filename =  $dir."sales_in.txt";
+		$contents = '';
+		$error = 0;
+				
+		if($conn = checkFTP()) {
+			
+		if(is_file($filename)) {
+			$handle = fopen($filename, "r");
+			$contents = fread($handle, filesize($filename));
+			fclose($handle);
+		}
+		if($contents) {
+			//if(!in_array("/Inbound/Cust_In/custin_end.txt",ftp_nlist($conn, "/Inbound/Cust_In/"))){
+			$dir = "$path/../backup_sap/";
+			if(!is_dir($dir)) {
+				if(mkdir($dir, 0755)){};
+			} else {
+				if(chmod($dir, 0755)){};
+			}
+			//$dir = "$path/../backup_sap/$date/";
+			$file = $dir . "custin_$date.txt"; 
+			$file_end = $dir . "custin_end.txt"; 
+			
+			if(is_file($file)) {
+				if(chmod($file, 0777)){};
+			}
+			$fh = fopen($file, 'w+');
+			fwrite($fh, $contents);
+			fclose($fh);	
+			//create salesin_end
+			$fh = fopen($file_end, 'w');
+			fwrite($fh, '');
+			fclose($fh);	
+			if(chmod($file, 0644)){};
+			if(chmod($dir, 0755)){};
+			//up to server
+		
+				// turn passive mode on
+				ftp_pasv($conn, true);
+				// upload a file
+				if (ftp_put($conn, "/Inbound/Cust_In/custin_$date.txt", $file, FTP_ASCII)) {
+					if(unlink($filename)){};
+				} else {
+					$body = "There was a problem while uploading $file\n
+					
+			This is a system generated email update.
+					
+			";
+					$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
+					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);		
+				}
+				// upload a file end
+				if (ftp_put($conn, '/Inbound/Cust_In/custin_end.txt', $file_end, FTP_ASCII)) {
+				} else {
+					$body = "There was a problem while uploading $file_end\n
+					
+			This is a system generated email update.
+					
+			";
+					$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
+					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);		
+				}
+				ftp_close($conn);
+			
+			//}
+		}
+		}else{
+		
+		}		
+	}
+	function move_order_file()
+	{
 		//////////
 		$date = date('Ymdhis', php5GMTTime());
 		$dir = DIR_SAP;
 		$path = dirname(__FILE__);
 		
+		$testfile =  $dir."test.txt";
 		$filename =  $dir."sales_in.txt";
 		$contents = '';
 		$error = 0;
@@ -54,6 +132,10 @@ class Generate
 			
 				// turn passive mode on
 				ftp_pasv($conn, true);
+				if (@ftp_get($conn, $testfile, "/Inbound/Sales_In/salesin_$date.txt", FTP_BINARY)) {
+					@unlink($testfile);
+					return false;
+				}
 				// upload a file
 				if (ftp_put($conn, "/Inbound/Sales_In/salesin_$date.txt", $file, FTP_ASCII)) {
 					if(unlink($filename)){
@@ -95,6 +177,134 @@ class Generate
 		}
 		return true;
 	}
+	///////////////////////////////////////////
+	function cron_generate_user_file($id)
+	{
+		$arrBCC = array("romeoinbar@gmail.com");
+		$php5DB = $this->php5DB;
+		$userLog = new UserLog($this->php5DB);
+		$userLog->load($id);
+		if ($userLog->id) {
+			$dir = DIR_SAP;
+			$file = $dir."cust_in.txt";
+
+			$arrayCustomer = array('update_indicator','sold_to_party_no','name','ssid', 'block','unit','building','address1','address2','address3','address4','postcode','city','country','telephone1','telephone2','email');
+			
+			$st = '';
+			//task
+			$where = array();
+			$arrUser = array($user_id);
+			//user
+			$query = "SELECT * "
+						.   " FROM #__user ";
+						if(count($arrUser) > 0) {
+							$query .=  " WHERE user_id IN (" . implode( ',', $arrUser ) . ")";
+						} else {
+							$query .=  " WHERE 1 > 2 ";
+						}
+			$php5DB->setQuery( $query );
+			$rows_user = $php5DB->loadObjectList();
+			if(!is_array($rows_user) || count($rows_user) < 1) {
+				return false;
+			}
+			$i = 2;
+			$l = 1;
+					//customer
+					if(count($rows_user) > 0) {
+						$line5[$user_id] = "1~";
+						foreach($rows_user as $row5) {
+									$line6[$user_id] = sprintf("2~%s", $row5->customer_industry_type);
+									$line7[$user_id] = sprintf("3~%s", $row5->payment_terms);
+									$line8[$user_id] = sprintf("4~%s", $row5->customer_group);
+									$line9[$user_id] = sprintf("5~%s", $row5->tax_code);
+									$row5->update_indicator = $update_indicator;
+									if(isset($row5->ssid)) {
+									} else {
+										$row5->ssid = "IM6";
+									}
+									if($row5->user_id == $row5->user_id) {
+											$row5->sold_to_party_no = $row5->sold_to_party_no;
+											
+											foreach($arrayCustomer as $v5) {
+													$line5[$user_id] .= $row5->$v5.'~';
+											}
+											$line10[$user_id] = sprintf("6~%s~%s~%s~%s~%s~%s", $row5->contact_person_code, $row5->name, $row5->surname, $row5->gender, $row5->telephone1, $row5->telephone2);
+									}
+							}
+					}       
+			$stCustomer = '';
+				  $k = $user_id;
+					//customer
+		//			$stCustomer .= "Cust_in file";
+					$charN = "\n";
+					//$stCustomer .= "\r\n";
+					if(isset($line5[$k])) {
+							if(strlen($line5[$k]) > 1 && substr($line5[$k], -1) == '~') {
+									$line5[$k] = substr($line5[$k], 0, strlen($line5[$k]) -1);
+							}
+					}
+					$stCustomer .= @$line5[$k].$charN;
+					
+					if(isset($line6[$k])) {
+							if(strlen($line6[$k]) > 1 && substr($line6[$k], -1) == '~') {
+									$line6[$k] = substr($line6[$k], 0, strlen($line6[$k]) -1);
+							}
+					}
+					$stCustomer .= @$line6[$k].$charN;
+					
+					if(isset($line7[$k])) {
+							if(strlen($line7[$k]) > 1 && substr($line7[$k], -1) == '~') {
+									$line7[$k] = substr($line7[$k], 0, strlen($line7[$k]) -1);
+							}
+					}
+					$stCustomer .= @$line7[$k].$charN;
+					
+					if(isset($line8[$k])) {
+							if(strlen($line8[$k]) > 1 && substr($line8[$k], -1) == '~') {
+									$line8[$k] = substr($line8[$k], 0, strlen($line8[$k]) -1);
+							}
+					}
+					$stCustomer .= @$line8[$k].$charN;
+					
+					if(isset($line9[$k])) {
+							if(strlen($line9[$k]) > 1 && substr($line9[$k], -1) == '~') {
+									$line9[$k] = substr($line9[$k], 0, strlen($line9[$k]) -1);
+							}
+					}
+					$stCustomer .= @$line9[$k].$charN;
+					
+					if(isset($line10[$k])) {
+							if(strlen($line10[$k]) > 1 && substr($line10[$k], -1) == '~') {
+									$line10[$k] = substr($line10[$k], 0, strlen($line10[$k]) -1);
+							}
+					}
+					$stCustomer .= @$line10[$k].$charN;
+					
+					//$stCustomer .= "\r\n";
+					//$stCustomer .= "\r\n";
+					
+			$stCustomer = str_replace("&#39;","'",$stCustomer);
+			//////////
+			$date = date('Ymd', php5GMTTime());
+			if(!is_dir($dir)) {
+				if(mkdir($dir, 0755)){};
+			} else {
+				if(chmod($dir, 0755)){};
+			}
+			if(is_file($file)) {
+				if(chmod($file, 0777)){};
+			}
+			$fh = fopen($file, 'a+');
+			if(@fwrite($fh, $stCustomer)) {
+
+			}
+			fclose($fh);
+			if(chmod($file, 0644)){};
+			if(chmod($dir, 0755)){};
+			return true;			
+		}
+	}
+	/////////////////////////////////////////	
 	function cron_generate_order_file($id)
 	{
 		$arrBCC = array("romeoinbar@gmail.com");

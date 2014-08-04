@@ -25,6 +25,21 @@ require_once($php5RootPath . "/includes/class.inputfilter" . $php5Ext);
 require_once($php5RootPath . "/includes/php5_common" . $php5Ext);
 php5Init( 0 );
 require_once($php5RootPath . "/includes/generate.php");
+require_once($php5RootPath . "/classes/generate.class.php");
+$php5DB_en->setQuery("SELECT *
+						FROM #__user_log						
+						WHERE status = 0 and times = 1");	
+	$rows = $php5DB_en->loadObjectList();
+	if (count($rows) > 0) {
+		$generate = new Generate($php5DB);		
+		foreach ($rows as $row){
+			$generate->cron_generate_user_file($row->id);
+		}
+		// sleep for 10 seconds
+		sleep(10);
+		$generate->move_order_file();	
+	}
+exit;
 //////////
 $date = date('Ymdhis', php5GMTTime());
 
