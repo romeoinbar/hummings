@@ -54,7 +54,8 @@ switch($task)
 		  $checked = "";
 		  if ($user->in_newsletter($user->email, ' AND status =1 '))
 		  	$checked = "checked";
-          $smarty->assign('checked', $checked );	
+          $smarty->assign('checked1', $checked );	
+		  $smarty->assign('checked2', $user->newsletter_by_phone );
 		  		  
           $smarty->assign('user',$user);		  		  		  
           $main = $smarty->fetch($tpl);
@@ -65,6 +66,8 @@ switch($task)
 	      $user = new User();
 		  $user->loadData(add_prefix('user'), 'user_id', $php5Session->getVar('user_id') );		  
 		  $name = $user->name;
+		  $newsletter_by_phone 		= php5GetParam($_REQUEST, 'newsletter_by_phone', '0');
+		  if(!$newsletter_by_phone) $_REQUEST['newsletter_by_phone'] = 0;
 		  $user->bindRequest();
 		  $user->updateDBRQ(add_prefix('user'), 'user_id', $php5Session->getVar('user_id') );
 		  $php5Session->setVar('user_name',  $user->name   );

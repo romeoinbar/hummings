@@ -115,10 +115,15 @@
    <div style='margin-top:10px; padding-top:10px; border-top:1px solid #ccc;'>
    <table>
   <tr>
-    <td><input type=checkbox name='newsletter' {$checked} value=1> </td>
+    <td><input type=checkbox name='newsletter_email' {$checked1} value=1> </td>
     <td></td>
     <td> I acknowledge and consent Humming Flowers & Gifts Pte Ltd to update me on the latest launches, gifts and special offers via Email.</td>
   </tr>
+  <tr>
+    <td><input type=checkbox name='newsletter_by_phone' {if $checked2} checked {/if} value=1> </td>
+    <td></td>
+    <td> I acknowledge and consent Humming Flowers & Gifts Pte Ltd to update me on the latest launches, gifts and special offers via Phone.</td>
+  </tr>  
 </table>
 <br/>
      <input type=image src='{$php5WebPath}/images/save.jpg' style='width:143px; height:24px;'  onClick=clear_placeholder() > &nbsp; &nbsp;

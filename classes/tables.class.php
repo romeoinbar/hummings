@@ -290,6 +290,7 @@ class Dba
 	global $dblink;	
        $sql = "UPDATE " . $table . " SET ";
        $i= 0;
+	   
        foreach (get_object_vars( $this ) as $k => $v)
        {
          if ( isset($_REQUEST[$k]) )
@@ -301,7 +302,7 @@ class Dba
          }
        }
        $sql .= " WHERE $keyname ='$key' ";
-//	   echo $sql;
+	   //echo $sql;
       mysql_query($sql, $dblink);
     }
 
@@ -677,6 +678,7 @@ class User extends Dba
 		$this->payment_terms= "CC";				
 		$this->customer_industry_type= "UNSP";		
 		$this->gender= " ";	
+		$this->newsletter_by_phone= "0";
      } 	
 
 
@@ -694,7 +696,8 @@ class User extends Dba
 		$this->customer_group= "1";
 		$this->tax_code= "1";			
 		$this->payment_terms= "CC";				
-		$this->customer_industry_type= "UNSP";					
+		$this->customer_industry_type= "UNSP";
+		$this->newsletter_by_phone= "0";					
 	 }
 	 
 	 	 
