@@ -117,7 +117,7 @@
   <tr>
     <td><input type=checkbox name='newsletter' {$checked} value=1> </td>
     <td></td>
-    <td> Keep me posted on the latest promotions</td>
+    <td> I acknowledge and consent Humming Flowers & Gifts Pte Ltd to update me on the latest launches, gifts and special offers via Email.</td>
   </tr>
 </table>
 <br/>

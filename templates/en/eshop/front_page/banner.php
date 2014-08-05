@@ -122,11 +122,6 @@ $banner .= '
 
                        </td>
                    </tr>
-                   <tr>
-                       <td>
-                           <div><label class="label-newsletter"><input type="checkbox" class="input-newsletter" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </label></div>
-                       </td>
-                   </tr>
                </table>
 
 					 </form>
@@ -169,10 +164,14 @@ function checkAgreeNewsletter(frm)
         alert('Please enter your email');
         return false;
     }
-    if(frm.newsletter_agree.checked == true) {
+/*    if(frm.newsletter_agree.checked == true) {
         return true;
     }
-    alert('Please check \"I agree to receive the hummings email newsletter!\"');
+    alert('Please check \"I agree to receive the hummings email newsletter!\"');*/
+    a = confirm('I acknowledge and consent Humming Flowers & Gifts Pte Ltd to update me on the latest launches, gifts and special offers via Email.');
+    if (a) {
+        return true;
+    }
     return false;
 }
 

@@ -32,3 +32,4 @@ CREATE TABLE `tbl_newsletter_user` (
 -- Records of tbl_newsletter_user
 -- ----------------------------
 INSERT INTO `tbl_newsletter_user` VALUES ('3', 'test', 'nam@nam.com');
+ALTER TABLE  `tbl_user` ADD  `newsletter_by_phone` TINYINT( 1 ) NOT NULL DEFAULT  '0';

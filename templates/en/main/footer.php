@@ -39,29 +39,6 @@
          </td>         
 
        </tr>
-<tr>
-
-         <td width="40"></td>
-
-         <td width="290" style="text-transform:uppercase;"></td>
-
-         <td align="left"><label class="label-newsletter"><input type="checkbox" class="input-newsletter" name=newsletter_agree id=newsletter_agree value=1 /> I agree to receive the hummings email newsletter </label>
-
-         </td>
-
-         <td align="left">&nbsp;
-
-        </td>
-
-         <td width=100> </td>
-
-         <td align=right valign=center>
-
-                   
-
-         </td>         
-
-       </tr>
      </table>
 
      </form>
