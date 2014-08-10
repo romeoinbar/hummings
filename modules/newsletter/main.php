@@ -32,7 +32,7 @@ if(trim($name) == '') {
 		$link = sefBuild($php5WebPath, 'index.php?o=newsletter&m=subscribe', 1, true) . "code=".$rowNewsletterUser->generate_code;
 		//php5Mail(php5GetConfig('config_email'), "Humming", $email, sprintf($lang['_MSS_NEWSLETTER_1_'], $email), sprintf($lang['_MSS_NEWSLETTER_2_'], $link), 0, '');
 	}
-	$msgAlert = "Got it! Thanks!";
+	$msgAlert = "Thank you for your subscription!";
 }
 $tpl = sprintf($php5TemplateFile, $language, 'newsletter', 'main.tpl');	
 $smarty->assign('main',$smarty->fetch($tpl));

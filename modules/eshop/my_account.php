@@ -79,7 +79,7 @@ switch($task)
 		   $n_user->loadData(add_prefix('newsletter_user'), 'email', $user->email);
 		  
 		  
-		  if ( isset($_REQUEST['newsletter']) )
+		  if ( isset($_REQUEST['newsletter_email']) )
 		  {
 			  if ( $user->in_newsletter($user->email) )
 			  {

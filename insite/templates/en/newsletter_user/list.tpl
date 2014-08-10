@@ -1,7 +1,7 @@
 <div id="content">
 
 		<!-- Component Title -->
-			<div class="pagetitle icon-48-cpanel"><h2>Manager Newsletter Users</h2></div>
+			<div class="pagetitle icon-48-cpanel"><h2>Manager PDPC Records</h2></div>
 
 		<!-- System Messages -->
 		

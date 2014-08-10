@@ -73,8 +73,7 @@ $smarty->assign('error_message', $user->mysql_error_message() );
 $php5Session->setVar('register',0);
 }
 
-
-if ($env=='pc')
+if ($env=='PC')
 	include $php5RootPath.'/templates/en/eshop/left/left_menu.php'  ;
 
 $smarty->assign('link', sefBuild($php5WebPath, 'index.php?o=eshop&m=my_account&task=update&t=outsite', 1));	
@@ -84,7 +83,7 @@ $continue_cart = "";
 if ($php5Session->getVar('begin_checkout'))
 $continue_cart = "<a href='".sefBuild($php5WebPath, 'index.php?o=eshop&m=checkout&task=list&t=outsite', 1)."'><img src='$php5WebPath/images/btn_continue_cart.jpg' border=-></a>";
 $smarty->assign('continue_cart',$continue_cart );
-if ($env=='pc')
+if ($env=='PC')
 	$tpl =  $php5RootPath.'/templates/en/eshop/user/register2.php';
 else
 	$tpl =  $php5RootPath.'/templates/en/mobile/register2.tpl';
@@ -92,12 +91,11 @@ $main =  $smarty->fetch($tpl);
 $smarty->assign('main', $main );	
 
 $smarty->assign('php5WebPath', $php5WebPath );	
-if ($env=='pc')
+if ($env=='PC')
 	$tpl = sprintf($php5TemplateFile, $language, 'eshop', 'col2_left_2.tpl');
 if(!is_file($tpl )) {
 	die("can not find template");
 }
-
 $smarty->assign('main',$smarty->fetch($tpl));
 
 //$tpl = sprintf($php5TemplateFile, $language, 'eshop', 'create.tpl');
