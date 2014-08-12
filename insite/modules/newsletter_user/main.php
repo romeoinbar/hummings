@@ -12,12 +12,32 @@ $smarty->assign('link_edit_user', sefBuild($php5WebPath, 'index.php?o=newsletter
 $smarty->assign('link_del_user', sefBuild($php5WebPath, 'index.php?o=newsletter_user&m=main&task=delete', 0));
 
 switch ($task){	
+	case 'save':
+		saveUsers();
+		listUsers();
+		break;
 	case 'search':
 	default:
 		listUsers($task);
 		break;
 }
-
+function saveUsers(){
+	global $smarty, $php5RootAdminPath, $type, $php5Session, $php5WebPath, $php5TemplateAdminFile, $lang, $define, $php5DB;		
+	
+	global $msgAlert, $redirect;	
+		$chk 		= php5GetParam($_REQUEST, 'cid', '');
+		if (count($chk) > 0) {
+			foreach($chk as $id) {
+				$query = "UPDATE "
+				. "\n FROM #__newsletter_user "
+				. "\n WHERE id ='$id'";
+				$php5DB->setQuery( $query );
+				if ($php5DB->query()) {
+					
+				}
+			}
+		}		
+}
 function listUsers($task = 'search'){	
 	global $smarty, $php5RootAdminPath, $type, $php5Session, $php5WebPath, $php5TemplateAdminFile, $lang, $define, $php5DB;		
 	
@@ -104,5 +124,6 @@ function listUsers($task = 'search'){
 	$smarty->assign('_EDIT', $lang["_EDIT"]);
 	$smarty->assign('_ADD_ITEM', $lang["_ADD_ITEM"]);		
 	$smarty->assign('action', sefBuild($php5WebPath, 'index.php?o=newsletter_user&m=main&task=search', 0));
+	$smarty->assign('action1', sefBuild($php5WebPath, 'index.php?o=newsletter_user&m=main', 0));
 	$smarty->assign('main', $smarty->fetch(sprintf($php5TemplateAdminFile, 'en', $type , 'list.tpl')));
 }

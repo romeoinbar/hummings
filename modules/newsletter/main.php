@@ -25,12 +25,12 @@ if(trim($name) == '') {
 		$rowNewsletterUser->email = $email;
 		$rowNewsletterUser->date = php5GMTTime();
 		$rowNewsletterUser->ip = $_SERVER['REMOTE_ADDR'];
-		$rowNewsletterUser->subscribe = 1;
+		$rowNewsletterUser->subscribe = 2;
 		$rowNewsletterUser->generate_code = md5(php5GMTTime());
 		$rowNewsletterUser->store();
 		//send email
 		$link = sefBuild($php5WebPath, 'index.php?o=newsletter&m=subscribe', 1, true) . "code=".$rowNewsletterUser->generate_code;
-		//php5Mail(php5GetConfig('config_email'), "Humming", $email, sprintf($lang['_MSS_NEWSLETTER_1_'], $email), sprintf($lang['_MSS_NEWSLETTER_2_'], $link), 0, '');
+		php5Mail(php5GetConfig('config_email'), "Humming", $email, sprintf($lang['_MSS_NEWSLETTER_1_'], $email), sprintf($lang['_MSS_NEWSLETTER_2_'], $link), 0, '');
 	}
 	$msgAlert = "Thank you for your subscription!";
 }

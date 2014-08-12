@@ -4,16 +4,16 @@
 			<div class="pagetitle icon-48-cpanel"><h2>Manager PDPC Records</h2></div>
 
 		<!-- System Messages -->
-		
+<form action="{$action1}" method="post" name="frmAdmin" id="frmAdmin">
 <div id="system-message-container">
 </div>
 <div id="no-submenu"></div>
+
 <div class="clr"></div>
+<input type="hidden" name="task" value="search" />
 
 <div id="element-box">
 
-
-  <form action="{$action}" method="post" name="frm" id="frm">
   <fieldset id="filter-bar">
     <legend class="element-invisible">Search Users</legend>
 		<div class="filter-search">
@@ -41,7 +41,7 @@
       <th class="title">Type</td>     
       <th class="title">IP</td>
       <th class="title">Date</td>
-      <th class="title">Status</td>
+      <th class="title">Subscribe</td>
     </tr>
     </thead> 
     <tbody>  
@@ -53,7 +53,7 @@
       <td  class="center">{$row->type}</td>  
       <td  class="center">{$row->ip}</td>
       <td  class="center">{$row->date}</td>
-      <td  class="center">{$row->user_status}</td>
+      <td  class="center"><input type="checkbox" id="cid{$row->id}" name="cid[{$row->id}]" value="{$row->id}" {if $row->subscribe == 1} checked="checked" {/if} /></td>
     </tr>
     {foreachelse}
     <tr>
