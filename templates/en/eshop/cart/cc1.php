@@ -1,5 +1,6 @@
 <form action='{$url_confirm3}' method=post id="vForm" name="vForm" class="cmxform" onsubmit="return checkNewsletterAgree(this);">
 <input type="hidden" value="" name="newsletter_agree" />
+<input type="hidden" value="" name="newsletter_phone" />
 <table width="99%" align='center' cellpadding="5" cellspacing="0" style="border:1px solid #ccc;">
 <tr>
   <td width="100" valign=mivddle>Paypal</td>
@@ -64,10 +65,15 @@ var url_confirm2 = '{$url_confirm2}';
 {literal}
 <script language="javascript">
 function checkNewsletterAgree(frm){
+    var id = null;
 	id = document.getElementById('newsletter_agree');
 	if(id.checked) {
 		frm.newsletter_agree.value = 1;
 	}
+    id = document.getElementById('newsletter_phone');
+    if(id.checked) {
+        frm.newsletter_phone.value = 1;
+    }
 	return true;
 }
 function selectPaymentType(){

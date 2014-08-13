@@ -1,7 +1,7 @@
 <div id="content">
 
 		<!-- Component Title -->
-			<div class="pagetitle icon-48-cpanel"><h2>Manager PDPC Records</h2></div>
+			<div class="pagetitle icon-48-cpanel"><h2>Manage PDPC Records</h2></div>
 
 		<!-- System Messages -->
 <form action="{$action1}" method="post" name="frmAdmin" id="frmAdmin">
@@ -41,7 +41,8 @@
       <th class="title">Type</td>     
       <th class="title">IP</td>
       <th class="title">Date</td>
-      <th class="title">Subscribe</td>
+      <th class="title">Subscribe by email</td>
+      <th class="title">Subscribe by phone</td>
     </tr>
     </thead> 
     <tbody>  
@@ -53,7 +54,8 @@
       <td  class="center">{$row->type}</td>  
       <td  class="center">{$row->ip}</td>
       <td  class="center">{$row->date}</td>
-      <td  class="center"><input type="checkbox" id="cid{$row->id}" name="cid[{$row->id}]" value="{$row->id}" {if $row->subscribe == 1} checked="checked" {/if} /></td>
+      <td  class="center"><input type="checkbox" disabled id="cid{$row->id}" name="cid[{$row->id}]" value="{$row->id}" {if $row->subscribe == 1} checked="checked" {/if} /></td>
+      <td  class="center"><input type="checkbox" disabled id="cid{$row->id}" name="cid[{$row->id}]" value="{$row->id}" {if $row->subscribe_by_phone == 1} checked="checked" {/if} /></td>
     </tr>
     {foreachelse}
     <tr>

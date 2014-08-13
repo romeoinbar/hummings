@@ -695,6 +695,7 @@ form.cmxform label.error { display: none; }
 		$idUser = intval($php5DB->loadResult());
 		if($idUser < 1) {
 			$newsletter_agree = php5GetParam($_REQUEST, 'newsletter_agree', '');
+            $newsletter_phone = php5GetParam($_REQUEST, 'newsletter_phone', '');
 			$rowNewsletterUser = new NewsletterUser($php5DB);
 			$rowNewsletterUser->id = '0';
 			$rowNewsletterUser->name = $php5Session->getVar('shipping_name' . $id);
@@ -705,6 +706,11 @@ form.cmxform label.error { display: none; }
 			if($newsletter_agree) {
 				$rowNewsletterUser->subscribe = 1;
 			}
+            $rowNewsletterUser->subscribe_by_phone = 2;
+            if($newsletter_phone) {
+                $rowNewsletterUser->subscribe_by_phone = 1;
+            }
+
 			$rowNewsletterUser->generate_code = md5(php5GMTTime());
 			$rowNewsletterUser->store();
 		}
