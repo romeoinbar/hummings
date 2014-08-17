@@ -495,7 +495,7 @@ class Product extends Dba
 	{
 		
 	   $stock = new Stock();
-	   $stock->loadData(add_prefix('stock'), 'id', $this->availability);	
+	   $stock->loadData(add_prefix('stock'), 'id', $this->availability);
 //	   if ($this->stock == 0)
 	   return $stock->caption;
 

@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="send_newsletter_email_1.php" server="ftp.ua-consultants.com//" local="130512119234124817" remote="130511722800000000" Dst="0" />
+<file name="send_newsletter_email_1.php" server="ftp.ua-consultants.com//" local="130524210924691400" remote="130526082000000000" Dst="0" />
+<file name="client.php" server="ftp.ua-consultants.com//" local="130490341267387326" remote="130526081400000000" Dst="0" />
+<file name="cust_in_backup.php" server="ftp.ua-consultants.com//" local="130524210924491367" remote="130526081400000000" Dst="0" />
+<file name="dv9_test01.php" server="ftp.ua-consultants.com//" local="130490341267687321" remote="130526081400000000" Dst="0" />
+<file name="dv9_test.php" server="ftp.ua-consultants.com//" local="130490341267587288" remote="130526081400000000" Dst="0" />
+<file name="dv9_test02.php" server="ftp.ua-consultants.com//" local="130490341267817316" remote="130526081400000000" Dst="0" />
+<file name="dv9_test_kc.php" server="ftp.ua-consultants.com//" local="130490341267917336" remote="130526081400000000" Dst="0" />
+<file name="error_log" server="ftp.ua-consultants.com//" local="130490341268107321" remote="130526081400000000" Dst="0" />
+<file name="export_orders.php" server="ftp.ua-consultants.com//" local="130490341268437336" remote="130526081400000000" Dst="0" />
+<file name="generate.php" server="ftp.ua-consultants.com//" local="130490341268797353" remote="130526082000000000" Dst="0" />
+<file name="get-orders.php" server="ftp.ua-consultants.com//" local="130490341268927374" remote="130526082000000000" Dst="0" />
+<file name="hello.php" server="ftp.ua-consultants.com//" local="130490341268957388" remote="130526082000000000" Dst="0" />
+<file name="sales_in_backup.php" server="ftp.ua-consultants.com//" local="130506981498848479" remote="130526082000000000" Dst="0" />
+<file name="send_newsletter_email_0.php" server="ftp.ua-consultants.com//" local="130490341269217392" remote="130526082000000000" Dst="0" />
+<file name="index.html" server="ftp.ua-consultants.com//" local="130490341268977362" remote="130526082000000000" Dst="0" />
+<file name="systemtest.txt" server="ftp.ua-consultants.com//" local="130490341269357416" remote="130526082000000000" Dst="0" />
+<file name="test.php" server="ftp.ua-consultants.com//" local="130490341269487398" remote="130526082000000000" Dst="0" />
+<file name="update_newsletter_users.php" server="ftp.ua-consultants.com//" local="130490341270067447" remote="130526082000000000" Dst="0" />
+<file name="update_outbound_orders.php" server="ftp.ua-consultants.com//" local="130490341270327437" remote="130526082000000000" Dst="0" />
+<file name="update_customers.php" server="ftp.ua-consultants.com//" local="130490341269867420" remote="130526082000000000" Dst="0" />
+<file name="update_outbound_users.php" server="ftp.ua-consultants.com//" local="130490341270557459" remote="130526082000000000" Dst="0" />
+<file name="update_status_orders.php" server="ftp.ua-consultants.com//" local="130490341270757472" remote="130526082000000000" Dst="0" />
 </dwsync>

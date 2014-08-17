@@ -12,6 +12,7 @@ $php5SiteName 		= '';
 $php5Keywords 		= '';
 $php5Desc			= '';
 $php5WebPath 		= 'http://localhost/hummings';
+$php5WebPathS        = 'http://localhost/hummings';
 $php5WebPathAD 		= 'http://localhost/hummings/insite';
 $php5RootPath		= 'D:/AppServ/www/hummings';
 $php5RootAdminPath        = 'D:/AppServ/www/hummings/insite';

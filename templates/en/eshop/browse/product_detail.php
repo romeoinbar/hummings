@@ -40,7 +40,7 @@ $smarty->assign('pageURL', urlencode($pageURL));
 		 /*if ($product->availability!=1)
 		 	$notify = 1;
 		 elseif ()*/
-		 
+
 		  $smarty->assign('quantity_of_product', $product->quantity );
 				 $smarty->assign('product_image', $product->image );
 				 $smarty->assign('link_product', $link_product );			 
@@ -68,7 +68,7 @@ $smarty->assign('pageURL', urlencode($pageURL));
 		 else
          $smarty->assign('show_lead_time', ""  ); 		 
 		 
-		 
+
 		 $smarty->assign('url_add', sefBuild($php5WebPath , 'index.php?o=eshop&m=cart&task=add', 1 )  );          
          if (($product->show_availability() == 'out of stock')||($product->quantity==0)){		
 		 	$smarty->assign('button','');					

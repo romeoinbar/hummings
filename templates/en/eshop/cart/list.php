@@ -249,9 +249,9 @@ $url_detial = sefBuild($php5WebPath, 'index.php?o=eshop&m=product_detail&t=outsi
    } 
    if (go){
 	    if (logined)
-   			window.location=jWebPath + 'cart/eshop/checkout/shipping_address/1';
+   			window.location='".sefBuild($php5WebPath, 'index.php?o=eshop&m=checkout&t=shipping_address&id=1' , 1)."';
 		else
-			window.location=jWebPath + 'cart/eshop/register/';
+			window.location='".sefBuild($php5WebPath, 'index.php?o=eshop&m=register' , 1)."';
    }
  }
  </script>
