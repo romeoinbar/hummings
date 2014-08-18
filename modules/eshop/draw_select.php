@@ -19,15 +19,8 @@ $clean=1;
 									$row['message3']. "*-*" .
 									$row['message4']. "*-*" .
 									$row['message5']. "*-*" .
-									$row['message6']. "*-*" . "'>".$row['message']."</option>"; */
-				
-				$row['message1'] = str_replace("&#39;","&#92;&#39;",$row['message']);
-				$row['message2'] = str_replace("&#39;","&#92;&#39;",$row['message2']);
-				$row['message3'] = str_replace("&#39;","&#92;&#39;",$row['message3']);
-				$row['message4'] = str_replace("&#39;","&#92;&#39;",$row['message4']);
-				$row['message5'] = str_replace("&#39;","&#92;&#39;",$row['message5']);
-				$row['message6'] = str_replace("&#39;","&#92;&#39;",$row['message6']); 
-				$s .= '<div style="cursor:pointer; color:#B8076C; margin-bottom:5px;" onclick="set_message(\''.$row['message1']. "*-*" . 
+									$row['message6']. "*-*" . "'>".$row['message']."</option>";*/
+				$s .= '<div style="cursor:pointer; color:#B8076C; margin-bottom:5px;" onclick="set_message(\''.$row['message']. "*-*" . 
 			                        $row['message2']. "*-*" .
 									$row['message3']. "*-*" .
 									$row['message4']. "*-*" .

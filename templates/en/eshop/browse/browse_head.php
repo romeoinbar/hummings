@@ -9,7 +9,7 @@ $product_category->loadData(add_prefix('product_category'), 'product_category_id
 
 $smarty->assign('image', $php5WebPath . "/" .$product_category->image );	
 $smarty->assign('name', $product_category->name );	
-$smarty->assign('resized_image', "".return_resized_image(278, 500, $product_category->image)."" );	
+$smarty->assign('resized_image', return_resized_image(278, 500, $product_category->image) );	
 $smarty->assign('description', $product_category->description );	
 
 //if ($product_category->image)

@@ -74,7 +74,7 @@
       Company: <span style="color:#000;">{$bill->company}</span><br />
       Block/Unit: <span style="color:#000;">{$bill->block} {$bill->unit}</span><br />
       Building: <span style="color:#000;">{$bill->building}</span><br />
-      Street: <span style="color:#000;">{$bill->address1}</span><br />
+      Street: <span style="color:#000;">{$bill->street}</span><br />
       Postal Code: <span style="color:#000;">{$bill->postcode}</span><br />
       City/State: <span style="color:#000;">{$bill->city}/{$bill->state}</span><br />
       Country: <span style="color:#000;">{$bill->country}</span></td>
@@ -89,33 +89,35 @@
 <p>GST: {$gst}</p>
 <p>Total Payable: {$total}</p></td>
   </tr>
+ {if 1>2}
   <tr>
     <td bgcolor="#f6f2e9" style="color:#000; font-size:14px;"><strong>PAY BY CREDIT CARD</strong></td>
   </tr>
+ {/if}
   <tr>
     <td>
-    <form action='{$url_confirm}' method="post" id="vForm" name="vForm" class="cmxform">
+    <form action='{$url_confirm3}' method="post" id="vForm" name="vForm" class="cmxform"><input type='hidden' name='__token_timestamp__' value='1395627084'><input type='hidden' name='__token_val__' value='05f2f36534d933657292cb41d7487728'>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td width="20"><input  name="payment_type" type="radio" style='border:0px;' value="paypal" checked="checked" onclick="javascript:document.vForm.action='{$url_confirm3}'" /></td>
         <td width="100"><img src="{$php5WebPath}/images/PayPal_mark_50x34.gif" alt="The safer, easier way to pay." /></td>
-        <td align="left"><div style='font-size:11px; background:#eee; padding:10px; font-style:italic; width:100%; margin:auto; text-align:left;'>Your IP Address  {$ip} will be recorded together with this transaction for security purposes.</div></td>
+        <td rowspan="2" align="center"><div style='font-size:11px; background:#eee; padding:10px; font-style:italic; width:90%; margin:auto; text-align:left;'>Your IP Address  {$ip} will be recorded together with this transaction for security purposes.</div></td>
       </tr>
-      <!--tr>
+	<tr>
+		<td colspan="2" align=right><input type="image" src='{$php5WebPath}/images/btn_makepayment.jpg' style="border:none;"/></td>
+		<td></td>
+	</tr>
+	</table>
+{if 1>2}
+      <tr>
         <td width="20"><input type="radio" name="payment_type" value="creditcard" /></td>
         <td width="100"><img src="{$php5WebPath}/images/visa.jpg" /></td>
-        </tr-->
-		  <tr>
-    <tr>
-    <td  colspan="2" align="left"><input type="image" src='{$php5WebPath}/images/btn_makepayment.jpg' style="border:none;"/></td>
-	<td  style="color:#a90061;padding-left:10px;">* To avoid double  billing, please click the button <strong>'Make Payment'</strong> only ONCE and allow payment to  take up to 60 seconds for processing.<br>
-	* All debit and credit cards accepted. Customers would NOT need to have a PayPal account to make your payment through PayPal.
-	</td>
-	</tr>
+        </tr>
     </table>
-    <!--table width="100%">
+
+    <table width="100%">
   <tr>
-    <td width="100">Credit Card Number:</td>
+    <td width="100">Credit Card:</td>
     <td width="10">:</td>
     <td align=left> <input type='text' name='pan' value="" class="textinput" onclick="selectPaymentType();" /></td>
   </tr>  
@@ -141,7 +143,8 @@
     <td>&nbsp;</td>
     <td align=right><input type="image" src='{$php5WebPath}/images/btn_makepayment.jpg' style="border:none;"/></td>
   </tr>
-    </table-->
+    </table>
+{/if}
 <input type=hidden name=ip value='{$ip}'>
 <input type=hidden name=total value='{$total}'>
 </form>

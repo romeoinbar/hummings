@@ -53,10 +53,10 @@ form.cmxform label.error { display: none; }
     <div  style="margin-bottom:5px;">{$title}</div>
     <div style="margin-bottom:5px; font-size:12px;">Surname:</div>
     <div style="margin-bottom:5px;"><input id="surname{$i}"  name="surname{$i}" type="text" value="{$obj->surname}" class="textinput" /></div>
-    <div style="margin-bottom:5px; font-size:12px;">Name:<span style="color:#F00;">*</span></div>
+    <div style="margin-bottom:5px; font-size:12px;">Name:</div>
     <div style="margin-bottom:5px;"><input  id="name{$i}"  name="name{$i}" type="text" class="required" value="{$obj->name}"/></div>
-    <div style="margin-bottom:5px; font-size:12px;">E-Mail:</div>
-    <div style="margin-bottom:5px;"> <input name="email{$i}" type="text" class="textinput" value="{$obj->email}"/></div>
+    <div style="margin-bottom:5px; font-size:12px;">E-Mail:<span style="color:#F00;">*</span></div>
+    <div style="margin-bottom:5px;"> <input name="email{$i}" type="text" class="required email" value="{$obj->email}"/></div>
     <div style="margin-bottom:5px; font-size:12px;">Mobile Number:<span style="color:#F00;">*</span></div>
     <div style="margin-bottom:5px;"><input id="telephone1{$i}" name="telephone1{$i}" type="text" class="required digits" value="{$obj->telephone1}" placeholder="" /></div>
     <div style="margin-bottom:5px; font-size:12px;">Work Number: (optional)</div>
@@ -70,9 +70,9 @@ form.cmxform label.error { display: none; }
     <div style="clear:both; margin-bottom:5px;"></div>
     <div style="margin-bottom:5px; font-size:12px;">Building:</div>
     <div style="margin-bottom:5px;"><input  id="building{$i}"   name="building{$i}" type="text" class="textinput"  value="{$obj->building}"/></div>
-    <div style="margin-bottom:5px; font-size:12px;">Street<span style="color:#F00;">*</span></div>
+    <div style="margin-bottom:5px; font-size:12px;">Street:<span style="color:#F00;">*</span></div>
     <div style="margin-bottom:5px;"><input id="address1{$i}"   name="address1{$i}" type="text" class="textinput required" value="{$obj->address1}"/></div>
-    <div style="margin-bottom:5px; font-size:12px;">Postal Code<span style="color:#F00;">*</span></div>
+    <div style="margin-bottom:5px; font-size:12px;">Postal Code:<span style="color:#F00;">*</span></div>
     <div style="margin-bottom:5px;"><input id="postcode{$i}"  name="postcode{$i}" type="text" class="required digits" maxlength=6 value="{$obj->postcode}"/></div>
     <div style="margin-bottom:5px; font-size:12px;">City / State:</div>
     <div style="margin-bottom:5px;">

@@ -1,7 +1,7 @@
 <?php  
 global $php5DB_en, $smarty, $php5TemplateFile, $language, $php5WebPath;
 $main_menu="";
-$php5DB_en->setQuery("SELECT * FROM #__menu WHERE parent_id=0 and publish=1 ORDER BY sorting ASC");
+$php5DB_en->setQuery("SELECT * FROM #__menu WHERE parent_id=0 ORDER BY sorting ASC");
 $rows = $php5DB_en->loadObjectList();
 foreach ($rows as $row){
     if ($row->type=="product")                  

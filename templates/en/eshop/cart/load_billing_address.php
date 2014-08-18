@@ -41,6 +41,5 @@ if(trim($user->city) == '')  {
 if(trim($user->state) == '')  {
 	$user->state = "Singapore";
 }
-$user->street = $php5Session->getVar('tbl_user_address1').' '.$php5Session->getVar('tbl_user_address2' );
   $smarty->assign('obj', $user );
 ?>

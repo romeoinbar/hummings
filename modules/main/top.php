@@ -20,7 +20,7 @@ foreach ($rows as $row){
 			else
 				$sub->url = sefBuild($php5WebPath, 'index.php?o=articles&m=main&task=category&id='.$sub->itemid, 1);	
 		}
-		$row->width = $row->columns*130;
+		$row->width = $row->columns*160;
 		$row->subs = $subs;
 	} else {
 		if ($row->type=="content"){

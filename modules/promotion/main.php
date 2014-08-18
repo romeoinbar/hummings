@@ -26,8 +26,6 @@ if(trim($email) == '') {
 		$rowNewsletterUser->name = $name;
 		$rowNewsletterUser->email = $email;
 		$rowNewsletterUser->date = php5GMTTime();
-		$rowNewsletterUser->ip = $_SERVER['REMOTE_ADDR'];
-		$rowNewsletterUser->subscribe = 1;		
 		$rowNewsletterUser->store();
 		///////////////////////////
 		$coupon = new coupon();

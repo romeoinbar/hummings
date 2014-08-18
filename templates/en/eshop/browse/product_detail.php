@@ -27,11 +27,11 @@ $smarty->assign('pageURL', urlencode($pageURL));
 		 <link rel="image_src"  href="'.$product->image.'" />' );*/
 		 $smarty->assign('extra_header', '');
          $smarty->assign('title',$product->name );
-		 
+
 		 if (($product->quantity==0) || ($product->availability==2))
-		 	$resized_image = "<a href='".$php5WebPath.'/'.$product->image."' rel='lightbox'>".return_resized_image_oos(278, 500,$product->image)."</a>";
+		 	$resized_image = "<a href='".$product->image."' rel='lightbox'>".return_resized_image_oos(278, 500,$product->image)."</a>";
 		 else
-			$resized_image = "<a href='".$php5WebPath.'/'.$product->image."' rel='lightbox'>".return_resized_image(278, 500, $product->image)."</a>"; 
+			$resized_image = "<a href='".$product->image."' rel='lightbox'>".return_resized_image(278, 500, $product->image)."</a>"; 
          $smarty->assign('resized_image', $resized_image );
          $smarty->assign('product_id', $product->product_id );	
          $smarty->assign('rating_product', display_rating($product->product_id) );			 
@@ -40,7 +40,7 @@ $smarty->assign('pageURL', urlencode($pageURL));
 		 /*if ($product->availability!=1)
 		 	$notify = 1;
 		 elseif ()*/
-
+		 
 		  $smarty->assign('quantity_of_product', $product->quantity );
 				 $smarty->assign('product_image', $product->image );
 				 $smarty->assign('link_product', $link_product );			 
@@ -68,7 +68,7 @@ $smarty->assign('pageURL', urlencode($pageURL));
 		 else
          $smarty->assign('show_lead_time', ""  ); 		 
 		 
-
+		 
 		 $smarty->assign('url_add', sefBuild($php5WebPath , 'index.php?o=eshop&m=cart&task=add', 1 )  );          
          if (($product->show_availability() == 'out of stock')||($product->quantity==0)){		
 		 	$smarty->assign('button','');					
@@ -98,7 +98,7 @@ $smarty->assign('pageURL', urlencode($pageURL));
 		   <table callspacing=0 cellpadding=0>
 		    <tr>
 			  <td width=70 height=70 valign=middle align=center>
-		   <a href='". $php5WebPath. "/". $row['image']."' rel='lightbox[d]'>".return_resized_image(70, 70, $row['image'])."</a>
+		   <a href='". $php5WebPath. "/". $row['image']."' rel='lightbox[d]'>".return_resized_image(70, 70, $php5WebPath. "/".$row['image'])."</a>
 		     </td>
 			</tr>  
 		   </table>

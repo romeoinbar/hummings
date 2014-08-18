@@ -1,4 +1,5 @@
 
+
 <div style='padding:0px;' id=checkout_page>
           <table width="100%" border="0" cellspacing="0" cellpadding="5">
             <tr class="">
@@ -214,7 +215,7 @@ add_placeholder('fax{$i}', 'Number');
                 <td width="353" valign=top rowspan=2>
                 <div id='delivery_options'  style='width:302px; border:0px solid red;'  
                 
-                    > {$delivery_options}</div><label for='delivery_time{$i}' class='error'>Please select at least one type of delivery time.</label></td>
+                    > {$delivery_options}</div><label for='delivery_time{$i}' class='error'>Please select at least one type of delivery_time.</label></td>
                 <td width="254" rowspan="2" valign="top">
                   <table width="220" border="0" cellspacing="0" cellpadding="5">
                     <tr>

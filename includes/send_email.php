@@ -4,7 +4,7 @@ function email_reset_password($email_to, $new_password)
 {
 $to      = $email_to;
 $subject = 'Hummings Flowers & Gifts : Reset Password';
-$message = "Your account password in hummings.com has been reset to : $new_password";
+$message = "You account password in hummings.com has been reset to : $new_password";
 $headers = 'From: noreply@hummings.com' . "\r\n" .
     'Reply-To: noreply@hummings.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
@@ -99,20 +99,6 @@ function email_orders($email_to, $message, $content = '')
 	//mail($to, $subject, $message, $headers);
     send_email_all($to, $subject, $message);
 }
-function email_orders1($email_to, $message, $content = '')
-{
-	$to      = $email_to;
-	$subject = 'Hummings Flowers & Gifts : Order Confirmation';
-	$headers = 'From: noreply@hummings.com' . "\r\n" .
-			'Content-type: text/html; charset=iso-8859-1' . "\r\n".			
-			'X-Mailer: PHP/' . phpversion();
-			
-	if($content) {
-		$message = $content;
-	}
-	//mail($to, $subject, $message, $headers);
-    send_email_all1($to, $subject, $message);
-}
 
 function email_thanks($email_to, $message)
 {
@@ -134,33 +120,6 @@ function send_email_all($to, $subject, $message, $is_html = 1)
 	$headers["From"]    = "Humming Flowers & Gifts <noreply@hummings.com>";
 	$headers["To"]      = $to;
 	$recipients         = $to.","."online@humming.com.sg";
-	//$recipients         = $to;
-	$headers["Subject"] = $subject;
-	if($is_html) {
-		$headers["Content-type"] = "text/html; charset=UTF-8" . "\r\n";
-	} else {
-		$headers["Content-type"] = "text/plain; charset=UTF-8" . "\r\n";
-	}
-	$body = $message;
-	
-	$params["host"] = php5GetConfig('config_smtp_host');
-	$params["port"] = php5GetConfig('config_smtp_port');
-	$params["auth"] = true;
-	$params["username"] = php5GetConfig('config_smtp_username');
-	$params["password"] = php5GetConfig('config_smtp_password');;
-	
-	// Create the mail object using the Mail::factory method
-	$mail_object =& Mail::factory("smtp", $params);
-	
-	$mail_object->send($recipients, $headers, $body);
-
-}
-function send_email_all1($to, $subject, $message, $is_html = 1)
-{
-
-	$headers["From"]    = "Humming Flowers & Gifts <noreply@hummings.com>";
-	$headers["To"]      = $to;
-	$recipients         = $to;
 	//$recipients         = $to;
 	$headers["Subject"] = $subject;
 	if($is_html) {
@@ -306,11 +265,7 @@ function send_email_all4($to, $subject, $message, $is_html = 1)
 	$mail_object =& Mail::factory("smtp", $params);
 	
 	$mail_object->send($recipients, $headers, $body);
-	if (PEAR::isError($mail_object)) {
-		echo $mail_object->getMessage();
-	} else {
-		echo "Email was sent!";
-	}
+	
 	//$recipients         = "online@humming.com.sg";
 	//$mail_object->send($recipients, $headers, $body);	
 }

@@ -85,7 +85,7 @@
                   <a href="mailto:online@humming.com.sg">online@humming.com.sg</a></p>
                   <p><strong>Address:</strong><br />
                     Humming Flowers &amp; Gifts Pte Ltd<br />
-                21 Ubi Road 1 #04-02 Singapore 408724.</p></td>
+                7 Tai Seng Drive #03-02 Singapore 535218.</p></td>
                 </tr>
               <tr>
                 <td valign="top" bgcolor="#eeeeee" style="padding-left:15px;padding-right:15px;"><strong>Business Hours:</strong><br />

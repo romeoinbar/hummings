@@ -47,13 +47,12 @@
 }
 #nav li ul.product li.columns{	
 	float:left; 
-	width:171px;
+	width:180px;
 	text-transform:none;	
 }
 
 
-#nav li ul li {float:none;  padding:0 5px; padding-bottom:5px; }
-#nav li ul li a {color:#666;}
+#nav li ul li {float:none;}
+#nav li ul li a {height:20px; line-height:20px; padding:0 5px; padding-bottom:5px; color:#666;}
 #nav li ul li a:hover {color:#000;}
 #nav li ul li:hover {background:#f9c4c1; }
-#nav li ul li:hover a {color:#000; }

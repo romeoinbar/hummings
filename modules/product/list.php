@@ -13,7 +13,6 @@ $php5DB_en->setQuery( $query );
 $rows = $php5DB_en->loadObjectList();
 foreach ($rows as $row) { 
 	 $link_product = sefBuild($php5WebPath, "index.php?o=eshop&m=product_detail&t=outsite&task=show&id=" .$row->product_id , 1)  ;		 
-	 //$row->image = "<a href='$link_product'>".return_resized_image(125, 100, $php5WebPath.'/'.$row->image)."</a>";	 
 	 $row->image = "<a href='$link_product'>".return_resized_image(125, 100, $row->image)."</a>";
 	 $row->name = stripslashes($row->name);
 	 $row->rating = call_rating($row->product_id);	

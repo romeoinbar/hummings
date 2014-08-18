@@ -26,7 +26,6 @@ $php5DB_en->setQuery( $query );
 $objects = $php5DB_en->loadObjectList();
 $delivery_options = "<table>"; 
 $i = 0;
-$f=1;
 foreach ($objects as $object) {
 	if ( ($i %2) == 0 )
 	$delivery_options .= "</tr><tr>";		
@@ -57,12 +56,6 @@ foreach ($objects as $object) {
 		 $disabled =   " disabled" ;
 		 $checked = " "; 
 	 }	
-	 if (($disabled=="")&&$f){
-			$checked = 'checked="checked"';
-			$f=0;
-		} else {
-			$checked = " "; 
-		}
 	$delivery_options .= "<td>
 						   <input style='border:0px;' type=radio id=delivery_time$d name=delivery_time$d $disabled value=".$object->delivery_time_id."  $checked  validate='required:true'  > </td><td style='$style'>" . 
 						   $object->caption  	."<td/>";							

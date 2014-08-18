@@ -48,13 +48,3 @@
    </div>
  </div>   
  <div class=cbot_full></div>
- <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
-<noscript>
-
-<div style="display:inline;">
-
-<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/984585584/?value=0&amp;label=dQAKCIjE4QgQ8Kq-1QM&amp;guid=ON&amp;script=0"/>
-
-</div>
-
-</noscript>

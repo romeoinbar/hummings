@@ -31,17 +31,15 @@ include_once "$php5RootPath/includes/call_rating.php";
 	   $name = $product->name;
 	   $price = price_tag($product->price);
 	    	   
-       //$image = display_image_url( $product->image );
-	   $image = return_resized_image(80, 80, $product->image);
+       $image = display_image_url( $product->image );
+	   $image = return_resized_image(80, 80, $image);
        $addon .= "<div style='padding:5px; text-align:center; float:left;'>
-	                  <div style='width:100%; height:100px; text-align:center;'><table cellpadding=0 cellspacing=0  height=100 width=100%><tr><td valign=midle>$image</td></tr></table></div>
+	                  <div style='width:100px; height:100px; text-align:center;'><table cellpadding=0 cellspacing=0  height=100 ><tr><td valign=midle>$image</td></tr></table></div>
 					  <table>
 					    <tr>
 						  <td> <input type='checkbox' name=addon$c value='$addon_id'></td>
-						  <td><b>$name</b></td>
-						</tr>
-						<tr>
-						 <td colspan=2>$price</td>
+						  <td> </td>
+						  <td><b>$name</b> <br/> $price </td>
 						</tr>
 					  </table>
 					  

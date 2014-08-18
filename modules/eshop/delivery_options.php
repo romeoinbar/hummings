@@ -38,7 +38,7 @@ if (($id >= $earliest_date) AND ( $delivery->is_off_day($id)) AND (date('Y-m-d',
 	$objects = $php5DB_en->loadObjectList();
 	$delivery_options = "<table>"; 
 	$i = 0;
-	$f=1;
+
 	foreach ($objects as $object) {
 		if ( ($i %2) == 0 )
 			$delivery_options .= "</tr><tr>";		
@@ -63,7 +63,6 @@ if (($id >= $earliest_date) AND ( $delivery->is_off_day($id)) AND (date('Y-m-d',
 			
 			 if ($curr_hour < date("Y-m-d H:i", strtotime($id.' '.$object->from_time))){
 			   $disabled =   "" ;
-			   
 			   $style= " font-weight:bold;";
 			   $available++;	
 			 } else {
@@ -75,12 +74,6 @@ if (($id >= $earliest_date) AND ( $delivery->is_off_day($id)) AND (date('Y-m-d',
 			   $style= " color :#ccc; "; 
 			   $disabled =   " disabled" ;
 			   $checked = " "; 
-		}
-		if (($disabled=="")&&$f){
-			$checked = 'checked="checked"';
-			$f=0;
-		} else {
-			$checked = " "; 
 		}
 					   
 		 $delivery_options .= "<td >  

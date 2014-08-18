@@ -26,8 +26,8 @@ $php5Session->setVar('latest_total', @$_POST['total']);
 	//$update_indicator = check_update_indicator( $php5Session->getVar('user_id'));
 /////////////////////////////////////////////////////////////////////////////////////////	
 ////////////////////////////////////////////////////////////////////////////////////////	
-    if (!$debug_mode)
-    generate_customer_file( $user->user_id, $update_indicator);	
+    //if (!$debug_mode)
+    //generate_customer_file( $user->user_id, $update_indicator);	
 	
 	 
   
@@ -462,9 +462,9 @@ function generate_order($product_type)
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-    if (!$debug_mode)	   
-	 generate_order_file($order->order_id);  	
-	 
+    //if (!$debug_mode)
+	// 	generate_order_file($order->order_id);  	
+	
 	 global $php5TemplateFile;
 	 global $language;
 	 $message = prepare_order($order->order_id,  sprintf($php5TemplateFile, $language, 'eshop', 'cart/order_mail.php'));

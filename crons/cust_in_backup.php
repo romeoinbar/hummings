@@ -26,6 +26,7 @@ require_once($php5RootPath . "/includes/php5_common" . $php5Ext);
 php5Init( 0 );
 require_once($php5RootPath . "/includes/generate.php");
 require_once($php5RootPath . "/classes/generate.class.php");
+echo "Start<br/>\n";
 $php5DB_en->setQuery("SELECT *
 						FROM #__user_log						
 						WHERE status = 0 and times = 1");	
@@ -34,11 +35,15 @@ $php5DB_en->setQuery("SELECT *
 		$generate = new Generate($php5DB);		
 		foreach ($rows as $row){
 			$generate->cron_generate_user_file($row->id);
+			echo "Updated userid = $row->user_id<br/>\n";
+			// sleep for 10 seconds
+			sleep(3);			
 		}
 		// sleep for 10 seconds
-		sleep(10);
-		$generate->move_order_file();	
+		sleep(5);
+		$generate->move_user_file();	
 	}
+echo "Done";
 exit;
 //////////
 $date = date('Ymdhis', php5GMTTime());

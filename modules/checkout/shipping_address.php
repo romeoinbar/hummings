@@ -11,10 +11,20 @@ $php5Session->setVar('delivery_to_date'.$d  , convert_date2($_POST['delivery_to_
 $php5Session->setVar('delivery_time'.$d  , $_POST['delivery_time'.$d]);
 
 $php5Session->setVar('message_sender'.$d  , stripslashes($_POST['message_sender'.$d]) );
+$php5Session->setVar('message_sender2'.$d  , stripslashes($_POST['message_sender2'.$d]) );
+$php5Session->setVar('message_sender3'.$d  , stripslashes($_POST['message_sender3'.$d]) );
 	   
 $php5Session->setVar('message_receiver'.$d  , stripslashes($_POST['message_receiver'.$d]));
+$php5Session->setVar('message_receiver2'.$d  , stripslashes($_POST['message_receiver2'.$d]));
+$php5Session->setVar('message_receiver3'.$d  , stripslashes($_POST['message_receiver3'.$d]));
 			   
 $php5Session->setVar('message_content'.$d  , stripslashes($_POST['message_content'.$d]));
+$php5Session->setVar('message_content2'.$d  , stripslashes($_POST['message_content2'.$d]));
+$php5Session->setVar('message_content3'.$d  , stripslashes($_POST['message_content3'.$d]));
+$php5Session->setVar('message_content4'.$d  , stripslashes($_POST['message_content4'.$d]));
+$php5Session->setVar('message_content5'.$d  , stripslashes($_POST['message_content5'.$d]));
+$php5Session->setVar('message_content6'.$d  , stripslashes($_POST['message_content6'.$d]));
+
 
 if (isset( $_POST['call_before_delivery'.$d]) ) $php5Session->setVar('call_before_delivery'.$d  , $_POST['call_before_delivery'.$d]);
 if (isset( $_POST['avoid_lunch'.$d]) )  $php5Session->setVar('avoid_lunch'.$d  , $_POST['avoid_lunch'.$d]);

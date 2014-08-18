@@ -49,9 +49,9 @@ $php5Session->setVar('latest_total', @$_POST['total']);
     $update_indicator = check_update_indicator( $php5Session->getVar('user_id'));
 /////////////////////////////////////////////////////////////////////////////////////////	
 ////////////////////////////////////////////////////////////////////////////////////////	
-    if (!$debug_mode)
-    generate_customer_file( $user->user_id, $update_indicator);	
-
+    if (!$debug_mode) {die;
+    	generate_customer_file( $user->user_id, $update_indicator);	
+	}
 	 for ($d=0; $d<20; $d++)
 	 {
  		$php5Session->setVar('delivery_paid' . $d, 0);		 

@@ -59,7 +59,7 @@ $from = ( ($cur_page-1) *  $page->max_per_page) ;
 		 $product = new Product();
 		 $product->loadData(add_prefix('product'),'product_id',$row['product_id']);
 		 $link_product = sefBuild($php5WebPath, "index.php?o=eshop&m=product_detail&t=outsite&task=show&id=" .$row['product_id'] , 1)  ;		 
-		// $product->image = display_image_url($product->image);
+		 $product->image = display_image_url($product->image);
          $smarty->assign('resized_image', "<a href='$link_product'>".return_resized_image(155, 155, $product->image)."</a>" );	
          $smarty->assign('product_id', $product->product_id );	
          $smarty->assign('rating', call_rating($product->product_id) );			 

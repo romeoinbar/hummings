@@ -71,7 +71,7 @@
 	$smarty->assign('product_id', $id);
 	$smarty->assign('ratings', $ratings);
 	$smarty->assign('user_exist', $user_exist);
-	$smarty->assign('url_review', sefBuild($php5WebPath, "index.php?o=eshop&m=product_detail&t=outsite&task=show" , 1));
+	$smarty->assign('url_review', sefBuild($php5WebPath, 'index.php?o=eshop&m=product_detail', 1));
 	
 	$smarty->assign('url_login', sefBuild($php5WebPath, 'index.php?o=eshop&m=register', 1));
 	$tpl = $php5RootPath. '/templates/en/eshop/browse/product_review.tpl';

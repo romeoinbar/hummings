@@ -17,4 +17,5 @@ $smarty->assign('billing_address_url2', sefBuild($php5WebPath, 'index.php?o=chec
 $smarty->assign('title', gen_select(add_prefix('title'), 'title', "title" . $d, 'title', 'title', ' ') );
 $tpl = sprintf($php5TemplateFile, $language, 'mobile', 'cart/billing.tpl');
 $smarty->assign('main', $smarty->fetch($tpl) );
+
 ?>

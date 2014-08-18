@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="checkout.php" server="ftp.ua-consultants.com//" local="130523418307916385" remote="130523022000000000" Dst="0" />
-<file name="my_account.php" server="ftp.ua-consultants.com//" local="130521583156979625" remote="130521187200000000" Dst="0" />
-<file name="register_2.php" server="ftp.ua-consultants.com//" local="130521647981930110" remote="130521252000000000" Dst="0" />
+<file name="checkout.php" server="ftp.ua-consultants.com//" local="130528612491716251" remote="130527925200000000" Dst="0" />
+<file name="my_account.php" server="ftp.ua-consultants.com//" local="130528612620782968" remote="130521187200000000" Dst="0" />
+<file name="register_2.php" server="ftp.ua-consultants.com//" local="130528612732789674" remote="130521252000000000" Dst="0" />
+<file name="__delivery_options.php" server="ftp.ua-consultants.com//" local="130528612291324212" remote="130276260000000000" Dst="0" />
+<file name="_register.php" server="ftp.ua-consultants.com//" local="130528612328036287" remote="130276260000000000" Dst="0" />
+<file name="_checkout.php" server="ftp.ua-consultants.com//" local="130528612333756603" remote="130276260000000000" Dst="0" />
+<file name="ajax_bestseller.php" server="ftp.ua-consultants.com//" local="130528612411311021" remote="130299588000000000" Dst="0" />
+<file name="by_category.php" server="ftp.ua-consultants.com//" local="130528612419551980" remote="130276260000000000" Dst="0" />
+<file name="by_occasions.php" server="ftp.ua-consultants.com//" local="130528612419602076" remote="130276260000000000" Dst="0" />
+<file name="by_price.php" server="ftp.ua-consultants.com//" local="130528612451034008" remote="130276260000000000" Dst="0" />
+<file name="cart.php" server="ftp.ua-consultants.com//" local="130528612456703612" remote="130276260000000000" Dst="0" />
+<file name="checkEmail.php" server="ftp.ua-consultants.com//" local="130528612456743616" remote="130276260000000000" Dst="0" />
+<file name="checkout1.php" server="ftp.ua-consultants.com//" local="130528612497645974" remote="130528050000000000" Dst="0" />
+<file name="delivery_options.php" server="ftp.ua-consultants.com//" local="130528612497745955" remote="130276260000000000" Dst="0" />
+<file name="draw_select.php" server="ftp.ua-consultants.com//" local="130528612530237803" remote="130276260000000000" Dst="0" />
+<file name="index.html" server="ftp.ua-consultants.com//" local="130528612538278255" remote="130276260000000000" Dst="0" />
+<file name="load_shipping_address.php" server="ftp.ua-consultants.com//" local="130528612538368862" remote="130276260000000000" Dst="0" />
+<file name="login.php" server="ftp.ua-consultants.com//" local="130528612572790226" remote="130276260000000000" Dst="0" />
+<file name="logout.php" server="ftp.ua-consultants.com//" local="130528612578551136" remote="130276260000000000" Dst="0" />
+<file name="main.php" server="ftp.ua-consultants.com//" local="130528612578611106" remote="130276260000000000" Dst="0" />
+<file name="notify.php" server="ftp.ua-consultants.com//" local="130528612613092966" remote="130276260000000000" Dst="0" />
+<file name="payment.php" server="ftp.ua-consultants.com//" local="130528612685677109" remote="130276260000000000" Dst="0" />
+<file name="photos.php" server="ftp.ua-consultants.com//" local="130528612693647556" remote="130276260000000000" Dst="0" />
+<file name="product_detail.php" server="ftp.ua-consultants.com//" local="130528612693737785" remote="130276260000000000" Dst="0" />
+<file name="push_shipping_address.php" server="ftp.ua-consultants.com//" local="130528612729949749" remote="130276260000000000" Dst="0" />
+<file name="register.php" server="ftp.ua-consultants.com//" local="130528612730019183" remote="130276260000000000" Dst="0" />
+<file name="review.php" server="ftp.ua-consultants.com//" local="130528612764771171" remote="130277124000000000" Dst="0" />
+<file name="search.php" server="ftp.ua-consultants.com//" local="130528612772532205" remote="130276260000000000" Dst="0" />
+<file name="test.html" server="ftp.ua-consultants.com//" local="130528612773871983" remote="130276260000000000" Dst="0" />
 </dwsync>

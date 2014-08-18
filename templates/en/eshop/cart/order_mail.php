@@ -5,7 +5,7 @@
 
 Dear {$username}<br />
 <br />
-{assign var=d value=0}
+for {assign var=d value=0}
 <div style='font-family:arial; clear:both; font-size:16px; font-weight:bold; color:#c10263;'>Order Reference Number : {$order->sales_order_number}</div>
 
 

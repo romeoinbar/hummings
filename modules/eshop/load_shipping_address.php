@@ -89,8 +89,6 @@ $user->state = $php5Session->getVar('shipping_state' . $d);
 $user->postcode = $php5Session->getVar('shipping_postcode' . $d); 
 $user->country = $php5Session->getVar('shipping_country' . $d); 
 
-
-
 $loaded_from_session = ($user->name) ? 1 : 0;
 
 
@@ -120,7 +118,4 @@ else
   $smarty->assign('mid_fax', $php5Session->getVar('shipping_mid_fax' . $d) );    
   $php5Session->setVar('shipping_info', $user);
   $smarty->assign('obj', $user );
-  $smarty->assign('message_sender', $php5Session->getVar('message_sender'.$d));
-  $smarty->assign('message_receiver', $php5Session->getVar('message_receiver'.$d));
-  $smarty->assign('message_content', $php5Session->getVar('message_content'.$d));
 ?>

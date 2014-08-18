@@ -1,6 +1,5 @@
 {$msg}
 <div style='margin:5px; padding:20px; border:1px solid #ccc;' id=checkout_page>
-
           
 <form action='{$url_billing_address2}' method=post id="vForm" class="cmxform" >
           <table width="100%" border="0" cellspacing="0" cellpadding="5">
@@ -42,7 +41,7 @@
                       <p>Company:<br />
                         <input name="company" type="text" class="normal_textinput" id="textfield27" value="{$obj->company}" />
                       </p>
-                      <p>Block<span style="padding-left:35px">Unit</span><br />
+                      <p>Block  <span style="padding-left:26px;">Unit</span> <br />
                         <input name="block" type="text" class="textinput" id="textfield28" size="5" value="{$obj->block}" />
 
                         <input name="unit" type="text" class="textinput" id="textfield29" size="10" value="{$obj->unit}" />

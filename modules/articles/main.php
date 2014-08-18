@@ -213,7 +213,7 @@ function requestCatalogue(){
 	// Send email
 	$from = php5GetParam($_REQUEST, 'email_address', '');
 	$fromname = php5GetParam($_REQUEST, 'name', '');	
-	$recipient = 'online@humming.com.sg';
+	$recipient = 'goto@humming.com.sg';
 	//$recipient = 'nam@ua-consultants.com';
 	$subject = "Request For Catalogue";
 	$body = '
