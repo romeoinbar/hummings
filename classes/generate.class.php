@@ -11,79 +11,76 @@ class Generate
 	function __construct( $dbh ) {
 		$this->php5DB = $dbh;
 	}
-	function move_order_file()
+	function move_user_file()
 	{
 		$date = date('Ymdhis', php5GMTTime());
 		$dir = DIR_SAP;
 		$path = dirname(__FILE__);
 		
 		$testfile =  $dir."test.txt";
-		$filename =  $dir."sales_in.txt";
+		$filename =  $dir."cust_in.txt";
 		$contents = '';
 		$error = 0;
 				
 		if($conn = checkFTP()) {
 			
-		if(is_file($filename)) {
-			$handle = fopen($filename, "r");
-			$contents = fread($handle, filesize($filename));
-			fclose($handle);
-		}
-		if($contents) {
-			//if(!in_array("/Inbound/Cust_In/custin_end.txt",ftp_nlist($conn, "/Inbound/Cust_In/"))){
-			$dir = "$path/../backup_sap/";
-			if(!is_dir($dir)) {
-				if(mkdir($dir, 0755)){};
-			} else {
+			if(is_file($filename)) {
+				//if(!in_array("/Inbound/Cust_In/custin_end.txt",ftp_nlist($conn, "/Inbound/Cust_In/"))){
+				$dir = "$path/../backup_sap/";
+				if(!is_dir($dir)) {
+					if(mkdir($dir, 0755)){};
+				} else {
+					if(chmod($dir, 0755)){};
+				}
+				//$dir = "$path/../backup_sap/$date/";
+				$file = $dir . "custin_$date.txt"; 
+				$file_end = $dir . "custin_end.txt"; 
+				
+				if(is_file($file)) {
+					if(chmod($file, 0777)){};
+				}
+				//echo "Copy $filename => $file<br/>";
+				if (!copy($filename, $file)) {
+					echo "failed to copy $file...<br />\n";
+				}				
+				//create salesin_end
+				$fh = fopen($file_end, 'w');
+				fwrite($fh, '');
+				fclose($fh);	
+				if(chmod($file, 0644)){};
 				if(chmod($dir, 0755)){};
-			}
-			//$dir = "$path/../backup_sap/$date/";
-			$file = $dir . "custin_$date.txt"; 
-			$file_end = $dir . "custin_end.txt"; 
+				//up to server
 			
-			if(is_file($file)) {
-				if(chmod($file, 0777)){};
+					// turn passive mode on
+					ftp_pasv($conn, true);
+					// upload a file
+					if (ftp_put($conn, "/Inbound/Cust_In/custin_$date.txt", $file, FTP_ASCII)) {
+						if(unlink($filename)){};
+					} else {
+						echo "There was a problem while uploading $file<br />\n";
+						$body = "There was a problem while uploading $file\n
+						
+				This is a system generated email update.
+						
+				";
+						$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
+						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);		
+					}
+					// upload a file end
+					if (ftp_put($conn, '/Inbound/Cust_In/custin_end.txt', $file_end, FTP_ASCII)) {
+					} else {
+						$body = "There was a problem while uploading $file_end\n
+						
+				This is a system generated email update.
+						
+				";
+						$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
+						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);		
+					}
+					ftp_close($conn);
+				
+				//}
 			}
-			$fh = fopen($file, 'w+');
-			fwrite($fh, $contents);
-			fclose($fh);	
-			//create salesin_end
-			$fh = fopen($file_end, 'w');
-			fwrite($fh, '');
-			fclose($fh);	
-			if(chmod($file, 0644)){};
-			if(chmod($dir, 0755)){};
-			//up to server
-		
-				// turn passive mode on
-				ftp_pasv($conn, true);
-				// upload a file
-				if (ftp_put($conn, "/Inbound/Cust_In/custin_$date.txt", $file, FTP_ASCII)) {
-					if(unlink($filename)){};
-				} else {
-					$body = "There was a problem while uploading $file\n
-					
-			This is a system generated email update.
-					
-			";
-					$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
-					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);		
-				}
-				// upload a file end
-				if (ftp_put($conn, '/Inbound/Cust_In/custin_end.txt', $file_end, FTP_ASCII)) {
-				} else {
-					$body = "There was a problem while uploading $file_end\n
-					
-			This is a system generated email update.
-					
-			";
-					$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
-					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);		
-				}
-				ftp_close($conn);
-			
-			//}
-		}
 		}else{
 		
 		}		
@@ -101,11 +98,7 @@ class Generate
 		$error = 0;
 		if($conn = checkFTP()) {
 			if(is_file($filename)) {
-				$handle = fopen($filename, "r");
-				$contents = fread($handle, filesize($filename));
-				fclose($handle);
-			}
-			if($contents) {
+
 				$dir = "$path/../backup_sap/";
 				if(!is_dir($dir)) {
 					if(mkdir($dir, 0755)){};
@@ -118,9 +111,10 @@ class Generate
 				if(is_file($file)) {
 					if(chmod($file, 0777)){};
 				}
-				$fh = fopen($file, 'w+');
-				fwrite($fh, $contents);
-				fclose($fh);
+				//echo $filename." => ". $file;
+				if (!copy($filename, $file)) {
+					echo "failed to copy $file...<br />\n";
+				}
 			
 				//create salesin_end
 				$fh = fopen($file_end, 'w');
@@ -140,6 +134,7 @@ class Generate
 				if (ftp_put($conn, "/Inbound/Sales_In/salesin_$date.txt", $file, FTP_ASCII)) {
 					if(unlink($filename)){
 					}else{
+					echo "There was a problem cleaning $filename<br />\n";	
 					$body = "There was a problem cleaning $filename\n			
 							This is a system generated email update.";
 					$title = "[HUMMING] Clean error " . date('m/d/Y', php5GMTTime());
@@ -148,6 +143,7 @@ class Generate
 					error_log("There was a problem cleaning $filename\n", 0);
 					$error = 1;	
 				} else {
+					echo "There was a problem while uploading $file<br />\n";
 					$body = "There was a problem while uploading $file\n
 					
 			This is a system generated email update.
@@ -180,6 +176,19 @@ class Generate
 	///////////////////////////////////////////
 	function cron_generate_user_file($id)
 	{
+		$dir = DIR_SAP;		
+		$testfile =  $dir."test.txt";
+		if($conn = checkFTP()) {
+			// turn passive mode on
+			ftp_pasv($conn, true);
+			if (@ftp_get($conn, $testfile, "/Inbound/Cust_In/custin_end.txt", FTP_BINARY)) {
+				echo "False!custin_end.txt file is existing<br />\n";
+				@unlink($testfile);
+				return false;
+			}			
+		} else {
+			return false;
+		}
 		$arrBCC = array("romeoinbar@gmail.com");
 		$php5DB = $this->php5DB;
 		$userLog = new UserLog($this->php5DB);
@@ -193,6 +202,8 @@ class Generate
 			$st = '';
 			//task
 			$where = array();
+			$user_id = $userLog->user_id;
+			$update_indicator= $userLog->update_indicator;
 			$arrUser = array($user_id);
 			//user
 			$query = "SELECT * "
@@ -296,8 +307,18 @@ class Generate
 			}
 			$fh = fopen($file, 'a+');
 			if(@fwrite($fh, $stCustomer)) {
-
+				$userLog->status = 1;
+			} else {
+				echo "There was a problem writing $file<br />\n";
+				$userLog->times = $userLog->times + 1;
+				//send email
+				$body = "There was a problem writing $file\n			
+						This is a system generated email update.";
+				$title = "[HUMMING] Write error " . date('m/d/Y', php5GMTTime());
+				php5Mail(php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBC);
+				error_log("There was a problem writing $file\n", 0);						
 			}
+			$userLog->store();
 			fclose($fh);
 			if(chmod($file, 0644)){};
 			if(chmod($dir, 0755)){};
@@ -307,6 +328,19 @@ class Generate
 	/////////////////////////////////////////	
 	function cron_generate_order_file($id)
 	{
+		$dir = DIR_SAP;		
+		$testfile =  $dir."test.txt";
+		if($conn = checkFTP()) {
+			// turn passive mode on
+			ftp_pasv($conn, true);
+			if (@ftp_get($conn, $testfile, "/Inbound/Sales_In/salesin_end.txt", FTP_BINARY)) {
+				echo "False!salesin_end.txt file is existing<br />\n";
+				@unlink($testfile);
+				return false;
+			}			
+		} else {
+			return false;
+		}		
 		$arrBCC = array("romeoinbar@gmail.com");
 		$php5DB = $this->php5DB;
 		$orderLog = new OrderLog($this->php5DB);
@@ -571,6 +605,7 @@ class Generate
 			if(@fwrite($fh, $stOrder)) {
 				$orderLog->status = 1;
 			} else {
+				echo "There was a problem writing $file<br />\n";
 				$orderLog->times = $orderLog->times + 1;
 				//send email
 				$body = "There was a problem writing $file\n			
