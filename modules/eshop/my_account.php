@@ -75,10 +75,20 @@ switch($task)
 		  $user->loadData(add_prefix('user'), 'user_id', $php5Session->getVar('user_id')  );
 //		  $user->showvariables();
 		  
-		   $n_user = new Newsletter_user();
-		   $n_user->loadData(add_prefix('newsletter_user'), 'email', $user->email);
-		  
-		  
+		$n_user = new Newsletter_user();
+		$n_user->loadData(add_prefix('newsletter_user'), 'email', $user->email);
+		
+		$newsletter_email = php5GetParam($_REQUEST, 'newsletter_email', '');
+		$newsletter_by_phone = php5GetParam($_REQUEST, 'newsletter_by_phone', '');
+				  
+		$n_user->subscribe = 2;
+		if($newsletter_email) {
+			$n_user->subscribe = 1;
+		}
+		$n_user->subscribe_by_phone = 2;
+		if($newsletter_by_phone) {
+			$n_user->subscribe_by_phone = 1;
+		}		  
 		  if ( isset($_REQUEST['newsletter_email']) )
 		  {
 			  if ( $user->in_newsletter($user->email) )

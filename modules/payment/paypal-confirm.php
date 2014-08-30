@@ -8,12 +8,12 @@ require_once($php5RootPath . "/includes/send_email.php");
 include_once $php5RootPath .'/classes/sapfields.class.php';
 include $php5RootPath .'/includes/generate.php';
 
-$order = new php5Order($php5DB_en);
-$order->load($php5Session->getVar('orderID'));
-$name = $order->name;
 
 $orderID = $php5Session->getVar('order_number');
 $amount = $php5Session->getVar('cart_total');
+
+$php5DB_en->setQuery("SELECT `name` FROM #__order WHERE sales_order_number='".$orderID."'");
+$name = $php5DB_en->loadResult();
 
 //$orderID = '4101001352';
 //$amount = 218.00;
@@ -29,7 +29,6 @@ switch($paymentType){
 					
 					$ppPaymentObj->getExpressInfo($_GET['token']);
 					$confirmed = $ppPaymentObj->confirmExpress($amount, $orderID);
-					$confirmed = 1;
 					if ($confirmed) {
 						$result = 'Express Transaction: ' . $confirmed;					
 						$smarty->assign('transaction', $result);	
@@ -64,11 +63,11 @@ switch($paymentType){
 							$tmp = $php5DB_en->loadResult();
 							$update_indicator = ($tmp>0)?1:0;
 							
-							//generate_customer_file( $php5Session->getVar('user_id'), $update_indicator);	
+							generate_customer_file( $php5Session->getVar('user_id'), $update_indicator);	
 							
-						//	generate_order_file($list_ID[$i]); 
+							generate_order_file($list_ID[$i]); 
 							$message = prepare_order($list_ID[$i],  sprintf($php5TemplateFile, $language, 'eshop', 'cart/order_mail.php'));
-							//email_orders($order->email, "Hummings : Order Confirmation " , $message);  	
+							email_orders($order1->email, "Hummings : Order Confirmation " , $message);  	
 						}
 						
 						//=======================================================================	
@@ -119,8 +118,8 @@ switch($paymentType){
 							$tmp = $php5DB_en->loadResult();
 							$update_indicator = ($tmp>0)?1:0;
 							
-							//generate_customer_file( $php5Session->getVar('user_id'), $update_indicator);								
-							//generate_order_file($list_ID[$i]); 
+							generate_customer_file( $php5Session->getVar('user_id'), $update_indicator);								
+							generate_order_file($list_ID[$i]); 
 							
 						}
 						

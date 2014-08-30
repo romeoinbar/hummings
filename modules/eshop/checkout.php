@@ -598,7 +598,7 @@ form.cmxform label.error { display: none; }
 			   ";
                if ($php5Session->getVar('user_type' )) {
                     $main .="<div style='padding:10px; background:#b84c86; color:white; margin: 25px 5px 0px 5px; font-weight:bold;' >03 My Privacy Details</div><div style='border:1px solid #ccc; padding:15px; margin:5px; margin-top:0px;'>";
-                    $main .="<p><label class='label-newsletter'><input type='checkbox' class='input-newsletter' name=newsletter_agree id=newsletter_agree value=1 /> I acknowledge and consent Humming Flowers & Gifts Pte Ltd to update me on the latest launches, gifts and special offers via Email.</label></p><p><label class='label-newsletter'><input type='checkbox' class='input-newsletter' name=newsletter_phone id=newsletter_phone value=1 /> I acknowledge and consent Humming Flowers & Gifts Pte Ltd to update me on the latest launches, gifts and special offers via Phone.</label></p>";
+                    $main .="<p><label class='label-newsletter'><input type='checkbox' class='input-newsletter' name=newsletter_agree id=newsletter_agree value=1 checked='checked' /> I acknowledge and consent Humming Flowers & Gifts Pte Ltd to update me on the latest launches, gifts and special offers via Email.</label></p><p><label class='label-newsletter'><input type='checkbox' class='input-newsletter' name=newsletter_phone id=newsletter_phone value=1 /> I acknowledge and consent Humming Flowers & Gifts Pte Ltd to update me on the latest launches, gifts and special offers via Phone.</label></p>";
         $main .= "<div style='clear:both;'></div></div>";
                }
 

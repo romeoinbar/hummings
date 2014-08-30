@@ -25,17 +25,19 @@ function saveUsers(){
 	global $smarty, $php5RootAdminPath, $type, $php5Session, $php5WebPath, $php5TemplateAdminFile, $lang, $define, $php5DB;		
 	
 	global $msgAlert, $redirect;	
-		$chk 		= php5GetParam($_REQUEST, 'cid', '');
-		if (count($chk) > 0) {
-			foreach($chk as $id) {
+		$sid 		= php5GetParam($_REQUEST, 'sid', '');
+		if (intval($sid) > 0) {
+			$subscribe 		= php5GetParam($_REQUEST, 'subscribe'.$sid, '2');
+			$phone 		= php5GetParam($_REQUEST, 'phone'.$sid, '2');
 				$query = "UPDATE "
-				. "\n FROM #__newsletter_user "
-				. "\n WHERE id ='$id'";
+				. "\n #__newsletter_user "
+				. "\n SET  subscribe ='$subscribe', subscribe_by_phone = '$phone' "
+				. "\n WHERE id ='$sid'";
 				$php5DB->setQuery( $query );
 				if ($php5DB->query()) {
-					
+					$msgAlert = "Updated successfully";
 				}
-			}
+
 		}		
 }
 function listUsers($task = 'search'){	
