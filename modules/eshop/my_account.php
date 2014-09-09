@@ -115,7 +115,7 @@ switch($task)
 			  }			  
 		  }
 		  
-//		  	generate_customer_file( $php5Session->getVar('user_id'), 1);
+		  	generate_customer_file( $php5Session->getVar('user_id'), 1);
 		  
 		 if ($name == '')
 		 if ($php5Session->getVar('storepage_shopping')!= null )
