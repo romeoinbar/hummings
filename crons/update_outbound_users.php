@@ -30,6 +30,7 @@ php5Init( 0 );
 require_once($php5RootPath . "/includes/generate.php");
 require_once($php5RootPath . "/classes/member.class.php");
 $errMsg = array();
+echo "Start...";
 //get file from server
 if($conn = checkFTP()) {
 	// turn passive mode on
