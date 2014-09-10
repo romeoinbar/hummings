@@ -7,6 +7,7 @@
  *   Email                	: 
  ***************************************************************************/
 defined('PHP5_PHP') or die("Application is stopping!!!");
+require_once 'classes/tables.class.php';
 $main="";
 $task 		= php5GetParam($_REQUEST, 'task', '');
 $currPage = php5GetParam($_REQUEST, 'p', 1);
@@ -586,7 +587,8 @@ form.cmxform label.error { display: none; }
 			   $main .="<div style='padding:10px; background:#b84c86; color:white; margin: 25px 5px 0px 5px; font-weight:bold;' >02 Billing Details</div>
 			   <div style='border:1px solid #ccc; padding:15px; margin:5px; margin-top:0px;'>
 			   ";
-				   
+			   $billing_user = $php5Session->getVar('billing_user' );
+			   $smarty->assign('userBill', $billing_user);
 			   $tpl = sprintf($php5TemplateFile, $language, 'eshop', 'cart/billing_address_review.php');
 			   $smarty->assign('user_type', $php5Session->getVar('user_type' )); 
 			   $main .= $smarty->fetch($tpl);	

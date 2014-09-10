@@ -24,16 +24,16 @@ $receiver="do_work_online@yahoo.com";
 //Khai báo url trả về 
 $return_url="http://hummings.com/modules/vn/success.php";
 //Giá của cả giỏ hàng 
-$price=5000000;
-//Mã giỏ hàng HM00001;HM00002;HM00003;HM00004;HM00005;HM00006;HM00007;HM00008;HM00009;HM00010;HM00011
-
-$order_code="HM00012";
+$price=1500000;
+//Mã giỏ hàng HM00001;HM00002;HM00003;HM00004;HM00005;HM00006;HM00007;HM00008;HM00009;HM00010;HM00011;HM00012;HM00013
+//HM00014;HM00015;HM00016;HM00017;HM00018;HM00019;HM00020;HM00021;HM00022;HM00023;HM00025;HM00026;HM00027;HM00028;HM00029;HM00030;HM00031
+$order_code="HM00032";
 //Thông tin giao dịch
-$transaction_info=md5("HM00012");
+$transaction_info=md5("HM00032");
 	//Khai báo đối tượng của lớp NL_Checkout
 $nl= new NL_Checkout();
 //Tạo link thanh toán đến nganluong.vn
-$url= $nl->buildCheckoutUrl($return_url, $receiver, $transaction_info,  $order_code, $price);
+$url= $nl->buildCheckoutUrlExpand($return_url, $receiver, $transaction_info,  $order_code, $price, 'vnd', 100);
 
 
 ?>
@@ -146,7 +146,7 @@ var jWebPath="http://www.hummings.com/";
               </a>
               
               </td>
-                <td colspan="3" align="right"><b>Tổng tiền:</b> {$price} VND</td>
+                <td colspan="3" align="right"><b>Tổng tiền:</b> <?php echo $price?> VND</td>
                 </tr>
             </table>
             </div></div>
@@ -269,4 +269,3 @@ var google_conversion_value = 0;
 </body>
 
 </html>
-
