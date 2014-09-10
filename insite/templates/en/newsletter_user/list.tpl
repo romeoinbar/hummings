@@ -7,6 +7,17 @@ function updateStatus(id)
 	frm.task.value = "save";
 	frm.submit();
 }
+function deleteUser(id)
+{
+    a = confirm("Do you want to delete?");
+    if(a) {
+        frm = document.frmAdmin;
+        frm.sid.value = id;
+        frm.task.value = "delete";
+        frm.submit();
+    }
+}
+
 </script>
 {/literal}
 <div id="content">
@@ -54,7 +65,8 @@ function updateStatus(id)
       <th class="title">IP</td>
       <th class="title">Date</td>
       <th class="title">Subscribe by email</td>
-      <th class="title">Subscribe by phone</td>
+      <th class="title">Opt In</td>
+      <th class="title">Date and Time (Opt In)</td>
       <th class="title">Action</td>
     </tr>
     </thead> 
@@ -67,9 +79,10 @@ function updateStatus(id)
       <td  class="center">{$row->type}</td>  
       <td  class="center">{$row->ip}</td>
       <td  class="center">{$row->date}</td>
-      <td  class="center"><input type="checkbox" id="cid{$row->id}" name="subscribe{$row->id}" value="1" {if $row->subscribe == 1} checked="checked" {/if} /></td>
-      <td  class="center"><input type="checkbox" id="cid{$row->id}" name="phone{$row->id}" value="1" {if $row->subscribe_by_phone == 1} checked="checked" {/if} /></td>
-      <td  class="center"><button type="button" onclick="updateStatus('{$row->id}');" />Update</button></td>
+      <td  class="center">{if $row->subscribe == 1} 1 {else} 0 {/if}</td>
+      <td  class="center">{if $row->subscribe_by_phone == 1} 1 {else} 0 {/if}</td>
+      <td  class="center">{$row->phone_date}</td>
+      <td  class="center"><a href="{$row->link_edit}">EDIT</a> | <a href="#"  onclick="javascript:deleteUser('{$row->id}');">DELETE</a></td>
     </tr>
     {foreachelse}
     <tr>

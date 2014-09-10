@@ -18,6 +18,12 @@ class NewsletterUser extends php5DBTable {
     /** @var string */
 	var $subscribe        = null;
     /** @var string */
+	var $subscribe_by_phone        = null;
+    /** @var string */
+	var $ip        = null;
+    /** @var string */
+	var $phone_date        = null;
+    /** @var string */
 	var $generate_code        = null;		
 		
 	function __construct( &$dbh ) {

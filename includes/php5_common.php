@@ -1176,7 +1176,7 @@ class php5Paging{
 			$nStop = $this->pageTotal;
 
 		if($nStop < (php5ConfigPageTotal*2 + 2) && $this->pageTotal > (php5ConfigPageTotal*2))
-			$nStop = php5ConfigPageTotal*4 + 1;
+			$nStop = php5ConfigPageTotal*2 + 1;
 
 		for($i=$nStart; $i<=$nStop; $i++) {
 			if($i == $this->curPage)

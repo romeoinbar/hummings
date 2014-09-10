@@ -5,18 +5,18 @@ form {
 	padding: 0;
 }
 </style>
-{/literal} 
+{/literal}
 <!-- Content Area -->
 
-<div id="content"> 
-  
+<div id="content">
+
   <!-- Component Title -->
   <div class="pagetitle icon-48-module">
     <h2>Manager: EDIT RSS CATEGORY</h2>
   </div>
-  
+
   <!-- System Messages -->
-  
+
   <div id="system-message-container"> {if $msg}
     <dl id="system-message">
       <dt class="message">Message</dt>
@@ -27,13 +27,13 @@ form {
       </dd>
     </dl>
     {/if} </div>
-  
+
   <!-- Sub Menu Navigation -->
   <div class="subheader">
     <h3 class="element-invisible">Sub Menu</h3>
     <div id="no-submenu"></div>
   </div>
-  
+
   <!-- Toolbar Icon Buttons -->
   <div class="actionbar-box">
     <div class="module">
@@ -48,7 +48,7 @@ form {
     </div>
     <div class="clr"></div>
   </div>
-  
+
   <!-- Beginning of Actual Content -->
   <div id="element-box">
     <p id="skiptargetholder"><a id="skiptarget" class="skip" tabindex="-1"></a></p>
@@ -62,16 +62,16 @@ form {
           <td>Published:</td>
           <td ><input type="radio" id="publish1" name="publish" value="1" {if $status}checked="checked"{/if} /><label for="publish1">Yes</label><input type="radio" id="publish0" name="publish" value="0" {if !$status}checked="checked"{/if} /><label for="publish0">Hide</label></td>
         </tr>
-        
+
       </table>
     </form>
     <div class="clr"></div>
   </div>
   <!-- end of element-box -->
-  
+
   <noscript>
   Warning! JavaScript must be enabled for proper operation of the Administrator backend.
   </noscript>
   <div class="clr"></div>
 </div>
-<!-- end of content --> 
+<!-- end of content -->

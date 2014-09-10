@@ -11,7 +11,12 @@ $smarty->assign('link_list_user', sefBuild($php5WebPath, 'index.php?o=newsletter
 $smarty->assign('link_edit_user', sefBuild($php5WebPath, 'index.php?o=newsletter_user&m=main&task=edit', 0));
 $smarty->assign('link_del_user', sefBuild($php5WebPath, 'index.php?o=newsletter_user&m=main&task=delete', 0));
 
-switch ($task){	
+switch ($task){
+    case 'delete':
+        deleteUsers();
+        listUsers();
+        break;
+
 	case 'save':
 		saveUsers();
 		listUsers();
@@ -20,6 +25,23 @@ switch ($task){
 	default:
 		listUsers($task);
 		break;
+}
+function deleteUsers(){
+    global $smarty, $php5RootAdminPath, $type, $php5Session, $php5WebPath, $php5TemplateAdminFile, $lang, $define, $php5DB;
+
+    global $msgAlert, $redirect;
+    $sid 		= php5GetParam($_REQUEST, 'sid', '');
+    if (intval($sid) > 0) {
+        $query = "DELETE "
+        . "\n FROM #__newsletter_user "
+        . "\n WHERE id ='$sid'";
+        $php5DB->setQuery( $query );
+
+        if ($php5DB->query()) {
+            $msgAlert = "Deleted successfully";
+        }
+
+    }
 }
 function saveUsers(){
 	global $smarty, $php5RootAdminPath, $type, $php5Session, $php5WebPath, $php5TemplateAdminFile, $lang, $define, $php5DB;		
@@ -104,7 +126,11 @@ function listUsers($task = 'search'){
 		if($row->date){
 			$row->date = date('m/d/Y', $row->date);
 		}
-		$row->mss = sprintf($lang["_MSS_DEL_USER"], $row->id, $row->name);	
+		$row->mss = sprintf($lang["_MSS_DEL_USER"], $row->id, $row->name);
+        if ($row->phone_date) {
+            $row->phone_date = date('m/d/Y', $row->phone_date);
+        }
+        $row->link_edit = sefBuild($php5WebPath, 'index.php?o=newsletter_user&m=edit&task=view&id='.$row->id, 0);
 	}
 	$smarty->assign('rows', $rows);	
 	
