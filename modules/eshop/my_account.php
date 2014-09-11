@@ -94,6 +94,7 @@ switch($task)
 			  if ( $user->in_newsletter($user->email) )
 			  {
 				  $n_user->date = php5GMTTime();
+				  $n_user->phone_date = php5GMTTime();
 				  $n_user->status = 1;
 				  $n_user->ip = $_SERVER['REMOTE_ADDR'];
 				  $n_user->updateDB(add_prefix('newsletter_user'), 'email', $user->email);	
@@ -105,6 +106,7 @@ switch($task)
 				  $n_user->email = $user->email;
 				  $n_user->status = 1;
 				  $n_user->date = php5GMTTime();
+				  $n_user->phone_date = php5GMTTime();
 				  $n_user->ip = $_SERVER['REMOTE_ADDR'];
 				  $n_user->addDB(add_prefix('newsletter_user'));
 				  
