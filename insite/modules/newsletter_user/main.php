@@ -91,11 +91,11 @@ function listUsers($task = 'search'){
 	
 	$sWhere = '';
 	if ($s_subscribe)
-		$sWhere = " AND subscribe='".$s_subscribe."'";
+		$sWhere .= " AND subscribe='".$s_subscribe."'";
 	if ($s_type) {
-		$sWhere = " AND type='".$s_type."'";	
+		$sWhere .= " AND type='".$s_type."'";
 	} else {
-		$sWhere = " AND type='0'";	
+		$sWhere .= " AND type='0'";
 	}
 	if ($s_email) {
 		$sWhere .= " AND email like '%" . mysql_real_escape_string($s_email) . "%' ";

@@ -41,7 +41,7 @@ function deleteUser(id)
     <legend class="element-invisible">Search Users</legend>
 		<div class="filter-search">
           Email: <input type="text" name="s_email" value="{$s_email|escape}"  title="Search in module title." />
-		<span class="faux-label")>Status:&#160;</span>
+		<span class="faux-label")>Email subscribe:&#160;</span>
         <select name="s_subscribe" id="s_subscribe">           
    <option value="0">Choose </option>
     {html_options options=$user_status selected=$s_subscribe}
