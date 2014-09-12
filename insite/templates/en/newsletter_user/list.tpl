@@ -63,10 +63,10 @@ function deleteUser(id)
       <th class="title">Email</td>
       <th class="title">Type</td>     
       <th class="title">IP</td>
-      <th class="title">Date</td>
-      <th class="title">Subscribe by email</td>
-      <th class="title">Opt In</td>
-      <th class="title">Date and Time (Opt In)</td>
+      <th class="title">Date subscribe email</td>
+      <th class="title">Email subscribe</td>
+      <th class="title">Date subscribe phone</td>
+      <th class="title">Phone subscribe</td>
       <th class="title">Action</td>
     </tr>
     </thead> 

@@ -40,9 +40,9 @@ $query = "SELECT ug.list_email, ug.list_uncheck_id "
 . "\n ORDER BY ug.id";
 
 $php5DB->setQuery( $query );
-$php5DB->loadObject($row_tmp); 
+$php5DB->loadObject($row_tmp);
 if ($row_tmp->list_uncheck_id!=""){
-	$php5DB->setQuery( "SELECT email FROM #__newsletter_user WHERE id IN (".str_replace(';', ',',$row_tmp->list_uncheck_id).")");	
+	$php5DB->setQuery( "SELECT email FROM #__newsletter_user WHERE subscribe = '1' and id IN (".str_replace(';', ',',$row_tmp->list_uncheck_id).")");	
 	$arr_tmp = $php5DB->loadResultArray();		
 	$strtmp = $row_tmp->list_email;	
 	for ($i=0; $i< count($arr_tmp); $i++){		
@@ -80,13 +80,14 @@ switch($task)
 				$rowHistory->ip = $_SERVER['REMOTE_ADDR'];
 				$rowHistory->date = php5GMTTime();
 				$rowHistory->mailid = $id;
-				$msg = 'Emails were saved, they will be sent today';
+				$msgAlert = $msg = 'Emails were saved, they will be sent today';
 				$php5Session->setVar('sent', 1);
 				 
 				if (!$rowHistory->store()) {	
 					return false;
-				}			
-				//php5Mail( $row->fromemail, $row->fromname, php5GetConfig('config_email'), $row->subject, $body, $row->html,'', $arrBCC);
+				}
+						
+				//php5Mail( $row->fromemail, $row->fromname, php5GetConfig('config_email'), $row->subject, $body, $is_html,'', $arrBCC);
 				$i = 1;
 				foreach($arrTo as $to) {
 					$row_cron = new NewsletterEmailCron($php5DB);
@@ -103,16 +104,19 @@ switch($task)
 					$row_cron->historyid = $rowHistory->id;
 					$row_cron->generate_code = md5(php5GMTTime());
 					$link = sefBuild($php5WebPath, 'index.php?o=newsletter&m=unsubscribe', 1, true) . "code=".$row_cron->generate_code;	
+					$body .= str_replace('[LINK]',$link, $lang['_MSS_EMAIL_9_']);	
 					//echo $lang['_MSS_EMAIL_9_'].sprintf($lang['_MSS_EMAIL_9_'], $link)."iuuuuuuuuuuuu";die;	
-					$row_cron->body = $body . str_replace('[LINK]',$link, $lang['_MSS_EMAIL_9_']);			
+					$row_cron->body = $body;			
 					$row_cron->store();
 					$i++;
+					
+					php5Mail(php5GetConfig('config_email'), "Humming", $to, $row->subject, $body, 1, '');	
 					//send_email_newsletter($to, $row->subject, $body, $is_html, $id);
 				}
 			}
-			php5Redirect(sefBuild($php5WebPath, 'index.php?o=newsletters', 0));
+			//php5Redirect(sefBuild($php5WebPath, 'index.php?o=newsletters', 0));
 	  //} else {
-		$msg = 'Emails were saved, they will be sent today';
+		$msgAlert = $msg = 'Emails were saved, they will be sent today';
 	  //}
 		break;
 	default:

@@ -13,7 +13,7 @@ if(trim($code) == '') {
 } else {
 	$query = "SELECT #__newsletter_user.id FROM #__newsletter_email_cron, #__newsletter_user WHERE #__newsletter_email_cron.generate_code='". mysql_real_escape_string($code)."' AND #__newsletter_email_cron.email= #__newsletter_user.email LIMIT 1";
 	$php5DB->setQuery( $query );
-	$id = intval($php5DB->loadResult());print_r($php5DB);
+	$id = intval($php5DB->loadResult());
 	if($id > 0) {
 		$rowNewsletterUser = new NewsletterUser($php5DB);
 		$rowNewsletterUser->load($id);

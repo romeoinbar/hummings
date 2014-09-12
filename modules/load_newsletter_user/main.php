@@ -16,6 +16,7 @@ $limit = 84;
 $where = array();
 $rows_temp = array();
 $where[] = " email != '' ";
+$where[] = " subscribe = '1' ";
 if($email) {
 	$where[] = " email LIKE '%$email%' ";
 }

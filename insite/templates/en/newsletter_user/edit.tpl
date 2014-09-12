@@ -56,35 +56,19 @@ form {
       <table border="0" cellpadding="0" cellspacing="5" width="100%">
         <tr>
           <td width="15%" class="title3">Name:</td>
-          <td width="85%">{$name|escape}</td>
+          <td width="85%"><input type="text" name="name" value="{$name|escape}" /></td>
         </tr>
         <tr>
           <td width="15%" class="title3">Email:</td>
-          <td width="85%">{$email|escape}</td>
+          <td width="85%"><input type="text" name="email" value="{$email|escape}" /></td>
         </tr>
         <tr>
-          <td width="15%" class="title3">Type:</td>
-          <td width="85%">{$type|escape}</td>
-        </tr>
-        <tr>
-          <td width="15%" class="title3">IP:</td>
-          <td width="85%">{$ip|escape}</td>
-        </tr>
-        <tr>
-          <td width="15%" class="title3">Subscribe by email:</td>
+          <td width="15%" class="title3">Email subscribe:</td>
           <td width="85%"><input type="checkbox" name=subscribe {if $subscribe == 1} checked {/if} value=1 /></td>
         </tr>
         <tr>
-          <td width="15%" class="title3">Date:</td>
-          <td width="85%">{$date|escape}</td>
-        </tr>
-        <tr>
-          <td width="15%" class="title3">Opt In:</td>
+          <td width="15%" class="title3">Phone subscribe:</td>
           <td width="85%"><input type="checkbox" name=subscribe_by_phone {if $subscribe_by_phone == 1} checked {/if} value=1 /></td>
-        </tr>
-        <tr>
-          <td width="15%" class="title3">Date and Time (Opt In):</td>
-          <td width="85%">{$phone_date|escape}</td>
         </tr>
       </table>
     </form>
