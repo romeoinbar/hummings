@@ -52,16 +52,23 @@ class Page
 		   <table style='font-size:12px;'><tr><td>
 		    Items $from - $to of ".$this->total_item ." &nbsp;&nbsp;   Page :"; 
 		 $this->total_page =  ceil($this->total_item /  $this->max_per_page );
+		 $tr = 1;
 		 for ($i=1; $i<=$this->total_page; $i++ )
 		 {
-
+			 $tr = 0;
+			if ($i>10 and $i % 35 ==0) {
+				$tr = 1;
+				 $s .= "</tr><tr>";
+			}
 			if ($c_page == $i)
 		      $s .= "<td><div style='padding:3px; float:right;'><b><font color=#a90160 >$i</font></b></div></td> ";			
 			else 
 		      $s .= "<td><form style='padding:0px; margin:0px;' action='' method=post id=p$i> <div onClick=document.getElementById('p$i').submit(); style='padding:3px;cursor:pointer; float:right;'>$i</div> <input type=hidden name=$page_session_name value=$i></form></td>";
 		 
 		 }
-
+		if (!$tr) {
+			$s .= "</tr>";
+		}
 			if ($c_page == 'all')
 		      $s .= "<td><div style='padding:3px; float:right;'><b><font color=#a90160 >View all</font></b></div></td> ";			
 			else 		 

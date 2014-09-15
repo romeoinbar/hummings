@@ -68,6 +68,8 @@ switch($task)
 		  $name = $user->name;
 		  $newsletter_by_phone 		= php5GetParam($_REQUEST, 'newsletter_by_phone', '0');
 		  if(!$newsletter_by_phone) $_REQUEST['newsletter_by_phone'] = 0;
+		  $_REQUEST['email_date'] = php5GMTTime();
+		  $_REQUEST['phone_date'] = php5GMTTime();
 		  $user->bindRequest();
 		  $user->updateDBRQ(add_prefix('user'), 'user_id', $php5Session->getVar('user_id') );
 		  $php5Session->setVar('user_name',  $user->name   );

@@ -88,7 +88,10 @@
   <div class=input><input type='text' name='notify_update'  size=1 maxlength=1 value="{$obj->notify_update}" >
                    <a rel="tooltip" title="1=yes, 0=no "><div class=tooltip_mark style='margin=left:0px;'></div></a> 
   </div>
-
+  <div class=label>Opted in</div>
+  <div class=input><input type='text' name='newsletter_by_phone'  size=1 maxlength=1 value="{$obj->newsletter_by_phone}" >
+                   <a rel="tooltip" title="1=yes, 0=no "><div class=tooltip_mark style='margin=left:0px;'></div></a> 
+  </div>
 <div>
      <input type='submit' value=' update user' class="button">
   

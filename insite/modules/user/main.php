@@ -16,14 +16,14 @@ $main_content = "";
 include_once "$php5RootPath/classes/tables.class.php"; 
 include_once "$php5RootPath/classes/images.class.php"; 
 include_once "$php5RootPath/includes/select_input.php"; 
-
+include_once "$php5RootPath/classes/page.class.php"; 
 
 defined('PHP5_PHP') or die("Application is stopping!!!");
 //checkLogin();
 //get
 $task 		= php5GetParam($_REQUEST, 'task', '');
 $currPage = php5GetParam($_REQUEST, 'p', 1);
-
+$page_session_name = "userlist";
 
 if(!$currPage) {
 	$currPage = 1;
@@ -117,10 +117,10 @@ switch($task)
 	         $tpl = sprintf($php5TemplateAdminFile, $language, 'user', 'list_1.tpl');
             $main_content .=  $smarty->fetch($tpl);  
  	
-	         $i = show_list();	
-             $smarty->assign('total_record', $i);	
-	         $tpl = sprintf($php5TemplateAdminFile, $language, 'user', 'list_3.tpl');
-            $main_content .=  $smarty->fetch($tpl);  
+	         //$i =
+			  show_list();	
+             
+ 
 }
 $main_content .= "</div>";
 
@@ -147,8 +147,11 @@ function show_list()
   global $language;
   global $php5WebPath;
 
+  $list_url =  sefBuild($php5WebPath, 'index.php?o=user&m=main&task=search&t=insite', 0);
+  $page = new Page("SELECT COUNT(*) as c FROM #__user");	
+  $page->updatepage(); 
     	
-  $query = "SELECT * FROM #__user ";
+  $query = "SELECT * FROM #__user ".$page->show_limit()." ";
   $php5DB_en->setQuery( $query );
  
  $user = new User();
@@ -164,6 +167,10 @@ function show_list()
 	   $user->sold_to_party_no =  '0007' .  sprintf("%06s",$user->user_id);
 	   $user->updateDB(add_prefix('user'),'user_id' ,$row['user_id']);	 
 **/	   	   
+
+		if($row['phone_date']) {
+			$row['phone_date'] = date('m/d/Y h:i', $row['phone_date']);
+		}
        $smarty->assign('prefix', '');	   	   
        $smarty->assign('row', $row);
        $smarty->assign('i', $i);	
@@ -173,6 +180,10 @@ function show_list()
       $main_content .=  $smarty->fetch($tpl);  
 	 }
   }
+  $smarty->assign('total_record', $i);	
+$smarty->assign('page' ,  $page->showpage($list_url) );  
+	         $tpl = sprintf($php5TemplateAdminFile, $language, 'user', 'list_3.tpl');
+            $main_content .=  $smarty->fetch($tpl);   
   return $i;
 }
  

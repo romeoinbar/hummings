@@ -65,8 +65,6 @@ function deleteUser(id)
       <th class="title">IP</td>
       <th class="title">Date subscribe email</td>
       <th class="title">Email subscribe</td>
-      <th class="title">Date subscribe phone</td>
-      <th class="title">Phone subscribe</td>
       <th class="title">Action</td>
     </tr>
     </thead> 
@@ -80,9 +78,7 @@ function deleteUser(id)
       <td  class="center">{$row->ip}</td>
       <td  class="center">{$row->date}</td>
       <td  class="center">{if $row->subscribe == 1} 1 {else} 0 {/if}</td>
-      <td  class="center">{if $row->subscribe_by_phone == 1} 1 {else} 0 {/if}</td>
-      <td  class="center">{$row->phone_date}</td>
-      <td  class="center"><a href="{$row->link_edit}">EDIT</a> | <a href="#"  onclick="javascript:deleteUser('{$row->id}');">DELETE</a></td>
+      <td  class="center"><a href="#"  onclick="javascript:deleteUser('{$row->id}');">DELETE</a></td>
     </tr>
     {foreachelse}
     <tr>
