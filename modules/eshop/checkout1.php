@@ -705,16 +705,30 @@ form.cmxform label.error { display: none; }
 			$rowNewsletterUser->phone_date = php5GMTTime();
 			$rowNewsletterUser->ip = $_SERVER['REMOTE_ADDR'];
 			$rowNewsletterUser->subscribe = 2;
+			$n1 = 0;
 			if($newsletter_agree) {
 				$rowNewsletterUser->subscribe = 1;
+				$n1 =  1;
 			}
             $rowNewsletterUser->subscribe_by_phone = 2;
+			$n2 = 0;
             if($newsletter_phone) {
                 $rowNewsletterUser->subscribe_by_phone = 1;
+				$n2 = 1;
             }
 
 			$rowNewsletterUser->generate_code = md5(php5GMTTime());
 			$rowNewsletterUser->store();
+			//////////////////////////////////////////
+			$query = "SELECT user_id FROM #__user WHERE email='". mysql_real_escape_string($php5Session->getVar('shipping_email' . $id))."'";
+			$php5DB->setQuery( $query );
+			$idUser = '';
+			$idUser = intval($php5DB->loadResult());
+			if($idUser > 0) {
+				$sql = "UPDATE #__user SET newsletter_by_phone ='$n2',phone_date='".php5GMTTime()."', notify_update='$n1', email_date='".php5GMTTime()."' WHERE user_id = '$idUser' ";
+				$php5DB->setQuery( $sql );
+				$php5DB->query( );
+			}
 		}
 	
 		$payment_type = php5GetParam($_REQUEST, "payment_type", 1);	

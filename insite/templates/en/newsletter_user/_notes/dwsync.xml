@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="list.tpl" server="ftp.ua-consultants.com//" local="130549825583611407" remote="130549434600000000" Dst="2" />
-<file name="edit.tpl" server="ftp.ua-consultants.com//" local="130549836567524582" remote="130549440600000000" Dst="2" />
+<file name="list.tpl" server="ftp.ua-consultants.com//" local="130554153249070667" remote="130553736000000000" Dst="2" />
+<file name="edit.tpl" server="ftp.ua-consultants.com//" local="130554153205907626" remote="130549440600000000" Dst="2" />
+<file name="add.tpl" server="ftp.ua-consultants.com//" local="130554153199813900" remote="130507109400000000" Dst="2" />
+<file name="create.tpl" server="ftp.ua-consultants.com//" local="130554153205907626" remote="130507109400000000" Dst="2" />
+<file name="popup.tpl" server="ftp.ua-consultants.com//" local="130554153242782805" remote="130507109400000000" Dst="2" />
+<file name="update.tpl" server="ftp.ua-consultants.com//" local="130554153249070667" remote="130507109400000000" Dst="2" />
+<file name="view.tpl" server="ftp.ua-consultants.com//" local="130554153314762806" remote="130507109400000000" Dst="2" />
 </dwsync>

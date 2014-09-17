@@ -32,6 +32,9 @@ if(!$currPage) {
 $smarty->assign('list_url', sefBuild($php5WebPath, 'index.php?o=user&m=main&t=insite&task=list', 0));	
 $smarty->assign('base_url', $php5WebPath  );	
 $smarty->assign('add_url', sefBuild($php5WebPath, 'index.php?o=user&m=main&t=insite&task=add', 0));	
+$smarty->assign('action', sefBuild($php5WebPath, 'index.php?o=user&m=main&t=insite&task=search', 0));
+$s_email = php5GetParam( $_REQUEST, 's_email', '' );
+$smarty->assign('s_email', $s_email);
 $smarty->set_compile_path(sprintf($php5RootAdminTempalteCPath, 'user'));
 	         $tpl = sprintf($php5TemplateAdminFile, $language, 'user', 'toolbar.tpl');
             $main_content .=  $smarty->fetch($tpl);  
@@ -146,12 +149,16 @@ function show_list()
   global $php5TemplateAdminFile;
   global $language;
   global $php5WebPath;
-
+  $sWhere = ' WHERE 1 ';
+  $s_email = php5GetParam( $_REQUEST, 's_email', '' );
+	if ($s_email) {
+		$sWhere .= " AND email like '%" . mysql_real_escape_string($s_email) . "%' ";
+	}	  
   $list_url =  sefBuild($php5WebPath, 'index.php?o=user&m=main&task=search&t=insite', 0);
-  $page = new Page("SELECT COUNT(*) as c FROM #__user");	
+  $page = new Page("SELECT COUNT(*) as c FROM #__user $sWhere ");	
   $page->updatepage(); 
     	
-  $query = "SELECT * FROM #__user ".$page->show_limit()." ";
+  $query = "SELECT * FROM #__user $sWhere ".$page->show_limit()." ";
   $php5DB_en->setQuery( $query );
  
  $user = new User();

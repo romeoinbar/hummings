@@ -37,6 +37,24 @@ $row->phone_date = php5GMTTime();
 if (!$row->store()) {
 $msg = $msgAlert = "Error!!! Please try again!!!";
 } else {
+			$n1 = 0;
+			if($row->subscribe == 1) {
+				$n1 =  1;
+			}
+			$n2 = 0;
+			if($row->subscribe_by_phone == 1) {
+				$n2 =  1;
+			}				
+			//////////////////////////////////////////
+			$query = "SELECT user_id FROM #__user WHERE email='". mysql_real_escape_string($row->email)."'";
+			$php5DB->setQuery( $query );
+			$idUser = '';
+			$idUser = intval($php5DB->loadResult());
+			if($idUser > 0) {
+				$sql = "UPDATE #__user SET newsletter_by_phone ='$n2',phone_date='".php5GMTTime()."', notify_update='$n1', email_date='".php5GMTTime()."' WHERE user_id = '$idUser' ";
+				$php5DB->setQuery( $sql );
+				$php5DB->query( );
+			}	
 $msg = $msgAlert = $lang['_UPDATE_MSG_'];
 $redirect = sefBuild($php5WebPath, 'index.php?o=newsletter_user&m=main', 0);
 }
