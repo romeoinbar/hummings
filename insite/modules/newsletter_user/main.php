@@ -95,7 +95,7 @@ function listUsers($task = 'search'){
 	if ($s_type) {
 		$sWhere .= " AND type='".$s_type."'";
 	} else {
-		$sWhere .= " AND type='0'";
+		$sWhere .= " AND type>0";
 	}
 	if ($s_email) {
 		$sWhere .= " AND email like '%" . mysql_real_escape_string($s_email) . "%' ";

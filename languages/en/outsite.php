@@ -8,6 +8,14 @@
  ***************************************************************************/
  
 defined('PHP5_PHP') or die("Application is stopping!!!");
+$lang['_BLANK_MSG_']                           = "%s cannot be left blank";
+$lang['_CHOOSE_MSG_']                           = "Please choose a %s from the list";
+$lang['_UPDATE_MSG_']                           = "Updated successfully!";
+$lang['_INVALID_MSG_']                           = "%s is invalid";
+// Paging
+$lang['page_number_cap'] = 'Page';
+$lang['page_first']		 = 'First';
+$lang['page_last']		 = 'Last';
 
 $lang['_MSS_NEWSLETTER_1_']	= "[Hummings] Please verify your email: %s";
 

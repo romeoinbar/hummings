@@ -24,10 +24,11 @@ class clsDefine{
 		}
 		
 		function NEWSLETTER_TYPE(){
-			$arr = array();	
-			$arr[0]='Subscribers';
+			$arr = array();
+			//$arr[0]='N/A';
+			$arr[1]='Registered';
 			$arr[2]='Registered and bought';
-			$arr[3]='Registered';
+			$arr[3]='Newsletter Subscribers';
 			return $arr;
 		}		
 		

@@ -702,6 +702,7 @@ form.cmxform label.error { display: none; }
 			$rowNewsletterUser->email = $php5Session->getVar('shipping_email' . $id);
 			$rowNewsletterUser->date = php5GMTTime();
 			$rowNewsletterUser->status = 0;
+            $rowNewsletterUser->type = 2;
 			$rowNewsletterUser->phone_date = php5GMTTime();
 			$rowNewsletterUser->ip = $_SERVER['REMOTE_ADDR'];
 			$rowNewsletterUser->subscribe = 2;

@@ -28,7 +28,7 @@ require_once($php5RootPath . "/classes/newsletter_user_group.class.php");
 //$query = "UPDATE #__newsletter_user SET type=0 ";
 //$php5DB->setQuery( $query );
 //$php5DB->query();
-
+echo "Starting\n<br/>";
 //list user
 $arrId3 = array();
 $arrEmail3 = array();

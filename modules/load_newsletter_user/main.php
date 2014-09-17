@@ -16,7 +16,7 @@ $limit = 84;
 $where = array();
 $rows_temp = array();
 $where[] = " email != '' ";
-$where[] = " subscribe = '1' ";
+//$where[] = " subscribe = '1' ";
 if($email) {
 	$where[] = " email LIKE '%$email%' ";
 }
@@ -40,6 +40,11 @@ if($type_id !='') {
 	} else {
 		$result = $arr1;
 	}
+    for($i=count($result)-1;$i >= 0;$i--) {
+        if(intval($result[$i]) < 1) {
+            unset($result[$i]);
+        }
+    }
 	$where[] = " id IN (".implode( ',', $result ).") ";
 	//$where[] = " id IN (".implode( ',', $arr2 ).") ";
 	
@@ -93,7 +98,7 @@ $query = "SELECT count(*) "
 . ( count( $where ) ? "\n WHERE " . implode( ' AND ', $where ) : "" )
 . "\n ";
 $php5DB->setQuery( $query );
-$recordTotal = $countUsers = $php5DB->loadResult();
+$recordTotal = $countUsers = $php5DB->loadResult();//print_r($php5DB);
 $startLimit= ($currPage - 1) * $limit;
 ////////////////
 $query = "SELECT id, name, email, type, status "
