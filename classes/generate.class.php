@@ -184,6 +184,13 @@ class Generate
 			if (@ftp_get($conn, $testfile, "/Inbound/Cust_In/custin_end.txt", FTP_BINARY)) {
 				echo "False!custin_end.txt file is existing<br />\n";
 				@unlink($testfile);
+				$body = "False!custin_end.txt file is existing\n
+						
+				This is a system generated email update.
+						
+				";
+						$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
+						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);						
 				return false;
 			}			
 		} else {
@@ -336,6 +343,13 @@ class Generate
 			if (@ftp_get($conn, $testfile, "/Inbound/Sales_In/salesin_end.txt", FTP_BINARY)) {
 				echo "False!salesin_end.txt file is existing<br />\n";
 				@unlink($testfile);
+				$body = "False!salesin_end.txt file is existing\n
+						
+				This is a system generated email update.
+						
+				";
+						$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
+						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);						
 				return false;
 			}			
 		} else {
