@@ -25,7 +25,7 @@ if(trim($name) == '') {
 		$rowNewsletterUser->email = $email;
 		$rowNewsletterUser->date = php5GMTTime();
 		$rowNewsletterUser->ip = $_SERVER['REMOTE_ADDR'];
-		$rowNewsletterUser->subscribe = 2;
+		$rowNewsletterUser->subscribe = 1;
         $rowNewsletterUser->type = 0;
 		$rowNewsletterUser->generate_code = md5(php5GMTTime());
 		$rowNewsletterUser->store();
