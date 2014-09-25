@@ -34,6 +34,7 @@ $arrId3 = array();
 $arrEmail3 = array();
 $where = array();
 $rows_user = array();
+$groupIDConst = array(0,1,2,3);
 $where[] = " email != '' ";
 $where[] = " user_id NOT IN (SELECT user_id FROM #__order )  ";
 ////////////////
@@ -47,7 +48,7 @@ $rows_user = $php5DB->loadObjectList();
 foreach($rows_user as $row) {
 	$query = "SELECT id "
 	. "\n FROM #__newsletter_user "
-	. "\n WHERE email = '".$row->email."'" 
+	. "\n WHERE email = '".$row->email."'"
 	;
 	
 	$php5DB->setQuery( $query );
@@ -55,13 +56,18 @@ foreach($rows_user as $row) {
 	$rowUser = new NewsletterUser($php5DB);
 	
 	if($id) {
-		//$rowUser->id = $id;	
-		continue;
+		//$rowUser->id = $id;
+		//continue;
+        $rowUser->load($id);
+        if (!in_array($rowUser->type, $groupIDConst)) {
+            continue;
+        }
 	} else {
 		$rowUser->id = 0;
-		$rowUser->name = $row->name;
-		$rowUser->email = $row->email;
 	}
+    $rowUser->name = $row->name;
+    $rowUser->email = $row->email;
+
 	$rowUser->type = 1;
 	
 	$rowUser->store();
@@ -101,21 +107,25 @@ $rows_user = $php5DB->loadObjectList();
 foreach($rows_user as $row) {
 	$query = "SELECT id "
 	. "\n FROM #__newsletter_user "
-	. "\n WHERE email = '".$row->email."'" 
+	. "\n WHERE email = '".$row->email."'"
 	;
 	
 	$php5DB->setQuery( $query );
 	$id = $php5DB->loadResult();
 	$rowUser = new NewsletterUser($php5DB);
 	if($id) {
-		//$rowUser->id = $id;	
-		continue;
+		//$rowUser->id = $id;
+		//continue;
+        $rowUser->load($id);
+        if (!in_array($rowUser->type, $groupIDConst)) {
+            continue;
+        }
 	} else {
 		$rowUser->id = 0;
-		$rowUser->name = $row->name;
-		$rowUser->email = $row->email;		
 	}
-	$rowUser->type = 2;
+    $rowUser->name = $row->name;
+    $rowUser->email = $row->email;
+    $rowUser->type = 2;
 	$rowUser->store();
 	$arrId2[] = $rowUser->id;
 	$arrEmail2[] = $row->email;	
