@@ -35,7 +35,7 @@ if($noerr) {
 $row->date = php5GMTTime();
 $row->phone_date = php5GMTTime();
 if (!$row->store()) {
-$msg = $msgAlert = "Error!!! Please try again!!!";
+	$msg = $msgAlert = "Error!!! Please try again!!!";
 } else {
 			$n1 = 0;
 			if($row->subscribe == 1) {
@@ -51,7 +51,7 @@ $msg = $msgAlert = "Error!!! Please try again!!!";
 			$idUser = '';
 			$idUser = intval($php5DB->loadResult());
 			if($idUser > 0) {
-				$sql = "UPDATE #__user SET newsletter_by_phone ='$n2',phone_date='".php5GMTTime()."', notify_update='$n1', email_date='".php5GMTTime()."' WHERE user_id = '$idUser' ";
+				$sql = "UPDATE #__user SET name = '".$row->name."', newsletter_by_phone ='$n2',phone_date='".php5GMTTime()."', notify_update='$n1', email_date='".php5GMTTime()."' WHERE user_id = '$idUser' ";
 				$php5DB->setQuery( $sql );
 				$php5DB->query( );
 			}	

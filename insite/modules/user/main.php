@@ -79,7 +79,45 @@ switch($task)
 			 $user->bindRequest();		
 			 if (($_POST['password2']) && ($_POST['password2']!= '') )
 			 $user->password = md5($_POST['password2']);	  
-			 $user->updateDB(add_prefix("user"),"user_id", $_POST['user_id'] );				 	 
+			 $user->updateDB(add_prefix("user"),"user_id", $_POST['user_id'] );	
+		///////////////////////////////////////	 
+		$n_user = new Newsletter_user();
+		$n_user->loadData(add_prefix('newsletter_user'), 'email', $user->email);
+		
+		$newsletter_email = php5GetParam($_REQUEST, 'notify_update', '');
+		$newsletter_by_phone = php5GetParam($_REQUEST, 'newsletter_by_phone', '');
+				  
+		$n_user->subscribe = 2;
+		if($newsletter_email) {
+			$n_user->subscribe = 1;
+		}
+		$n_user->subscribe_by_phone = 2;
+		if($newsletter_by_phone) {
+			$n_user->subscribe_by_phone = 1;
+		}
+		$n_user->name = $user->name;
+				  
+		  if ( $user->in_newsletter($user->email) )
+		  {
+			  $n_user->date = php5GMTTime();
+			  $n_user->phone_date = php5GMTTime();
+			  $n_user->status = 1;
+			  $n_user->ip = $_SERVER['REMOTE_ADDR'];
+			  $n_user->updateDB(add_prefix('newsletter_user'), 'email', $user->email);	
+		  }
+		  else
+		  {
+			  $n_user->id = '0';
+			  $n_user->name = $user->name;
+			  $n_user->email = $user->email;
+			  $n_user->status = 1;
+			  $n_user->date = php5GMTTime();
+			  $n_user->phone_date = php5GMTTime();
+			  $n_user->ip = $_SERVER['REMOTE_ADDR'];
+			  $n_user->addDB(add_prefix('newsletter_user'));
+			  
+		  }
+			  		 			 	 
              mainpage($user->mysql_error_message());
 
 		break;
