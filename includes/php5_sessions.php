@@ -55,7 +55,7 @@ class php5Session extends php5DBTable {
 	function init( $per ){ 
 		global  $php5DB;
          
-		$php5WebPath 		= 'http://www.hummings.com.sg';
+		$php5WebPath 		= 'http://www.ua-consultants.com/humming_phase3';
 		 
 		session_name( md5( $php5WebPath ) );
 		

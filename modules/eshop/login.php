@@ -1,5 +1,6 @@
 <?php
 include_once 'classes/cart.class.php';
+include_once 'classes/tables.class.php';
 if ($php5Session->getVar('user_id')){
 	header('Location: ' . sefBuild($php5WebPath, 'index.php?o=eshop&m=my_account&task=show&t=outsite', 1)  );
 }

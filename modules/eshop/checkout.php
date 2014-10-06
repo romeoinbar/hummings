@@ -682,7 +682,7 @@ form.cmxform label.error { display: none; }
 	   $smarty->assign('step',4);
        $tpl = sprintf($php5TemplateFile, $language, 'eshop', 'cart/steps.php');	
        $main = $smarty->fetch($tpl);		
-       include $php5RootPath. '/templates/en/eshop/cart/generate_order.php';	   
+       include $php5RootPath. '/templates/en/eshop/cart/generate_order1.php';	   
 //       $main .= "";   
        header('Location: ' .  $url_success );	   
 	break; 	

@@ -4,7 +4,7 @@ defined('PHP5_PHP') or die("Application is stopping!!!");
 include($php5RootPath . '/classes/paypal.class.php');
 include($php5RootPath . '/classes/paypalpayment.class.php');
 require_once($php5RootPath . "/classes/order.class.php");
-
+require_once $php5RootPath .'/includes/generate.php';
 $order = new php5Order($php5DB_en);
 $order->load($php5Session->getVar('orderID'));
 $name = $order->name;
@@ -65,12 +65,18 @@ switch($paymentType){
 									$php5Session->setVar(  'total_addon'. $i , $php5Session->getVar( 'total_addon'. ($i+1))   );						    
 						 }
 					 }				
+					$php5DB_en->setQuery("SELECT count(order_id) FROM #__order WHERE user_id=".$php5Session->getVar('user_id')." AND order_id<".$list_ID[$i]." AND sap=1");
+					$tmp = $php5DB_en->loadResult();
+					$update_indicator = ($tmp>0)?1:0;
 					
+					generate_customer_file( $php5Session->getVar('user_id'), $update_indicator);	
+					
+					generate_order_file($orderID);					
 					$php5Session->setVar('orderID','');   
 					$php5Session->setVar('cart_total','');  
 					$php5Session->setVar('ship','');  
 					$php5Session->setVar('gst','');   
-					$php5Session->setVar('subbtotal','');     
+					$php5Session->setVar('subbtotal','');  
 				} else {
 					//php5Redirect(sefBuild($php5WebPath, 'index.php?o=eshop&f=checkout&task=show', 1));
 				}

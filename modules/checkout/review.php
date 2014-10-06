@@ -162,7 +162,7 @@ $php5Session->setVar('total', price_tag($total));
 $url_confirm = sefBuild($php5WebPathS, 'index.php?o=checkout&m=confirm' , 1);
 $url_confirm3 = sefBuild($php5WebPathS, 'index.php?o=checkout&m=confirm3' , 1);
 $smarty->assign('url_confirm',  $url_confirm  );
-$smarty->assign('url_confirm3',  $url_confirm  );
+$smarty->assign('url_confirm3',  $url_confirm3  );
 $url_success = sefBuild($php5WebPath, 'index.php?o=eshop&m=checkout&task=success' , 1);
 $tpl = sprintf($php5TemplateFile, $language, 'mobile', 'cart/review.tpl');
 $smarty->assign('main', $smarty->fetch($tpl) );

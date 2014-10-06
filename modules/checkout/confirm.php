@@ -13,8 +13,7 @@ $payment_type = php5GetParam($_REQUEST, "payment_type", 'paypal');
 
 if ($payment_type=='paypal'){
 	include $php5RootPath. '/templates/en/eshop/cart/generate_order1.php';
-	var_dump($php5RootPath);
-	//header('Location: ' .  sefBuild($php5WebPath, 'index.php?o=mobile_payment', 1) );	
+	header('Location: ' .  sefBuild($php5WebPath, 'index.php?o=mobile_payment', 1) );	
 } else {  
    $url_success = sefBuild($php5WebPath, 'index.php?o=eshop&m=checkout&task=success' , 1);		
    include $php5RootPath. '/templates/en/eshop/cart/generate_order.php'; 

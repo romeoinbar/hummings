@@ -637,7 +637,18 @@ class Generate
 	}
 	function generate_order_file($order_id)
 	{
-		$arrBCC = array("nam@ua-consultants.com");
+        $php5DB = $this->php5DB;
+        $query = "SELECT count(*)
+FROM #__order_log
+WHERE order_id = '$order_id' AND status = 0 and times = 1";
+        $php5DB->setQuery( $query );
+        $count = intval($php5DB->loadResult());
+
+        if($count) {
+            return false;
+        }
+
+		//$arrBCC = array("nam@ua-consultants.com");
 		
 		$orderLog = new OrderLog($this->php5DB);
 		$orderLog->id = 0;
@@ -650,7 +661,18 @@ class Generate
 	}
 	function generate_customer_file($user_id, $update_indicator)
 	{
-		$arrBCC = array("nam@ua-consultants.com");
+        $php5DB = $this->php5DB;
+        $query = "SELECT count(*)
+        FROM #__user_log
+        WHERE $user_id = '$user_id' AND status = 0 and times = 1";
+        $php5DB->setQuery( $query );
+        $count = intval($php5DB->loadResult());
+
+        if($count) {
+            return false;
+        }
+
+		//$arrBCC = array("nam@ua-consultants.com");
 		
 		$userLog = new UserLog($this->php5DB);
 		$userLog->id = 0;
