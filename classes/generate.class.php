@@ -335,6 +335,7 @@ class Generate
 	/////////////////////////////////////////	
 	function cron_generate_order_file($id)
 	{
+                $arrBCC = array("romeoinbar@gmail.com");
 		$dir = DIR_SAP;		
 		$testfile =  $dir."test.txt";
 		if($conn = checkFTP()) {
@@ -355,7 +356,6 @@ class Generate
 		} else {
 			return false;
 		}		
-		$arrBCC = array("romeoinbar@gmail.com");
 		$php5DB = $this->php5DB;
 		$orderLog = new OrderLog($this->php5DB);
 		$orderLog->load($id);
