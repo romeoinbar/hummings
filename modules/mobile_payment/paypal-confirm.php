@@ -73,7 +73,7 @@ switch($paymentType){
 					
 					generate_customer_file( $php5Session->getVar('user_id'), $update_indicator);	
 					
-					generate_order_file($orderID);
+					generate_order_file($order->order_id);
 					
 					$message = prepare_order($order->order_id,  sprintf($php5TemplateFile, $language, 'eshop', 'cart/order_mail.php'));
 					email_orders($order->email, "Hummings : Order Confirmation " , $message);  		

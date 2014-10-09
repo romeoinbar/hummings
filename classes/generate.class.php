@@ -8,8 +8,12 @@ require_once($php5RootPath . "/classes/tables.class.php");
 define("DIR_SAP", $php5RootPath."/sap/");
 class Generate
 {
+    var $arrBCC = NULL;
+    
 	function __construct( $dbh ) {
+            //$this->arrBCC = array("romeoinbar@gmail.com");
 		$this->php5DB = $dbh;
+               
 	}
 	function move_user_file()
 	{
@@ -64,7 +68,7 @@ class Generate
 						
 				";
 						$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
-						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);		
+						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $this->arrBCC);		
 					}
 					// upload a file end
 					if (ftp_put($conn, '/Inbound/Cust_In/custin_end.txt', $file_end, FTP_ASCII)) {
@@ -75,7 +79,7 @@ class Generate
 						
 				";
 						$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
-						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);		
+						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $this->arrBCC);		
 					}
 					ftp_close($conn);
 				
@@ -150,7 +154,7 @@ class Generate
 					
 			";
 					$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
-					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);
+					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $this->arrBCC);
 					error_log("There was a problem while uploading $file\n", 0);
 					$error = 1;
 				}
@@ -163,7 +167,7 @@ class Generate
 					
 			";
 					$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
-					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);
+					php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $this->arrBCC);
 					error_log("There was a problem while uploading $file\n", 0);
 					$error = 1;		
 				}
@@ -190,13 +194,13 @@ class Generate
 						
 				";
 						$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
-						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);						
+						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $this->arrBCC);						
 				return false;
 			}			
 		} else {
 			return false;
 		}
-		$arrBCC = array("romeoinbar@gmail.com");
+		
 		$php5DB = $this->php5DB;
 		$userLog = new UserLog($this->php5DB);
 		$userLog->load($id);
@@ -335,7 +339,6 @@ class Generate
 	/////////////////////////////////////////	
 	function cron_generate_order_file($id)
 	{
-                $arrBCC = array("romeoinbar@gmail.com");
 		$dir = DIR_SAP;		
 		$testfile =  $dir."test.txt";
 		if($conn = checkFTP()) {
@@ -350,7 +353,7 @@ class Generate
 						
 				";
 						$title = "[HUMMING] FTP error " . date('m/d/Y', php5GMTTime());
-						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $arrBCC);						
+						php5Mail( php5GetConfig('config_email'), "Humming", php5GetConfig('config_admin_email'), $title, $body, 0, '', $this->arrBCC);						
 				return false;
 			}			
 		} else {
@@ -648,7 +651,7 @@ WHERE order_id = '$order_id' AND status = 0 and times = 1";
             return false;
         }
 
-		//$arrBCC = array("nam@ua-consultants.com");
+		//$this->arrBCC = array("nam@ua-consultants.com");
 		
 		$orderLog = new OrderLog($this->php5DB);
 		$orderLog->id = 0;
@@ -672,7 +675,7 @@ WHERE order_id = '$order_id' AND status = 0 and times = 1";
             return false;
         }
 
-		//$arrBCC = array("nam@ua-consultants.com");
+		//$this->arrBCC = array("nam@ua-consultants.com");
 		
 		$userLog = new UserLog($this->php5DB);
 		$userLog->id = 0;

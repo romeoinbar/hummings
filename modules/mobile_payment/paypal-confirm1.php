@@ -5,17 +5,18 @@ include($php5RootPath . '/classes/paypal.class.php');
 include($php5RootPath . '/classes/paypalpayment.class.php');
 require_once($php5RootPath . "/classes/order.class.php");
 require_once $php5RootPath .'/includes/generate.php';
+require_once($php5RootPath . "/includes/send_email.php");
+
+
 $order = new php5Order($php5DB_en);
 $order->load($php5Session->getVar('orderID'));
 $name = $order->name;
 
-//$orderID = $php5Session->getVar('order_number');
-//$amount = $php5Session->getVar('cart_total');
+$orderID = $php5Session->getVar('order_number');
+$amount = $php5Session->getVar('cart_total');
 
-$orderID = '4101001352';
-$amount = 218.00;
-
-echo $_GET['token']. $_GET['PayerID'];
+//$orderID = '4101001352';
+//$amount = 218.00;
 
 $ppPaymentObj = new PaypalPayment(true);
 
@@ -24,11 +25,9 @@ $paymentType = 'paypal';
 switch($paymentType){
        
         case 'paypal':
-				if ($orderID!=""){			   
+				if ($orderID!=""){			  					
 					
-					$order->payment_id = 2;
-					//$order->store();
-					
+					$ppPaymentObj->getExpressInfo($_GET['token']);
 					$result = 'Express Transaction: ' . $ppPaymentObj->confirmExpress($amount, $orderID);
 					$smarty->assign('transaction', $result);	
 					
@@ -38,12 +37,15 @@ switch($paymentType){
 					$main_content =  $smarty->fetch($tpl); 
 					$smarty->assign('main',$main_content);	
 					
+					$order->payment_id = 2;
+					$order->payment_terms = 'PP';
+					$order->store();
 					//=======================================================================	
 					//Update payment status
 					//=======================================================================  
 					
-					$php5DB_en->setQuery("INSERT INTO #__order_payment(amount,payment_type,order_id) VALUES('".$php5Session->getVar('cart_total')."','paypal',".$php5Session->getVar('orderID').")");
-					//$php5DB_en->query();
+					$php5DB_en->setQuery("INSERT INTO #__order_payment(amount,payment_type,order_id) VALUES('".$php5Session->getVar('cart_total')."','PP',".$php5Session->getVar('orderID').")");
+					$php5DB_en->query();
 					
 					//=======================================================================	
 					//Remove cart
@@ -71,14 +73,18 @@ switch($paymentType){
 					
 					generate_customer_file( $php5Session->getVar('user_id'), $update_indicator);	
 					
-					generate_order_file($orderID);					
+					generate_order_file($order->order_id);
+					
+					$message = prepare_order($order->order_id,  sprintf($php5TemplateFile, $language, 'eshop', 'cart/order_mail.php'));
+					email_orders($order->email, "Hummings : Order Confirmation " , $message);  		
+    				//email_orders( 'online@humming.com.sg' , "Hummings : Order Confirmation " , $message);
 					$php5Session->setVar('orderID','');   
 					$php5Session->setVar('cart_total','');  
 					$php5Session->setVar('ship','');  
 					$php5Session->setVar('gst','');   
-					$php5Session->setVar('subbtotal','');  
+					$php5Session->setVar('subbtotal','');     
 				} else {
-					//php5Redirect(sefBuild($php5WebPath, 'index.php?o=eshop&f=checkout&task=show', 1));
+					php5Redirect(sefBuild($php5WebPath, 'index.php?o=eshop&f=checkout&task=show', 1));
 				}
                 break;
                
