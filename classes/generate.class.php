@@ -667,7 +667,7 @@ WHERE order_id = '$order_id' AND status = 0 and times = 1";
         $php5DB = $this->php5DB;
         $query = "SELECT count(*)
         FROM #__user_log
-        WHERE $user_id = '$user_id' AND status = 0 and times = 1";
+        WHERE user_id = '$user_id' AND status = 0 and times = 1";
         $php5DB->setQuery( $query );
         $count = intval($php5DB->loadResult());
 

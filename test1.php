@@ -1,42 +1,40 @@
 <?php
+/***************************************************************************
+*                                generate.php
+ *
+ *   Begin date             : 
+ *   Copyright              : 
+ *   Email                  : 
+ ***************************************************************************/
+define('PHP5_PHP', true);
+////////checkFTP
+$arrBCC = array("kimlan@ua-consultants.com");
 
+$path = dirname(__FILE__);
 
-function checkFTP($ftp_server, $port, $ftp_user, $ftp_pass)
-{
-	
-	$arrBCC = array();	
-	if($conn = @ftp_connect($ftp_server, $port)) {
-	} else {
-		echo "Could not connect ftp\n";	
-		return false;
-	}
-	// Login
-	if (@ftp_login($conn, $ftp_user, $ftp_pass)){
-		 echo "Connected as $ftp_user@$ftp_server\n";
-		 ftp_delete($conn, "/Inbound/Sales_In/test_ftp_by_web.txt") ;
-		 $contents = ftp_nlist($conn, "/Inbound/Sales_In/");
-		 
-		 // output $contents
-		var_dump($contents);
+include("$path/configs/extension.inc");
+include("$path/configs/config".$php5Ext);
 
-		 /*if (@ftp_put($conn, "/Inbound/Sales_In/test_ftp_by_web.txt", "test_ftp_by_web.txt", FTP_ASCII))
-		 	echo "successfully uploaded $file\n";
-		 else
-		 	echo "There was a problem while uploading .";*/
-			
-	} else {
-		echo "Could not connect ftp\n";
-		return false;
-	}
-	return $conn;
+if(!is_file($php5RootPath . "/includes/php5_common" . $php5Ext)){
+    echo "To check the config file.";
+    die();
 }
-if ($_POST['server']!='') {
-	
-	$ftp_server = $_POST['server'];
-	$port = $_POST['port'];
-	$ftp_user = $_POST['user'];
-	$ftp_pass = $_POST['pass'];
-	$conn = checkFTP($ftp_server, $port, $ftp_user, $ftp_pass);	
-}
+$language = 'en';
+
+require_once($php5RootPath . "/includes/php5_define" . $php5Ext);
+require_once($php5RootPath . "/includes/class.inputfilter" . $php5Ext);
+require_once($php5RootPath . "/includes/php5_common" . $php5Ext);
+php5Init( 0 );
+require_once($php5RootPath . "/includes/generate.php");
+require_once($php5RootPath . "/classes/generate.class.php");
+echo "Start<br/>\n";
+$php5DB_en->setQuery("SELECT *
+						FROM #__user_log						
+						WHERE status = 0 and times = 1");
+
+	$rows = $php5DB_en->loadObjectList();
+print_r($rows);
+echo "Done";			
+exit;
 
 ?>
